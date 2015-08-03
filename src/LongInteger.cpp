@@ -16,6 +16,12 @@ string& LongInteger::GetDigitsForTests()
 
 #endif
 
+LongInteger::LongInteger()
+{
+    sign = true;
+    digits = "0";
+}
+
 LongInteger::LongInteger(int number)
 {
     if (number < 0)
