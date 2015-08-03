@@ -4,6 +4,8 @@
 #define BOOST_TEST_MODULE LongIntegerTest
 #include <boost/test/unit_test.hpp>
 
+using namespace std;
+
 BOOST_AUTO_TEST_CASE(TestConstructorInt)
 {
     int number = 5;
@@ -70,5 +72,38 @@ BOOST_AUTO_TEST_CASE(TestConstructorByDefault)
 {
     LongInteger a;
     BOOST_CHECK(a.GetSignForTests() && a.GetDigitsForTests() == "0");
+}
+
+BOOST_AUTO_TEST_CASE(TestConstructorString)
+{
+    LongInteger a("a123");
+    BOOST_CHECK(a.GetSignForTests() && a.GetDigitsForTests() == "0");
+
+    LongInteger b("-12asd3");
+    BOOST_CHECK(b.GetSignForTests() && b.GetDigitsForTests() == "0");
+
+    LongInteger c("-");
+    BOOST_CHECK(c.GetSignForTests() && c.GetDigitsForTests() == "0");
+
+    LongInteger d("+");
+    BOOST_CHECK(d.GetSignForTests() && d.GetDigitsForTests() == "0");
+
+    LongInteger e("00000000");
+    BOOST_CHECK(e.GetSignForTests() && d.GetDigitsForTests() == "0");
+
+    LongInteger f("-00000000");
+    BOOST_CHECK(f.GetSignForTests() && f.GetDigitsForTests() == "0");
+
+    LongInteger g("000000002");
+    BOOST_CHECK(g.GetSignForTests() && g.GetDigitsForTests() == "2");
+
+    LongInteger h("-00000000234");
+    BOOST_CHECK(!h.GetSignForTests() && h.GetDigitsForTests() == "234");
+
+    LongInteger i("1996");
+    BOOST_CHECK(i.GetSignForTests() && i.GetDigitsForTests() == "1996");
+
+    LongInteger j("-123");
+    BOOST_CHECK(!j.GetSignForTests() && j.GetDigitsForTests() == "123");
 }
 
