@@ -280,3 +280,8 @@ bool LongInteger::operator>(const LongInteger& number) const
     return false;
 }
 
+bool LongInteger::operator<(const LongInteger& number) const
+{
+    return !(*this > number);
+}
+
