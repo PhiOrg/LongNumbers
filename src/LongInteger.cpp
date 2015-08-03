@@ -232,3 +232,8 @@ bool LongInteger::operator==(const LongInteger& number) const
     return true;
 }
 
+bool LongInteger::operator!=(const LongInteger& number) const
+{
+    return !(*this == number);
+}
+

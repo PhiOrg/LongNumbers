@@ -26,6 +26,7 @@ class LongInteger
 
         LongInteger& operator=(const LongInteger&);
         bool operator==(const LongInteger&) const;
+        bool operator!=(const LongInteger&) const;
 
         friend std::ostream& operator<<(std::ostream& os,
                                         const LongInteger& number)
