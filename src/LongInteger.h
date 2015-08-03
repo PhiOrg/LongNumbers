@@ -52,8 +52,7 @@ class LongInteger
 
     protected:
         bool GetSign() const;
-        std::string GetDigits() const;
-        std::string& GetDigits();
+        const std::string& GetDigits() const;
 
     friend class LongDouble;
 
