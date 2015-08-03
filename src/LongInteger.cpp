@@ -207,10 +207,12 @@ bool LongInteger::GetSign() const
     return sign;
 }
 
-void LongInteger::operator=(const LongInteger& number)
+LongInteger& LongInteger::operator=(const LongInteger& number)
 {
     this->digits = number.GetDigits();
     this->sign = number.GetSign();
+
+    return *this;
 }
 
 bool LongInteger::operator==(const LongInteger& number) const
