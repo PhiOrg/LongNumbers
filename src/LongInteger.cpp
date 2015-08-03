@@ -237,3 +237,46 @@ bool LongInteger::operator!=(const LongInteger& number) const
     return !(*this == number);
 }
 
+bool LongInteger::operator>(const LongInteger& number) const
+{
+    if (sign && !number.GetSign())
+        return true;
+    if (!sign && number.GetSign())
+        return false;
+
+    if (digits.size() > number.GetDigits().size())
+    {
+        if (sign)
+            return true;
+        else
+            return false;
+    }
+
+    if (digits.size() < number.GetDigits().size())
+    {
+        if (sign)
+            return false;
+        else
+            return true;
+    }
+
+    unsigned int size = digits.size();
+    const string& d = number.GetDigits();
+    for (int i = 0; i < size; ++i)
+        if (digits[i] != d[i])
+        {
+            if (digits[i] > d[i])
+                if (sign)
+                    return true;
+                else
+                    return false;
+            else
+                if (sign)
+                    return false;
+                else
+                    return true;
+        }
+
+    return false;
+}
+
