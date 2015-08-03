@@ -197,12 +197,7 @@ LongInteger::LongInteger(const string& number)
     }
 }
 
-string LongInteger::GetDigits() const
-{
-    return digits;
-}
-
-string& LongInteger::GetDigits()
+const string& LongInteger::GetDigits() const
 {
     return digits;
 }
@@ -227,7 +222,7 @@ bool LongInteger::operator==(const LongInteger& number) const
         return false;
 
     unsigned int size = digits.size();
-    string& d = number.GetDigits();
+    const string& d = number.GetDigits();
     for (unsigned int i = 0; i < size; i++)
         if (digits[i] != d[i])
             return false;
