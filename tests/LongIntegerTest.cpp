@@ -112,5 +112,9 @@ BOOST_AUTO_TEST_CASE(TestAssignmentOperator)
     LongInteger a(5);
     LongInteger b = a;
     BOOST_CHECK(b.GetSignForTests() && b.GetDigitsForTests() == "5");
+
+    LongInteger c;
+    c = 10;
+    BOOST_CHECK(c.GetSignForTests() && c.GetDigitsForTests() == "10");
 }
 
