@@ -34,6 +34,16 @@ class LongInteger
             os << number.GetDigits();
         }
 
+        friend std::istream& operator>>(std::istream& is, LongInteger& number)
+        {
+            std::string str;
+            is >> str;
+            LongInteger a(str);
+            number = a;
+
+            return is;
+        }
+
 #ifdef TEST 
         bool GetSignForTests() const;
         std::string& GetDigitsForTests();
