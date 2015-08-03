@@ -213,3 +213,9 @@ bool LongInteger::GetSign() const
     return sign;
 }
 
+void LongInteger::operator=(const LongInteger& number)
+{
+    this->digits = number.GetDigits();
+    this->sign = number.GetSign();
+}
+
