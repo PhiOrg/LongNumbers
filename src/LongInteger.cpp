@@ -218,3 +218,20 @@ void LongInteger::operator=(const LongInteger& number)
     this->sign = number.GetSign();
 }
 
+bool LongInteger::operator==(const LongInteger& number) const
+{
+    if (sign != number.GetSign())
+        return false;
+
+    if (digits.size() != number.GetDigits().size())
+        return false;
+
+    unsigned int size = digits.size();
+    string& d = number.GetDigits();
+    for (unsigned int i = 0; i < size; i++)
+        if (digits[i] != d[i])
+            return false;
+
+    return true;
+}
+
