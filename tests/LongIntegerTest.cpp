@@ -142,7 +142,7 @@ BOOST_AUTO_TEST_CASE(TestNotEqualOperator)
 
 BOOST_AUTO_TEST_CASE(TestGreaterOperator)
 {
-    LongInteger a = 2, b = 3, c = -5, d = -7, e = 0;
+    LongInteger a = 2, b = 3, c = -5, d = -7;
 
     BOOST_CHECK(!(a > b));
     BOOST_CHECK(b > a);
