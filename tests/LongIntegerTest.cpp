@@ -129,3 +129,14 @@ BOOST_AUTO_TEST_CASE(TestEqualOperator)
     BOOST_CHECK(a == 15);
 }
 
+BOOST_AUTO_TEST_CASE(TestNotEqualOperator)
+{
+    LongInteger a, b, c;
+    a = 15;
+    b = c = -15;
+
+    BOOST_CHECK(!(b != c));
+    BOOST_CHECK(a != b);
+    BOOST_CHECK(c != 3);
+}
+
