@@ -107,3 +107,10 @@ BOOST_AUTO_TEST_CASE(TestConstructorString)
     BOOST_CHECK(!j.GetSignForTests() && j.GetDigitsForTests() == "123");
 }
 
+BOOST_AUTO_TEST_CASE(TestAssignmentOperator)
+{
+    LongInteger a(5);
+    LongInteger b = a;
+    BOOST_CHECK(b.GetSignForTests() && b.GetDigitsForTests() == "5");
+}
+
