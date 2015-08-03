@@ -1,0 +1,5 @@
+StaticLibrary LongNumber.a
+compiler g++
+cflags -std=c++11 -DTEST
+files src/LongDouble.cpp src/LongInteger.cpp
+
