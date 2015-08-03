@@ -85,9 +85,8 @@ LongInteger::LongInteger(const LongInteger& number)
     sign = number.GetSign();
 }
 
-LongInteger::LongInteger(const char* x)
+LongInteger::LongInteger(const string&& number)
 {
-    string number(x);
     if (number.size() == 0)
     {
         sign = true;

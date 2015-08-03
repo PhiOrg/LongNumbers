@@ -22,7 +22,7 @@ class LongInteger
         LongInteger(unsigned long long);
         LongInteger(const LongInteger&);
         LongInteger(const std::string&);
-        LongInteger(const char*);
+        LongInteger(const std::string&&);
 
         void operator=(const LongInteger&);
 
