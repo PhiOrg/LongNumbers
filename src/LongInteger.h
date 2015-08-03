@@ -13,6 +13,7 @@ class LongInteger;
 class LongInteger
 {
     public:
+        LongInteger();
         LongInteger(int);
         LongInteger(long);
         LongInteger(long long);
@@ -20,6 +21,14 @@ class LongInteger
         LongInteger(unsigned long);
         LongInteger(unsigned long long);
         LongInteger(const LongInteger&);
+
+        friend std::ostream& operator<<(std::ostream& os,
+                                        const LongInteger& number)
+        {
+            if (!number.GetSign())
+                os << '-';
+            os << number.GetDigits();
+        }
 
 #ifdef TEST 
         bool GetSignForTests() const;
