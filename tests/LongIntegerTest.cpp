@@ -66,3 +66,9 @@ BOOST_AUTO_TEST_CASE(TestConstructorLongInteger)
     BOOST_CHECK(b.GetSignForTests() && b.GetDigitsForTests() == "5");
 }
 
+BOOST_AUTO_TEST_CASE(TestConstructorByDefault)
+{
+    LongInteger a;
+    BOOST_CHECK(a.GetSignForTests() && a.GetDigitsForTests() == "0");
+}
+
