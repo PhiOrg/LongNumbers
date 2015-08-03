@@ -85,6 +85,119 @@ LongInteger::LongInteger(const LongInteger& number)
     sign = number.GetSign();
 }
 
+LongInteger::LongInteger(const char* x)
+{
+    string number(x);
+    if (number.size() == 0)
+    {
+        sign = true;
+        digits = "0";
+    }
+    else
+    {
+        sign = true;
+        digits = number;
+        if (number[0] == '+' || number[0] == '-')
+        {
+            if (number.size() == 1)
+            {
+                digits = "0";
+                return;
+            }
+
+            if (number[0] == '-')
+                sign = false;
+
+            digits.erase(digits.begin());
+        }
+
+        unsigned int size = digits.size();
+        for (unsigned int i = 0; i < size; i++)
+            if (digits[i] < '0' || digits[i] > '9')
+            {
+                sign = true;
+                digits = "0";
+                return;
+            }
+
+        unsigned i = 0, zerosNumber = 0;
+        while (i < size)
+        {
+            if (digits[i] != '0')
+                break;
+            i++;
+            zerosNumber++;
+        }
+
+        if (zerosNumber != 0)
+        {
+            if (zerosNumber == size)
+            {
+                digits.erase(0, zerosNumber - 1);
+                sign = true;
+            }
+            else
+                digits.erase(0, zerosNumber);
+        }
+    }
+}
+
+LongInteger::LongInteger(const string& number)
+{
+    if (number.size() == 0)
+    {
+        sign = true;
+        digits = "0";
+    }
+    else
+    {
+        sign = true;
+        digits = number;
+        if (number[0] == '+' || number[0] == '-')
+        {
+            if (number.size() == 1)
+            {
+                digits = "0";
+                return;
+            }
+
+            if (number[0] == '-')
+                sign = false;
+
+            digits.erase(digits.begin());
+        }
+
+        unsigned int size = digits.size();
+        for (unsigned int i = 0; i < size; i++)
+            if (digits[i] < '0' || digits[i] > '9')
+            {
+                sign = true;
+                digits = "0";
+                return;
+            }
+
+        unsigned i = 0, zerosNumber = 0;
+        while (i < size)
+        {
+            if (digits[i] != '0')
+                break;
+            i++;
+            zerosNumber++;
+        }
+
+        if (zerosNumber != 0)
+        {
+            if (zerosNumber == size)
+            {
+                digits.erase(0, zerosNumber - 1);
+                sign = true;
+            }
+            else
+                digits.erase(0, zerosNumber);
+        }
+    }
+}
+
 string LongInteger::GetDigits() const
 {
     return digits;

@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include <exception>
 
 class LongInteger;
 
@@ -21,6 +22,8 @@ class LongInteger
         LongInteger(unsigned long);
         LongInteger(unsigned long long);
         LongInteger(const LongInteger&);
+        LongInteger(const std::string&);
+        LongInteger(const char*);
 
         friend std::ostream& operator<<(std::ostream& os,
                                         const LongInteger& number)
