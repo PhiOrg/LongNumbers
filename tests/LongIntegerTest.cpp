@@ -195,3 +195,11 @@ BOOST_AUTO_TEST_CASE(TestLessOrEqualOperator)
     BOOST_CHECK(d <= -3);
 }
 
+BOOST_AUTO_TEST_CASE(TestUnaryMinusOperator)
+{
+    LongInteger a = 1, b = -a;
+
+    BOOST_CHECK(b == -1);
+    BOOST_CHECK(-b == a);
+}
+
