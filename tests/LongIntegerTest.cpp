@@ -169,3 +169,16 @@ BOOST_AUTO_TEST_CASE(TestLessOperator)
     BOOST_CHECK(b < 123);
 }
 
+BOOST_AUTO_TEST_CASE(TestGreaterOrEqualOperator)
+{
+    LongInteger a = 1, b = 2, c = 3, d = -4;
+
+    BOOST_CHECK(c >= b);
+    BOOST_CHECK(a >= a);
+    BOOST_CHECK(!(a >= b));
+    BOOST_CHECK(b >= -12);
+    BOOST_CHECK(c >= d);
+    BOOST_CHECK(d >= -4);
+    BOOST_CHECK(d >= -5);
+}
+
