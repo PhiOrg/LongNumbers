@@ -309,3 +309,16 @@ bool LongInteger::operator<=(const LongInteger& number) const
     }
 }
 
+void LongInteger::SetSign(bool value)
+{
+    sign = value;
+}
+
+LongInteger LongInteger::operator-() const
+{
+    LongInteger a(*this);
+    a.SetSign(!sign);
+
+    return a;
+}
+

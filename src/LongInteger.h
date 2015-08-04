@@ -25,6 +25,7 @@ class LongInteger
         LongInteger(const std::string&&);
 
         LongInteger& operator=(const LongInteger&);
+        LongInteger operator-() const;
         bool operator==(const LongInteger&) const;
         bool operator!=(const LongInteger&) const;
         bool operator>(const LongInteger&) const;
@@ -56,6 +57,7 @@ class LongInteger
 #endif
 
     protected:
+        void SetSign(bool value);
         bool GetSign() const;
         const std::string& GetDigits() const;
 
