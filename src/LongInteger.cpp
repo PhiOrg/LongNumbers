@@ -330,3 +330,11 @@ LongInteger::operator bool() const
         return false;
 }
 
+bool LongInteger::operator!() const
+{
+    if (*this == 0)
+        return true;
+    else
+        return false;
+}
+
