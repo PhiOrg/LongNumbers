@@ -203,3 +203,12 @@ BOOST_AUTO_TEST_CASE(TestUnaryMinusOperator)
     BOOST_CHECK(-b == a);
 }
 
+BOOST_AUTO_TEST_CASE(TestBoolCast)
+{
+    LongInteger a = 1, b = 0, c = -325;
+
+    BOOST_CHECK(a);
+    BOOST_CHECK(!b);
+    BOOST_CHECK(c);
+}
+
