@@ -322,3 +322,11 @@ LongInteger LongInteger::operator-() const
     return a;
 }
 
+LongInteger::operator bool() const
+{
+    if (*this != 0)
+        return true;
+    else
+        return false;
+}
+
