@@ -35,6 +35,8 @@ class LongInteger
         bool operator>=(const LongInteger&) const;
         bool operator<=(const LongInteger&) const;
 
+        LongInteger operator+(const LongInteger&) const;
+
         friend std::ostream& operator<<(std::ostream& os,
                                         const LongInteger& number)
         {
@@ -60,12 +62,18 @@ class LongInteger
 
     protected:
         void SetSign(bool value);
+        void SetDigits(const std::string&);
         bool GetSign() const;
         const std::string& GetDigits() const;
 
     friend class LongDouble;
 
     private:
+        std::string GathersNumbers(const std::string&,
+                                   const std::string&) const;
+        std::string DecreasesNumbers(const std::string&,
+                                     const std::string&) const;
+
         std::string digits;
         bool sign; //true for positive, false for negative
 };
