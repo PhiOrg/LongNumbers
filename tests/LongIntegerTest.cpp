@@ -212,3 +212,12 @@ BOOST_AUTO_TEST_CASE(TestBoolCast)
     BOOST_CHECK(c);
 }
 
+BOOST_AUTO_TEST_CASE(TestNotLogicalOperator)
+{
+    LongInteger a = 1, b = 0, c = -325;
+
+    BOOST_CHECK(!(!a));
+    BOOST_CHECK(!b);
+    BOOST_CHECK(!(!c));
+}
+
