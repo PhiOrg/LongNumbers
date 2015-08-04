@@ -221,3 +221,39 @@ BOOST_AUTO_TEST_CASE(TestNotLogicalOperator)
     BOOST_CHECK(!(!c));
 }
 
+BOOST_AUTO_TEST_CASE(TestAdditionOperator)
+{
+    LongInteger a = 973, b = 27, c = 99973, d = 13, e = 23756, f = 9237234;
+    LongInteger g = 999999;
+
+    BOOST_CHECK(a + b == 1000);
+    BOOST_CHECK(b + c == 100000);
+    BOOST_CHECK(b + d == 40);
+    BOOST_CHECK(-d + -b == -40);
+    BOOST_CHECK(e + f == 9260990);
+    BOOST_CHECK(c + e == 123729);
+    BOOST_CHECK(f + c == 9337207);
+    BOOST_CHECK(d + f == 9237247);
+    BOOST_CHECK(-d + -f == -9237247);
+    BOOST_CHECK(-a + -b = -1000);
+    BOOST_CHECK(-e + -f == -9260990);
+    BOOST_CHECK(-c + -e == -123729);
+    BOOST_CHECK(-f + -c == -9337207);
+    BOOST_CHECK(g + 1 == 1000000);
+    BOOST_CHECK(g + 2 == 1000001);
+    BOOST_CHECK(g + d == 1000012);
+
+    BOOST_CHECK(c + -a == 99000);
+    BOOST_CHECK(b + -d == 14);
+    BOOST_CHECK(d + -b == -14);
+    BOOST_CHECK(e + -f == -9213478);
+    BOOST_CHECK(f + -e == 9213478);
+    BOOST_CHECK(g + d + -13 == 999999);
+
+    a = -1;
+    b = 1000000;
+    BOOST_CHECK(b + -g == 1);
+    BOOST_CHECK(g + -b == a);
+    BOOST_CHECK(b + a == g);
+}
+
