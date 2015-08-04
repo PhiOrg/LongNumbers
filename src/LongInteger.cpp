@@ -22,58 +22,61 @@ LongInteger::LongInteger()
     digits = "0";
 }
 
-LongInteger::LongInteger(int number)
+LongInteger::LongInteger(const int number)
 {
+    int x = number;
     if (number < 0)
     {
         sign = false;
-        number *= -1;
+        x *= -1;
     }
     else
         sign = true;
 
-    digits = to_string(number);
+    digits = to_string(x);
 }
 
-LongInteger::LongInteger(long number)
+LongInteger::LongInteger(const long number)
 {
+    long x = number;
     if (number < 0)
     {
         sign = false;
-        number *= -1;
+        x *= -1;
     }
     else
         sign = true;
 
-    digits = to_string(number);
+    digits = to_string(x);
 }
 
-LongInteger::LongInteger(long long number)
+LongInteger::LongInteger(const long long number)
 {
+    long long x = number;
     if (number < 0)
     {
         sign = false;
-        number *= -1;
+        x *= -1;
     }
     else
         sign = true;
 
-    digits = to_string(number);
+    digits = to_string(x);
 }
 
-LongInteger::LongInteger(unsigned number)
+LongInteger::LongInteger(const unsigned number)
 {
     sign = true;
     digits = to_string(number);
 }
 
-LongInteger::LongInteger(unsigned long number)
+LongInteger::LongInteger(const unsigned long number)
 {
     sign = true;
     digits = to_string(number);
 }
 
-LongInteger::LongInteger(unsigned long long number)
+LongInteger::LongInteger(const unsigned long long number)
 {
     sign = true;
     digits = to_string(number);

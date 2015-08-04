@@ -14,12 +14,12 @@ class LongInteger
 {
     public:
         LongInteger();
-        LongInteger(int);
-        LongInteger(long);
-        LongInteger(long long);
-        LongInteger(unsigned);
-        LongInteger(unsigned long);
-        LongInteger(unsigned long long);
+        LongInteger(const int);
+        LongInteger(const long);
+        LongInteger(const long long);
+        LongInteger(const unsigned);
+        LongInteger(const unsigned long);
+        LongInteger(const unsigned long long);
         LongInteger(const LongInteger&);
         LongInteger(const std::string&);
         LongInteger(const std::string&&);
