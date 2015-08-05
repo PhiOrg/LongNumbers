@@ -455,15 +455,31 @@ LongInteger LongInteger::operator+(const LongInteger& number) const
         if (*this == -number)
             return 0;
 
-        if (*this > -number)
+        if (sign)
         {
-            result.SetSign(sign);
-            result.SetDigits(DecreasesNumbers(digits, number.GetDigits()));
+            if (*this > -number)
+            {
+                result.SetSign(sign);
+                result.SetDigits(DecreasesNumbers(digits, number.GetDigits()));
+            }
+            else
+            {
+                result.SetSign(!sign);
+                result.SetDigits(DecreasesNumbers(number.GetDigits(), digits));
+            }
         }
         else
         {
-            result.SetSign(!sign);
-            result.SetDigits(DecreasesNumbers(number.GetDigits(), digits));
+            if (*this < -number)
+            {
+                result.SetSign(sign);
+                result.SetDigits(DecreasesNumbers(digits, number.GetDigits()));
+            }
+            else
+            {
+                result.SetSign(!sign);
+                result.SetDigits(DecreasesNumbers(number.GetDigits(), digits));
+            }
         }
     }
 
