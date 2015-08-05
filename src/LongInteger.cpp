@@ -218,63 +218,65 @@ LongInteger& LongInteger::operator=(const LongInteger& number)
     return *this;
 }
 
-bool LongInteger::operator==(const LongInteger& number) const
+bool operator==(const LongInteger& a, const LongInteger& b)
 {
-    if (sign != number.GetSign())
+    if (a.GetSign() != b.GetSign())
         return false;
 
-    if (digits.size() != number.GetDigits().size())
+    if (a.GetDigits().size() != b.GetDigits().size())
         return false;
 
-    unsigned int size = digits.size();
-    const string& d = number.GetDigits();
+    unsigned int size = a.GetDigits().size();
+    const string& bDigits = b.GetDigits();
+    const string& aDigits = a.GetDigits();
     for (unsigned int i = 0; i < size; i++)
-        if (digits[i] != d[i])
+        if (aDigits[i] != bDigits[i])
             return false;
 
     return true;
 }
 
-bool LongInteger::operator!=(const LongInteger& number) const
+bool operator!=(const LongInteger& a, const LongInteger& b)
 {
-    return !(*this == number);
+    return !(a == b);
 }
 
-bool LongInteger::operator>(const LongInteger& number) const
+bool operator>(const LongInteger& a, const LongInteger& b)
 {
-    if (sign && !number.GetSign())
+    if (a.GetSign() && !b.GetSign())
         return true;
-    if (!sign && number.GetSign())
+    if (!a.GetSign() && b.GetSign())
         return false;
 
-    if (digits.size() > number.GetDigits().size())
+    if (a.GetDigits().size() > b.GetDigits().size())
     {
-        if (sign)
+        if (a.GetSign())
             return true;
         else
             return false;
     }
 
-    if (digits.size() < number.GetDigits().size())
+    if (a.GetDigits().size() < b.GetDigits().size())
     {
-        if (sign)
+        if (a.GetSign())
             return false;
         else
             return true;
     }
 
-    unsigned int size = digits.size();
-    const string& d = number.GetDigits();
+    unsigned int size = a.GetDigits().size();
+    const string& bDigits = b.GetDigits();
+    const string& aDigits = a.GetDigits();
     for (int i = 0; i < size; ++i)
-        if (digits[i] != d[i])
+        if (aDigits[i] != bDigits[i])
         {
-            if (digits[i] > d[i])
-                if (sign)
+            if (aDigits[i] > bDigits[i])
+                if (a.GetSign())
                     return true;
                 else
                     return false;
             else
-                if (sign)
+                if (a.GetSign())
                     return false;
                 else
                     return true;
@@ -283,32 +285,32 @@ bool LongInteger::operator>(const LongInteger& number) const
     return false;
 }
 
-bool LongInteger::operator<(const LongInteger& number) const
+bool operator<(const LongInteger& a, const LongInteger& b)
 {
-    return !(*this > number);
+    return !(a > b);
 }
 
-bool LongInteger::operator>=(const LongInteger& number) const
+bool operator>=(const LongInteger& a, const LongInteger& b)
 {
-    if (*this > number)
+    if (a > b)
     {
         return true;
     }
     else
     {
-        return *this == number;
+        return a == b;
     }
 }
 
-bool LongInteger::operator<=(const LongInteger& number) const
+bool operator<=(const LongInteger& a, const LongInteger& b)
 {
-    if (*this < number)
+    if (a < b)
     {
         return true;
     }
     else
     {
-        return *this == number;
+        return a == b;
     }
 }
 
@@ -439,46 +441,50 @@ string DecreasesNumbers(const string& a, const string& b)
     return result;
 }
 
-LongInteger LongInteger::operator+(const LongInteger& number) const
+LongInteger operator+(const LongInteger& a, const LongInteger& b)
 {
     LongInteger result;
-    if (sign == number.GetSign())
+    if (a.GetSign() == b.GetSign())
     {
-        result.SetSign(sign);
-        if (digits.size() > number.GetDigits().size())
-            result.SetDigits(GathersNumbers(digits, number.GetDigits()));
+        result.SetSign(a.GetSign());
+        if (a.GetDigits().size() > b.GetDigits().size())
+            result.SetDigits(GathersNumbers(a.GetDigits(), b.GetDigits()));
         else
-            result.SetDigits(GathersNumbers(number.GetDigits(), digits));
+            result.SetDigits(GathersNumbers(b.GetDigits(), a.GetDigits()));
     }
     else
     {
-        if (*this == -number)
+        if (a == -b)
             return 0;
 
-        if (sign)
+        if (a.GetSign())
         {
-            if (*this > -number)
+            if (a > -b)
             {
-                result.SetSign(sign);
-                result.SetDigits(DecreasesNumbers(digits, number.GetDigits()));
+                result.SetSign(a.GetSign());
+                result.SetDigits(DecreasesNumbers(a.GetDigits(),
+                                                  b.GetDigits()));
             }
             else
             {
-                result.SetSign(!sign);
-                result.SetDigits(DecreasesNumbers(number.GetDigits(), digits));
+                result.SetSign(!a.GetSign());
+                result.SetDigits(DecreasesNumbers(b.GetDigits(),
+                                                  a.GetDigits()));
             }
         }
         else
         {
-            if (*this < -number)
+            if (a < -b)
             {
-                result.SetSign(sign);
-                result.SetDigits(DecreasesNumbers(digits, number.GetDigits()));
+                result.SetSign(a.GetSign());
+                result.SetDigits(DecreasesNumbers(a.GetDigits(),
+                                                  b.GetDigits()));
             }
             else
             {
-                result.SetSign(!sign);
-                result.SetDigits(DecreasesNumbers(number.GetDigits(), digits));
+                result.SetSign(!a.GetSign());
+                result.SetDigits(DecreasesNumbers(b.GetDigits(),
+                                                  a.GetDigits()));
             }
         }
     }
@@ -486,9 +492,9 @@ LongInteger LongInteger::operator+(const LongInteger& number) const
     return result;
 }
 
-LongInteger LongInteger::operator-(const LongInteger& number) const
+LongInteger operator-(const LongInteger& a, const LongInteger& b)
 {
-    return *this + -number;
+    return a + -b;
 }
 
 LongInteger& LongInteger::operator+=(const LongInteger& number)

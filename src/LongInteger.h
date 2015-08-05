@@ -28,20 +28,20 @@ class LongInteger
         LongInteger operator-() const;
         explicit operator bool() const;
         bool operator!() const;
-        bool operator==(const LongInteger&) const;
-        bool operator!=(const LongInteger&) const;
-        bool operator>(const LongInteger&) const;
-        bool operator<(const LongInteger&) const;
-        bool operator>=(const LongInteger&) const;
-        bool operator<=(const LongInteger&) const;
+        friend bool operator==(const LongInteger&, const LongInteger&);
+        friend bool operator!=(const LongInteger&, const LongInteger&);
+        friend bool operator> (const LongInteger&, const LongInteger&);
+        friend bool operator< (const LongInteger&, const LongInteger&);
+        friend bool operator>=(const LongInteger&, const LongInteger&);
+        friend bool operator<=(const LongInteger&, const LongInteger&);
 
         LongInteger& operator++();
         LongInteger& operator--();
         LongInteger operator++(int);
         LongInteger operator--(int);
 
-        LongInteger operator+(const LongInteger&) const;
-        LongInteger operator-(const LongInteger&) const;
+        friend LongInteger operator+(const LongInteger&, const LongInteger&);
+        friend LongInteger operator-(const LongInteger&, const LongInteger&);
         LongInteger& operator+=(const LongInteger&);
         LongInteger& operator-=(const LongInteger&);
 
