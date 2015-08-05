@@ -38,6 +38,8 @@ class LongInteger
         LongInteger& operator++();
         LongInteger& operator--();
         LongInteger operator++(int);
+        LongInteger operator--(int);
+
         LongInteger operator+(const LongInteger&) const;
         LongInteger operator-(const LongInteger&) const;
         LongInteger& operator+=(const LongInteger&);

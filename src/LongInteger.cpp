@@ -528,3 +528,12 @@ LongInteger LongInteger::operator++(int)
     return result;
 }
 
+LongInteger LongInteger::operator--(int)
+{
+    LongInteger result(*this);
+
+    *this = *this - 1;
+
+    return result;
+}
+
