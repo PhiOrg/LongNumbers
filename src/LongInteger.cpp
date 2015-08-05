@@ -480,3 +480,8 @@ LongInteger& LongInteger::operator+=(const LongInteger& number)
     *this = *this + number;
 }
 
+LongInteger& LongInteger::operator-=(const LongInteger& number)
+{
+    return *this = *this - number;
+}
+

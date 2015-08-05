@@ -38,6 +38,7 @@ class LongInteger
         LongInteger operator+(const LongInteger&) const;
         LongInteger operator-(const LongInteger&) const;
         LongInteger& operator+=(const LongInteger&);
+        LongInteger& operator-=(const LongInteger&);
 
         friend std::ostream& operator<<(std::ostream& os,
                                         const LongInteger& number)
