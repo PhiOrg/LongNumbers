@@ -312,3 +312,12 @@ BOOST_AUTO_TEST_CASE(TestPrefixDecrementOperator)
     BOOST_CHECK(a == 4);
 }
 
+BOOST_AUTO_TEST_CASE(TestPostfixIncrementOperator)
+{
+    LongInteger a = 5, b = 2, c;
+    c = a + b++;
+
+    BOOST_CHECK(c == 7);
+    BOOST_CHECK(b == 3);
+}
+
