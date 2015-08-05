@@ -272,3 +272,14 @@ BOOST_AUTO_TEST_CASE(TestDecreaseOperator)
     BOOST_CHECK(b - -c == 199945);
 }
 
+BOOST_AUTO_TEST_CASE(TestAssignmentAdditionOperator)
+{
+    LongInteger a = 5, b = 7;
+
+    a += b;
+    BOOST_CHECK(a == 12);
+
+    a += 3;
+    BOOST_CHECK(a == 15);
+}
+
