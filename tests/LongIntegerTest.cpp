@@ -283,3 +283,14 @@ BOOST_AUTO_TEST_CASE(TestAssignmentAdditionOperator)
     BOOST_CHECK(a == 15);
 }
 
+BOOST_AUTO_TEST_CASE(TestAssignmentDecreaseOperator)
+{
+    LongInteger a = 5, b = 7;
+
+    a -= b;
+    BOOST_CHECK(a == -2);
+
+    a -= -3;
+    BOOST_CHECK(a == 1);
+}
+
