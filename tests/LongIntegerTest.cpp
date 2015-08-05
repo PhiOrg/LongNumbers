@@ -303,3 +303,12 @@ BOOST_AUTO_TEST_CASE(TestPrefixIncrementOperator)
     BOOST_CHECK(a == 6);
 }
 
+BOOST_AUTO_TEST_CASE(TestPrefixDecrementOperator)
+{
+    LongInteger a = 5, b = 2, c;
+    c = --a + b;
+
+    BOOST_CHECK(c == 6);
+    BOOST_CHECK(a == 4);
+}
+
