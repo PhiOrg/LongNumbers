@@ -77,11 +77,6 @@ class LongInteger
     friend class LongDouble;
 
     private:
-        std::string GathersNumbers(const std::string&,
-                                   const std::string&) const;
-        std::string DecreasesNumbers(const std::string&,
-                                     const std::string&) const;
-
         std::string digits;
         bool sign; //true for positive, false for negative
 };

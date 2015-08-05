@@ -346,7 +346,7 @@ void LongInteger::SetDigits(const std::string& digits)
     this->digits = digits;
 }
 
-string LongInteger::GathersNumbers(const string& a, const string& b) const
+string GathersNumbers(const string& a, const string& b)
 {
     string result = a;
     unsigned bsize = b.size(), asize = a.size();
@@ -388,7 +388,7 @@ string LongInteger::GathersNumbers(const string& a, const string& b) const
     return result;
 }
 
-string LongInteger::DecreasesNumbers(const string& a, const string& b) const
+string DecreasesNumbers(const string& a, const string& b)
 {
     bool decreases = false;
     short int value;
