@@ -257,3 +257,18 @@ BOOST_AUTO_TEST_CASE(TestAdditionOperator)
     BOOST_CHECK(b + a == g);
 }
 
+BOOST_AUTO_TEST_CASE(TestDecreaseOperator)
+{
+    LongInteger a = 973, b = 99973, c = 99972, d = 1, e = 1000;
+
+    BOOST_CHECK(a - b == -99000);
+    BOOST_CHECK(b - a == 99000);
+    BOOST_CHECK(b - c == 1);
+    BOOST_CHECK(c - b == -1);
+    BOOST_CHECK(d - e == -999);
+    BOOST_CHECK(e - d == 999);
+    BOOST_CHECK(e - -d == 1001);
+    BOOST_CHECK(a - -b == 100946);
+    BOOST_CHECK(b - -c == 199945);
+}
+
