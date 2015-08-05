@@ -470,3 +470,8 @@ LongInteger LongInteger::operator+(const LongInteger& number) const
     return result;
 }
 
+LongInteger LongInteger::operator-(const LongInteger& number) const
+{
+    return *this + -number;
+}
+
