@@ -36,6 +36,7 @@ class LongInteger
         bool operator<=(const LongInteger&) const;
 
         LongInteger& operator++();
+        LongInteger& operator--();
         LongInteger operator+(const LongInteger&) const;
         LongInteger operator-(const LongInteger&) const;
         LongInteger& operator+=(const LongInteger&);

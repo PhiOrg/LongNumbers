@@ -512,3 +512,10 @@ LongInteger& LongInteger::operator++()
     return *this;
 }
 
+LongInteger& LongInteger::operator--()
+{
+    *this = *this - 1;
+    
+    return *this;
+}
+
