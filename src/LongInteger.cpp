@@ -494,6 +494,8 @@ LongInteger LongInteger::operator-(const LongInteger& number) const
 LongInteger& LongInteger::operator+=(const LongInteger& number)
 {
     *this = *this + number;
+
+    return *this;
 }
 
 LongInteger& LongInteger::operator-=(const LongInteger& number)
