@@ -16,6 +16,11 @@ string& LongInteger::GetDigitsForTests()
 
 #endif
 
+LongInteger::LongInteger(const LongDouble& number)
+{
+    *this = (LongInteger) number;
+}
+
 LongInteger::LongInteger()
 {
     sign = true;
