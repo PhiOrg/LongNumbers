@@ -24,7 +24,7 @@ class LongInteger
         LongInteger(const unsigned long long);
         LongInteger(const LongInteger&);
         LongInteger(const std::string&);
-        LongInteger(const std::string&&);
+        LongInteger(const char*);
 
         LongInteger& operator=(const LongInteger&);
         LongInteger operator-() const;

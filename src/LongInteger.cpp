@@ -88,8 +88,9 @@ LongInteger::LongInteger(const LongInteger& number)
     sign = number.GetSign();
 }
 
-LongInteger::LongInteger(const string&& number)
+LongInteger::LongInteger(const char *_number)
 {
+    string number = _number;
     if (number.size() == 0)
     {
         sign = true;
