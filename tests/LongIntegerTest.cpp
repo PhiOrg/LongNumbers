@@ -352,3 +352,30 @@ BOOST_AUTO_TEST_CASE(TestMultiplicationOperator)
     BOOST_CHECK(c * a == 232155);
 }
 
+BOOST_AUTO_TEST_CASE(TestDivisionOperator)
+{
+    LongInteger a = 231, b = 1472, c = 2345, d = 400;
+
+    BOOST_CHECK(a / 2 == 115);
+    BOOST_CHECK(a / -2 == -115);
+    BOOST_CHECK(2 / a == 0);
+    BOOST_CHECK(-2 / a == 0);
+    BOOST_CHECK(d / 2 == 200);
+    BOOST_CHECK(b / 9 = 163);
+    BOOST_CHECK(2893730 / c == 1234);
+    BOOST_CHECK(2893730 / -c == -1234);
+    BOOST_CHECK(a / 10 == 23);
+    BOOST_CHECK(a / -10 == -23);
+    BOOST_CHECK(-a / -10 == 23);
+    BOOST_CHECK(0 / a == 0);
+    BOOST_CHECK(0 / -a == 0);
+    BOOST_CHECK(b / 1 == b);
+    BOOST_CHECK(c / -1 == -c);
+    BOOST_CHECK(b / c == 0);
+    BOOST_CHECK(c / b == 1);
+    BOOST_CHECK(b / -c == 0);
+    BOOST_CHECK(-b / c == 0);
+    BOOST_CHECK(c / -b == -1);
+    BOOST_CHECK(-c / b == -1);
+}
+
