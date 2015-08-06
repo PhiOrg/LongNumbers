@@ -16,10 +16,27 @@ LongDouble::LongDouble(long double number, unsigned short int decimals)
     digits = to_string(number);
 }
 
-LongDouble::LongDouble(const LongInteger& number)
+LongDouble::LongDouble(const LongInteger& number, unsigned short int decimals)
 {
     digits = number.GetDigits() + ".0";
     sign = number.GetSign();
-    decimals = 6;
+    this->decimals = decimals;
+}
+
+LongDouble::operator LongInteger() const
+{
+    LongInteger number;
+    string d = digits;
+    size_t size = digits.size(), i;
+
+    for (i = 0; i < size; i++)
+        if (d[i] == '.')
+            break;
+    d.erase(i);
+
+    number.SetSign(sign);
+    number.SetDigits(d);
+
+    return number;
 }
 
