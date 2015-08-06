@@ -113,8 +113,8 @@ LongInteger::LongInteger(const string&& number)
             digits.erase(digits.begin());
         }
 
-        unsigned int size = digits.size();
-        for (unsigned int i = 0; i < size; i++)
+        size_t size = digits.size();
+        for (size_t i = 0; i < size; i++)
             if (digits[i] < '0' || digits[i] > '9')
             {
                 sign = true;
@@ -122,7 +122,7 @@ LongInteger::LongInteger(const string&& number)
                 return;
             }
 
-        unsigned i = 0, zerosNumber = 0;
+        size_t i = 0, zerosNumber = 0;
         while (i < size)
         {
             if (digits[i] != '0')
@@ -169,8 +169,8 @@ LongInteger::LongInteger(const string& number)
             digits.erase(digits.begin());
         }
 
-        unsigned int size = digits.size();
-        for (unsigned int i = 0; i < size; i++)
+        size_t size = digits.size();
+        for (size_t i = 0; i < size; i++)
             if (digits[i] < '0' || digits[i] > '9')
             {
                 sign = true;
@@ -178,7 +178,7 @@ LongInteger::LongInteger(const string& number)
                 return;
             }
 
-        unsigned i = 0, zerosNumber = 0;
+        size_t i = 0, zerosNumber = 0;
         while (i < size)
         {
             if (digits[i] != '0')
@@ -226,10 +226,10 @@ bool operator==(const LongInteger& a, const LongInteger& b)
     if (a.GetDigits().size() != b.GetDigits().size())
         return false;
 
-    unsigned int size = a.GetDigits().size();
+    size_t size = a.GetDigits().size();
     const string& bDigits = b.GetDigits();
     const string& aDigits = a.GetDigits();
-    for (unsigned int i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
         if (aDigits[i] != bDigits[i])
             return false;
 
@@ -264,10 +264,10 @@ bool operator>(const LongInteger& a, const LongInteger& b)
             return true;
     }
 
-    unsigned int size = a.GetDigits().size();
+    size_t size = a.GetDigits().size();
     const string& bDigits = b.GetDigits();
     const string& aDigits = a.GetDigits();
-    for (int i = 0; i < size; ++i)
+    for (size_t i = 0; i < size; ++i)
         if (aDigits[i] != bDigits[i])
         {
             if (aDigits[i] > bDigits[i])
@@ -351,8 +351,8 @@ void LongInteger::SetDigits(const std::string& digits)
 string GathersNumbers(const string& a, const string& b)
 {
     string result = a;
-    unsigned bsize = b.size(), asize = a.size();
-    unsigned bs = bsize - 1, i, as = asize - 1;
+    size_t bsize = b.size(), asize = a.size();
+    size_t bs = bsize - 1, i, as = asize - 1;
     short int value;
     bool add = false;
     for (i = 0; i < bsize; i++)
@@ -395,8 +395,8 @@ string DecreasesNumbers(const string& a, const string& b)
     bool decreases = false;
     short int value;
     string result = a;
-    unsigned asize = a.size(), bsize = b.size(), as = asize - 1;
-    unsigned bs = bsize - 1, i;
+    size_t asize = a.size(), bsize = b.size(), as = asize - 1;
+    size_t bs = bsize - 1, i;
 
     for (i = 0; i < bsize; i++)
     {
