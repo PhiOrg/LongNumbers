@@ -16,7 +16,7 @@ class LongDouble
         LongDouble(long double, unsigned short int = 6);
         LongDouble(const LongInteger&, unsigned short int = 6);
 
-        operator LongInteger() const;
+        explicit operator LongInteger() const;
 
     private:
         unsigned short int decimals;
