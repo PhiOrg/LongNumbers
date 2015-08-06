@@ -543,3 +543,83 @@ LongInteger LongInteger::operator--(int)
     return result;
 }
 
+string Multiplies(const string& a, short int b)
+{
+    string result;
+    short int add = 0, value;
+    for (auto i = a.rbegin(); i != a.rend(); i++)
+    {
+        value = (*i - 48) * b + add;
+        add = 0;
+        if (value > 9)
+        {
+            add = value / 10;
+            value %= 10;
+        }
+        result.insert(result.begin(), value + 48);
+    }
+
+    if (add != 0)
+        result.insert(result.begin(), add + 48);
+
+    return result;
+}
+
+LongInteger MultipliesIntegers(const string& a, const string& b)
+{
+    LongInteger result;
+    string _a = a;
+
+    for (auto i = b.rbegin(); i != b.rend(); i++)
+    {
+        short int value = *i - 48;
+
+        if (value == 1)
+            result += _a;
+        else
+            if (value > 1)
+                result += Multiplies(_a, value);
+        _a.push_back('0');
+    }
+
+    return result;
+}
+
+LongInteger operator*(const LongInteger& a, const LongInteger& b)
+{
+    if (a == 0 || b == 0)
+        return 0;
+    if (a == 1)
+        return b;
+    if (a == -1)
+        return -b;
+    if (b == 1)
+        return a;
+    if (b == -1)
+        return -a;
+
+    LongInteger result;
+
+    if (a.GetSign() == b.GetSign())
+    {
+        result.SetSign(true);
+    }
+    else
+    {
+        result.SetSign(false);
+    }
+
+    if (a.GetDigits().size() > b.GetDigits().size())
+    {
+        result.SetDigits(MultipliesIntegers(a.GetDigits(),
+                                            b.GetDigits()).GetDigits());
+    }
+    else
+    {
+        result.SetDigits(MultipliesIntegers(b.GetDigits(),
+                                            a.GetDigits()).GetDigits());
+    }
+
+    return result;
+}
+
