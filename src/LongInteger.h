@@ -4,6 +4,8 @@
 #include <string>
 #include <iostream>
 
+#include "Exception.h"
+
 class LongInteger;
 
 #ifndef _LONGDOUBLE_H__
@@ -43,6 +45,7 @@ class LongInteger
         friend LongInteger operator+(const LongInteger&, const LongInteger&);
         friend LongInteger operator-(const LongInteger&, const LongInteger&);
         friend LongInteger operator*(const LongInteger&, const LongInteger&);
+        friend LongInteger operator/(const LongInteger&, const LongInteger&);
         LongInteger& operator+=(const LongInteger&);
         LongInteger& operator-=(const LongInteger&);
         LongInteger& operator*=(const LongInteger&);
@@ -77,6 +80,9 @@ class LongInteger
         const std::string& GetDigits() const;
 
     friend class LongDouble;
+    friend void MultiplyBy10(LongInteger&, size_t);
+    friend void DivisionBy10(LongInteger&, size_t);
+    friend LongInteger _abs(const LongInteger&);
 
     private:
         std::string digits;

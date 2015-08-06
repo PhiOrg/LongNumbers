@@ -630,3 +630,119 @@ LongInteger& LongInteger::operator*=(const LongInteger& number)
     return *this;
 }
 
+void MultiplyBy10(LongInteger& a, size_t x)
+{
+    if (a.digits == "0")
+        return;
+    for (size_t i = 0; i < x; i++)
+        a.digits.push_back('0');
+}
+
+void DivisionBy10(LongInteger& a, size_t x)
+{
+    for (size_t i = 0; i < x; i++)
+        a.digits.pop_back();
+
+    if (a.digits.size() == 0)
+    {
+        a.sign = true;
+        a.digits.push_back('0');
+    }
+}
+
+LongInteger _abs(const LongInteger& a)
+{
+    LongInteger result(a);
+    result.sign = true;
+
+    return result;
+}
+
+LongInteger operator/(const LongInteger& a, const LongInteger& b)
+{
+    if (b == 0)
+        throw DivisionByZero();
+    if (a == b)
+        return 1;
+    if (a == -b)
+        return -1;
+    if (b == 1)
+        return a;
+    if (b == -1)
+        return -a;
+    if (a == 0)
+        return 0;
+    if (_abs(a) < _abs(b))
+    {
+        return 0;
+    }
+
+    if (b == 10)
+    {
+        LongInteger result(a);
+        DivisionBy10(result, 1);
+
+        return result;
+    }
+
+    if (b == -10)
+    {
+        LongInteger result(-a);
+        DivisionBy10(result, 1);
+
+        return result;
+    }
+
+    LongInteger c(a), d(b), result;
+    bool sign = c.sign && d.sign;
+    c.sign = true;
+    d.sign = true;
+    size_t value;
+
+    if (c.digits[0] > d.digits[0])
+    {
+        value = c.digits.size() - d.digits.size();
+        MultiplyBy10(d, value);
+    }
+
+    if (c.digits[0] == d.digits[0])
+    {
+        value = c.digits.size() - d.digits.size();
+        MultiplyBy10(d, value);
+
+        if (c < d)
+        {
+            DivisionBy10(d, 1);
+            value--;
+        }
+    }
+
+    if (c.digits[0] < d.digits[0])
+    {
+        value = c.digits.size() - d.digits.size() - 1;
+        MultiplyBy10(d, value);
+    }
+
+    value++;
+    while (c > 0 && value > 0)
+    {
+        short int x = 0;
+        while (c >= d)
+        {
+            c -= d;
+            x++;
+        }
+
+        MultiplyBy10(result, 1);
+        DivisionBy10(d, 1);
+        result += x;
+        value--;
+    }
+
+    if (value > 0)
+        MultiplyBy10(result, value);
+
+    result.sign = sign;
+    return result;
+}
+
