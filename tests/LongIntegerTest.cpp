@@ -330,3 +330,25 @@ BOOST_AUTO_TEST_CASE(TestPostfixDecrementOperator)
     BOOST_CHECK(b == 1);
 }
 
+BOOST_AUTO_TEST_CASE(TestMultiplicationOperator)
+{
+    LongInteger a = 2345, b = 1234, c = 99, d = -7, e = 35;
+
+    BOOST_CHECK(a * 0 == 0);
+    BOOST_CHECK(0 * a == 0);
+    BOOST_CHECK(1 * a == a);
+    BOOST_CHECK(a * 1 == a);
+    BOOST_CHECK(-1 * a == -a);
+    BOOST_CHECK(a * -1 == -a);
+    BOOST_CHECK(d * e == -245);
+    BOOST_CHECK(d * -e == 245);
+    BOOST_CHECK(c * e == 3465);
+    BOOST_CHECK(e * c == 3465);
+    BOOST_CHECK(b * d == -8638);
+    BOOST_CHECK(d * b == -8638);
+    BOOST_CHECK(a * b == 2893730);
+    BOOST_CHECK(b * a == 2893730);
+    BOOST_CHECK(a * c == 232155);
+    BOOST_CHECK(c * a == 232155);
+}
+
