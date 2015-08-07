@@ -18,7 +18,7 @@ class ModuloByZero : public std::exception
     {
         return "Modulo by zero!\n";
     }
-}
+};
 
 #endif
 
