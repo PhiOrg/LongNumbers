@@ -603,6 +603,21 @@ LongInteger operator*(const LongInteger& a, const LongInteger& b)
         return a;
     if (b == -1)
         return -a;
+    if (b == 10)
+    {
+        LongInteger result(a);
+        MultiplyBy10(result, 1);
+
+        return result;
+    }
+    if (b == -10)
+    {
+        LongInteger result(a);
+        MultiplyBy10(result, 1);
+        result.sign = !result.sign;
+
+        return result;
+    }
 
     LongInteger result;
 
