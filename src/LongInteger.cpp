@@ -226,17 +226,15 @@ LongInteger& LongInteger::operator=(const LongInteger& number)
 
 bool operator==(const LongInteger& a, const LongInteger& b)
 {
-    if (a.GetSign() != b.GetSign())
+    if (a.sign != b.sign)
         return false;
 
-    if (a.GetDigits().size() != b.GetDigits().size())
+    if (a.digits.size() != b.digits.size())
         return false;
 
-    size_t size = a.GetDigits().size();
-    const string& bDigits = b.GetDigits();
-    const string& aDigits = a.GetDigits();
+    size_t size = a.digits.size();
     for (size_t i = 0; i < size; i++)
-        if (aDigits[i] != bDigits[i])
+        if (a.digits[i] != b.digits[i])
             return false;
 
     return true;
@@ -249,40 +247,38 @@ bool operator!=(const LongInteger& a, const LongInteger& b)
 
 bool operator>(const LongInteger& a, const LongInteger& b)
 {
-    if (a.GetSign() && !b.GetSign())
+    if (a.sign && !b.sign)
         return true;
-    if (!a.GetSign() && b.GetSign())
+    if (!a.sign && b.sign)
         return false;
 
-    if (a.GetDigits().size() > b.GetDigits().size())
+    if (a.digits.size() > b.digits.size())
     {
-        if (a.GetSign())
+        if (a.sign)
             return true;
         else
             return false;
     }
 
-    if (a.GetDigits().size() < b.GetDigits().size())
+    if (a.digits.size() < b.digits.size())
     {
-        if (a.GetSign())
+        if (a.sign)
             return false;
         else
             return true;
     }
 
-    size_t size = a.GetDigits().size();
-    const string& bDigits = b.GetDigits();
-    const string& aDigits = a.GetDigits();
+    size_t size = a.digits.size();
     for (size_t i = 0; i < size; ++i)
-        if (aDigits[i] != bDigits[i])
+        if (a.digits[i] != b.digits[i])
         {
-            if (aDigits[i] > bDigits[i])
-                if (a.GetSign())
+            if (a.digits[i] > b.digits[i])
+                if (a.sign)
                     return true;
                 else
                     return false;
             else
-                if (a.GetSign())
+                if (a.sign)
                     return false;
                 else
                     return true;
@@ -450,47 +446,43 @@ string DecreasesNumbers(const string& a, const string& b)
 LongInteger operator+(const LongInteger& a, const LongInteger& b)
 {
     LongInteger result;
-    if (a.GetSign() == b.GetSign())
+    if (a.sign == b.sign)
     {
-        result.SetSign(a.GetSign());
-        if (a.GetDigits().size() > b.GetDigits().size())
-            result.SetDigits(GathersNumbers(a.GetDigits(), b.GetDigits()));
+        result.sign = a.sign;
+        if (a.digits.size() > b.digits.size())
+            result.digits = GathersNumbers(a.digits, b.digits);
         else
-            result.SetDigits(GathersNumbers(b.GetDigits(), a.GetDigits()));
+            result.digits = GathersNumbers(b.digits, a.digits);
     }
     else
     {
         if (a == -b)
             return 0;
 
-        if (a.GetSign())
+        if (a.sign)
         {
             if (a > -b)
             {
-                result.SetSign(a.GetSign());
-                result.SetDigits(DecreasesNumbers(a.GetDigits(),
-                                                  b.GetDigits()));
+                result.sign = true;;
+                result.digits = DecreasesNumbers(a.digits, b.digits);
             }
             else
             {
-                result.SetSign(!a.GetSign());
-                result.SetDigits(DecreasesNumbers(b.GetDigits(),
-                                                  a.GetDigits()));
+                result.sign = false;
+                result.digits = DecreasesNumbers(b.digits, a.digits);
             }
         }
         else
         {
             if (a < -b)
             {
-                result.SetSign(a.GetSign());
-                result.SetDigits(DecreasesNumbers(a.GetDigits(),
-                                                  b.GetDigits()));
+                result.sign = false;
+                result.digits = DecreasesNumbers(a.digits, b.digits);
             }
             else
             {
-                result.SetSign(!a.GetSign());
-                result.SetDigits(DecreasesNumbers(b.GetDigits(),
-                                                  a.GetDigits()));
+                result.sign = true;
+                result.digits = DecreasesNumbers(b.digits, a.digits);
             }
         }
     }
@@ -621,24 +613,22 @@ LongInteger operator*(const LongInteger& a, const LongInteger& b)
 
     LongInteger result;
 
-    if (a.GetSign() == b.GetSign())
+    if (a.sign == b.sign)
     {
-        result.SetSign(true);
+        result.sign = true;
     }
     else
     {
-        result.SetSign(false);
+        result.sign = false;
     }
 
-    if (a.GetDigits().size() > b.GetDigits().size())
+    if (a.digits.size() > b.digits.size())
     {
-        result.SetDigits(MultipliesIntegers(a.GetDigits(),
-                                            b.GetDigits()).GetDigits());
+        result.digits = MultipliesIntegers(a.digits, b.digits).digits;
     }
     else
     {
-        result.SetDigits(MultipliesIntegers(b.GetDigits(),
-                                            a.GetDigits()).GetDigits());
+        result.digits = MultipliesIntegers(b.digits, a.digits).digits;
     }
 
     return result;
