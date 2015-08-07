@@ -361,7 +361,7 @@ BOOST_AUTO_TEST_CASE(TestDivisionOperator)
     BOOST_CHECK(2 / a == 0);
     BOOST_CHECK(-2 / a == 0);
     BOOST_CHECK(d / 2 == 200);
-    BOOST_CHECK(b / 9 = 163);
+    BOOST_CHECK(b / 9 == 163);
     BOOST_CHECK(2893730 / c == 1234);
     BOOST_CHECK(2893730 / -c == -1234);
     BOOST_CHECK(a / 10 == 23);
