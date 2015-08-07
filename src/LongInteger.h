@@ -27,6 +27,7 @@ class LongInteger
         LongInteger(const char*);
         explicit LongInteger(const LongDouble&);
 
+        LongInteger& operator=(const LongDouble&);
         LongInteger& operator=(const LongInteger&);
         LongInteger operator-() const;
         explicit operator bool() const;

@@ -850,3 +850,10 @@ LongInteger% LongInteger::operator%=(const LongInteger& number)
     return *this;
 }
 
+LongInteger& LongInteger::operator=(const LongDouble& number)
+{
+    *this = (LongInteger) number;
+
+    return *this;
+}
+
