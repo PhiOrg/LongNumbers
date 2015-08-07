@@ -764,3 +764,82 @@ LongInteger& LongInteger::operator/=(const LongInteger& number)
     return *this;
 }
 
+LongInteger operator%(const LongInteger& a, const LongInteger& b)
+{
+    LongInteger d = _abs(b);
+    if (b == 0)
+        throw ModuloByZero();
+    if (a == d)
+        return 0;
+    if (a == -d)
+        return 0;
+    if (d == 1)
+        return 0;
+    if (a == 0)
+        return 0;
+    if (_abs(a) < d)
+    {
+        return a;
+    }
+
+    if (d == 10)
+    {
+        int value = a.digits[a.digits.size() - 1] - 48;
+        if (!a.sign)
+            value *= -1;
+        return value;
+    }
+
+    if (d == 2)
+    {
+        int value = a.digits[a.digits.size() - 1] - 48;
+        if (!a.sign)
+            value *= -1;
+        return value % 2;
+    }
+
+    LongInteger c(a);
+    bool sign = c.sign;
+    c.sign = true;
+    size_t value;
+
+    if (c.digits[0] > d.digits[0])
+    {
+        value = c.digits.size() - d.digits.size();
+        MultiplyBy10(d, value);
+    }
+
+    if (c.digits[0] == d.digits[0])
+    {
+        value = c.digits.size() - d.digits.size();
+        MultiplyBy10(d, value);
+
+        if (c < d)
+        {
+            DivisionBy10(d, 1);
+            value--;
+        }
+    }
+
+    if (c.digits[0] < d.digits[0])
+    {
+        value = c.digits.size() - d.digits.size() - 1;
+        MultiplyBy10(d, value);
+    }
+
+    value++;
+    while (c > 0 && value > 0)
+    {
+        while (c >= d)
+            c -= d;
+
+        DivisionBy10(d, 1);
+        value--;
+    }
+
+    if (c != 0)
+        c.sign = sign;
+
+    return c;
+}
+

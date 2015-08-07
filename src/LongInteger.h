@@ -47,6 +47,7 @@ class LongInteger
         friend LongInteger operator-(const LongInteger&, const LongInteger&);
         friend LongInteger operator*(const LongInteger&, const LongInteger&);
         friend LongInteger operator/(const LongInteger&, const LongInteger&);
+        friend LongInteger operator%(const LongInteger&, const LongInteger&);
         LongInteger& operator+=(const LongInteger&);
         LongInteger& operator-=(const LongInteger&);
         LongInteger& operator*=(const LongInteger&);
