@@ -12,5 +12,13 @@ class DivisionByZero : public std::exception
 
 };
 
+class ModuloByZero : public std::exception
+{
+    const char* what() const throw()
+    {
+        return "Modulo by zero!\n";
+    }
+}
+
 #endif
 
