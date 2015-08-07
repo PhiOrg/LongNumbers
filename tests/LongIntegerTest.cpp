@@ -379,3 +379,35 @@ BOOST_AUTO_TEST_CASE(TestDivisionOperator)
     BOOST_CHECK(-c / b == -1);
 }
 
+BOOST_AUTO_TEST_CASE(TestModuloOperator)
+{
+    LongInteger a = 231, b = 1472, c = 2345, d = 400;
+
+    BOOST_CHECK(c % 10 == 5);
+    BOOST_CHECK(-c % 10 == -5);
+    BOOST_CHECK(c % 2 == 1);
+    BOOST_CHECK(-c % 2 == -1);
+    BOOST_CHECK(a % 2 == 1);
+    BOOST_CHECK(-a % 2 == -1);
+    BOOST_CHECK(d % 2 == 0);
+    BOOST_CHECK(-d % 2 == 0);
+    BOOST_CHECK(a % d == 231);
+    BOOST_CHECK(d % a == 169);
+    BOOST_CHECK(-d % -a == -169);
+    BOOST_CHECK(-d % a == -169);
+    BOOST_CHECK(-a % -d == -a);
+    BOOST_CHECK(-a % d == -231);
+    BOOST_CHECK(a % 10 == 1);
+    BOOST_CHECK(-a % 10 == -1);
+    BOOST_CHECK(-a % -10 == -1);
+    BOOST_CHECK(a % -a == 0);
+    BOOST_CHECK(-a % a == 0);
+    BOOST_CHECK(-a % -a == 0);
+    BOOST_CHECK(0 % a == 0);
+    BOOST_CHECK(0 % -a == 0);
+    BOOST_CHECK(c % d == 345);
+    BOOST_CHECK(-c % -d == -345);
+    BOOST_CHECK(-c % d == -345);
+    BOOST_CHECK(d % c == d);
+}
+
