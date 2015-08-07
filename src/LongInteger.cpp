@@ -843,3 +843,10 @@ LongInteger operator%(const LongInteger& a, const LongInteger& b)
     return c;
 }
 
+LongInteger% LongInteger::operator%=(const LongInteger& number)
+{
+    *this = *this % number;
+
+    return *this;
+}
+
