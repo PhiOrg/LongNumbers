@@ -2,19 +2,10 @@
 
 using namespace std;
 
-bool LongInteger::GetSignForTests() const
-{
-    return sign;
-}
-
-string& LongInteger::GetDigitsForTests()
-{
-    return digits;
-}
-
 LongInteger::LongInteger(const LongDouble& number)
 {
-    *this = (LongInteger) number;
+    digits = number.GetDigits();
+    sign = number.GetSign();
 }
 
 LongInteger::LongInteger()

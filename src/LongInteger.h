@@ -73,14 +73,12 @@ class LongInteger
             return is;
         }
 
-        bool GetSignForTests() const;
-        std::string& GetDigitsForTests();
+        bool GetSign() const;
+        const std::string& GetDigits() const;
 
     protected:
         void SetSign(bool value);
         void SetDigits(const std::string&);
-        bool GetSign() const;
-        const std::string& GetDigits() const;
 
     friend class LongDouble;
     friend void MultiplyBy10(LongInteger&, size_t);
