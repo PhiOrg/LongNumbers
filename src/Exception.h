@@ -3,6 +3,9 @@
 
 #include <exception>
 
+namespace LongNumber
+{
+
 class DivisionByZero : public std::exception
 {
     const char* what() const throw()
@@ -19,6 +22,8 @@ class ModuloByZero : public std::exception
         return "Modulo by zero!\n";
     }
 };
+
+} //end namespace
 
 #endif
 
