@@ -33,7 +33,7 @@ class LongInteger
         LongInteger(const LongInteger&);
         LongInteger(const std::string&);
         LongInteger(const char*);
-        explicit LongInteger(const LongDouble&);
+        LongInteger(const LongDouble&);
 
         LongInteger& operator=(const LongDouble&);
         LongInteger& operator=(const LongInteger&);
@@ -69,6 +69,8 @@ class LongInteger
             if (!number.GetSign())
                 os << '-';
             os << number.GetDigits();
+
+            return os;
         }
 
         friend std::istream& operator>>(std::istream& is, LongInteger& number)
