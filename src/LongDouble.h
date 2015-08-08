@@ -24,7 +24,7 @@ class LongDouble
         explicit LongDouble(const long double, unsigned short int = 6);
         explicit LongDouble(const LongInteger&, unsigned short int = 6);
 
-        explicit operator LongInteger() const;
+        operator LongInteger() const;
 
         bool GetSign() const;
         const std::string& GetDigits() const;
