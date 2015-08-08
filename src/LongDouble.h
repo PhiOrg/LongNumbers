@@ -4,11 +4,19 @@
 #include <string.h>
 #include <iostream>
 
+namespace LongNumber
+{
+
 class LongDouble;
+
+}
 
 #ifndef _LONGINTEGER_H__
 #include "LongInteger.h"
 #endif
+
+namespace LongNumber
+{
 
 class LongDouble
 {
@@ -28,6 +36,8 @@ class LongDouble
         bool sign; //true for positive, false for negative
         std::string digits, decimals;
 };
+
+} // end namespace
 
 #endif
 

@@ -6,11 +6,19 @@
 
 #include "Exception.h"
 
+namespace LongNumber
+{
+
 class LongInteger;
+
+}
 
 #ifndef _LONGDOUBLE_H__
 #include "LongDouble.h"
 #endif
+
+namespace LongNumber
+{
 
 class LongInteger
 {
@@ -89,6 +97,8 @@ class LongInteger
         std::string digits;
         bool sign; //true for positive, false for negative
 };
+
+} //end namespace
 
 #endif
 

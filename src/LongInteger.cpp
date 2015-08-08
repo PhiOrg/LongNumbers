@@ -2,6 +2,9 @@
 
 using namespace std;
 
+namespace LongNumber
+{
+
 LongInteger::LongInteger(const LongDouble& number)
 {
     digits = number.GetDigits();
@@ -843,4 +846,6 @@ LongInteger& LongInteger::operator=(const LongDouble& number)
 
     return *this;
 }
+
+} //end namespace
 

@@ -2,6 +2,9 @@
 
 using namespace std;
 
+namespace LongNumber
+{
+
 bool LongDouble::GetSign() const
 {
     return sign;
@@ -74,4 +77,6 @@ LongDouble::operator LongInteger() const
 
     return number;
 }
+
+} //end namespace
 

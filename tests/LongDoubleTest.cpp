@@ -4,6 +4,7 @@
 #include <boost/test/unit_test.hpp>
 
 using namespace std;
+using namespace LongNumber;
 
 BOOST_AUTO_TEST_CASE(TestLongDoubleConstructor)
 {
