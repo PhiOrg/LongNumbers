@@ -13,15 +13,20 @@ class LongDouble;
 class LongDouble
 {
     public:
-        explicit LongDouble(long double, unsigned short int = 6);
+        explicit LongDouble(const long double, unsigned short int = 6);
         explicit LongDouble(const LongInteger&, unsigned short int = 6);
 
-        operator LongInteger() const;
+        explicit operator LongInteger() const;
+
+        bool GetSign() const;
+        const std::string& GetDigits() const;
+        const std::string& GetDecimals() const;
+        unsigned short int GetDecimalsNumber() const;
 
     private:
-        unsigned short int decimals;
+        unsigned short int decimalsNumber;
         bool sign; //true for positive, false for negative
-        std::string digits;
+        std::string digits, decimals;
 };
 
 #endif
