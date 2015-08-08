@@ -2,8 +2,6 @@
 
 using namespace std;
 
-#ifdef TEST 
-
 bool LongInteger::GetSignForTests() const
 {
     return sign;
@@ -13,8 +11,6 @@ string& LongInteger::GetDigitsForTests()
 {
     return digits;
 }
-
-#endif
 
 LongInteger::LongInteger(const LongDouble& number)
 {

@@ -73,10 +73,8 @@ class LongInteger
             return is;
         }
 
-#ifdef TEST 
         bool GetSignForTests() const;
         std::string& GetDigitsForTests();
-#endif
 
     protected:
         void SetSign(bool value);
