@@ -2,6 +2,28 @@
 
 using namespace std;
 
+#define CreateNumber    if (number < 0) \
+                        { \
+                            sign = false; \
+                            x *= -1; \
+                        } \
+                        else \
+                            sign = true; \
+\
+                        decimalsNumber = decimals; \
+                        SplitNumber(digits, this->decimals, to_string(x)); \
+\
+                        if (decimalsNumber < this->decimals.size()) \
+                        { \
+                            decimalsNumber = this->decimals.size(); \
+                        } \
+                        else \
+                        { \
+                            for (size_t i = this->decimals.size(); \
+                                 i < decimalsNumber; i++) \
+                                this->decimals.push_back('0'); \
+                        }
+
 namespace LongNumber
 {
 
@@ -39,26 +61,7 @@ void SplitNumber(string& digits, string& decimals, string number)
 LongDouble::LongDouble(const long double number, unsigned short int decimals)
 {
     long double x = number;
-    if (number < 0)
-    {
-        sign = false;
-        x *= -1;
-    }
-    else
-        sign = true;
-
-    decimalsNumber = decimals;
-    SplitNumber(digits, this->decimals, to_string(x));
-
-    if (decimalsNumber < this->decimals.size())
-    {
-        decimalsNumber = this->decimals.size();
-    }
-    else
-    {
-        for (size_t i = this->decimals.size(); i < decimalsNumber; i++)
-            this->decimals.push_back('0');
-    }
+    CreateNumber
 }
 
 LongDouble::LongDouble(const LongInteger& number, unsigned short int decimals)
