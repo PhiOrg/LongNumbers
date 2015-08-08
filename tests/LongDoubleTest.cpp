@@ -32,9 +32,8 @@ BOOST_AUTO_TEST_CASE(TestLongIntegerConstructor)
 BOOST_AUTO_TEST_CASE(TestCastToLongInteger)
 {
     LongDouble x(172.123), y(-172.123);
-    LongInteger a = (LongInteger) x, b = (LongInteger) y;
 
-    BOOST_CHECK(a.GetDigits() == "172" && a.GetSign());
-    BOOST_CHECK(b.GetDigits() == "172" && !b.GetSign());
+    BOOST_CHECK((LongInteger) x >= "172");
+    BOOST_CHECK((LongInteger) y == "-172");
 }
 
