@@ -20,3 +20,16 @@ BOOST_AUTO_TEST_CASE(TestLongDoubleConstructor)
                 c.GetSignForTest() && c.GetDecimalsNumberForTest() == 9);
 }
 
+BOOST_AUTO_TEST_CASE(TestLongIntegerConstructor)
+{
+    LongInteger a = 17, b = -32;
+    LongDouble c(a), d(b, 9);
+
+    BOOST_CHECK(c.GetDigitsForTest() == "17" &&
+                c.GetDecimalsForTest() == "000000" &&
+                c.GetSignForTest() && c.GetDecimalsNumberForTest() == 6);
+    BOOST_CHECK(d.GetDigitsForTest() == "32" &&
+                d.GetDecimalsForTest() == "000000000" &&
+                !d.GetSignForTest() && d.GetDecimalsNumberForTest() == 9);
+}
+
