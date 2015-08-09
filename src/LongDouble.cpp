@@ -2,7 +2,7 @@
 
 using namespace std;
 
-#define CreateNumber    if (number < 0) \
+#define CreateNumber    if (x < 0) \
                         { \
                             sign = false; \
                             x *= -1; \
@@ -110,6 +110,13 @@ LongDouble::LongDouble(const unsigned long long number,
                        unsigned short int decimals)
 {
     unsigned long long x = number;
+    CreateNumber
+}
+
+LongDouble::LongDouble()
+{
+    int x = 0;
+    unsigned short int decimals = 6;
     CreateNumber
 }
 

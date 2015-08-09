@@ -21,6 +21,7 @@ namespace LongNumber
 class LongDouble
 {
     public:
+        explicit LongDouble();
         explicit LongDouble(const long double, unsigned short int = 6);
         explicit LongDouble(const double, unsigned short int = 6);
         explicit LongDouble(const float, unsigned short int = 6);
