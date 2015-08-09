@@ -33,7 +33,7 @@ class LongInteger
         LongInteger(const LongInteger&);
         LongInteger(const std::string&);
         LongInteger(const char*);
-        LongInteger(const LongDouble&);
+        explicit LongInteger(const LongDouble&);
 
         LongInteger& operator=(const LongDouble&);
         LongInteger& operator=(const LongInteger&);
