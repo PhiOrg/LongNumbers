@@ -30,6 +30,7 @@ class LongDouble
         explicit LongDouble(const unsigned, unsigned short int = 6);
         explicit LongDouble(const unsigned long, unsigned short int = 6);
         explicit LongDouble(const unsigned long long, unsigned short int = 6);
+        explicit LongDouble(const unsigned long double, unsigned short int = 6);
         explicit LongDouble(const LongInteger&, unsigned short int = 6);
 
         bool GetSign() const;
