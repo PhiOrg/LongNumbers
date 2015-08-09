@@ -129,5 +129,13 @@ LongDouble::LongDouble(const LongInteger& number, unsigned short int decimals)
         this->decimals.push_back('0');
 }
 
+LongDouble::operator LongInteger() const
+{
+    LongInteger a(digits);
+    a.SetSign(sign);
+
+    return a;
+}
+
 } //end namespace
 
