@@ -24,6 +24,7 @@ class LongDouble
         explicit LongDouble(const long double, unsigned short int = 6);
         explicit LongDouble(const double, unsigned short int = 6);
         explicit LongDouble(const float, unsigned short int = 6);
+        explicit LongDouble(const int, unsigned short int = 6);
         explicit LongDouble(const LongInteger&, unsigned short int = 6);
 
         bool GetSign() const;
