@@ -5,12 +5,6 @@ using namespace std;
 namespace LongNumber
 {
 
-LongInteger::LongInteger(const LongDouble& number)
-{
-    digits = number.GetDigits();
-    sign = number.GetSign();
-}
-
 LongInteger::LongInteger()
 {
     sign = true;
