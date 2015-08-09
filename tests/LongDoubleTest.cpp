@@ -29,11 +29,3 @@ BOOST_AUTO_TEST_CASE(TestLongIntegerConstructor)
                 !d.GetSign() && d.GetDecimalsNumber() == 9);
 }
 
-BOOST_AUTO_TEST_CASE(TestCastToLongInteger)
-{
-    LongDouble x(172.123), y(-172.123);
-
-    BOOST_CHECK((LongInteger) x >= "172");
-    BOOST_CHECK((LongInteger) y == "-172");
-}
-
