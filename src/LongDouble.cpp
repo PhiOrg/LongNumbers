@@ -73,13 +73,5 @@ LongDouble::LongDouble(const LongInteger& number, unsigned short int decimals)
         this->decimals.push_back('0');
 }
 
-LongDouble::operator LongInteger() const
-{
-    LongInteger number(digits);
-    number.SetSign(sign);
-
-    return number;
-}
-
 } //end namespace
 
