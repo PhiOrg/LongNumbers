@@ -94,6 +94,12 @@ LongDouble::LongDouble(const long long number, unsigned short int decimals)
     CreateNumber
 }
 
+LongDouble::LongDouble(const unsigned number, unsigned short int decimals)
+{
+    unsigned x = number;
+    CreateNumber
+}
+
 LongDouble::LongDouble(const LongInteger& number, unsigned short int decimals)
 {
     digits = number.GetDigits();
