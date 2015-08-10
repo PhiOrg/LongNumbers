@@ -29,3 +29,15 @@ BOOST_AUTO_TEST_CASE(TestLongIntegerConstructor)
                 !d.GetSign() && d.GetDecimalsNumber() == 9);
 }
 
+BOOST_AUTO_TEST_CASE(TestAssignmentLongDoubleOperator)
+{
+    LongDouble a(17.23), b(-23.17), c, d;
+    c = a;
+    d = b;
+
+    BOOST_CHECK(c.GetDigits() == "17" && c.GetDecimals() == "230000" &&
+                c.GetSign() && c.GetDecimalsNumber() == 6);
+    BOOST_CHECK(d.GetDigits() == "23" && d.GetDecimals() == "170000" &&
+                !d.GetSign() && d.GetDecimalsNumber() == 6);
+}
+
