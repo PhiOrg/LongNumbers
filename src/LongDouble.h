@@ -36,6 +36,15 @@ class LongDouble
         LongDouble& operator=(const LongDouble&);
         LongDouble& operator=(const LongInteger&);
 
+        template<typename T>
+        LongDouble& operator=(const T& t)
+        {
+            LongDouble x(t);
+            *this = x;
+
+            return *this;
+        }
+
         bool GetSign() const;
         const std::string& GetDigits() const;
         const std::string& GetDecimals() const;
