@@ -147,5 +147,15 @@ LongDouble& LongDouble::operator=(const LongDouble& number)
     return *this;
 }
 
+LongDouble& LongDouble::operator=(const LongInteger& number)
+{
+    decimalsNumber = 6;
+    sign = number.GetSign();
+    digits = number.GetDigits();
+    decimals = "000000";
+
+    return *this;
+}
+
 } //end namespace
 

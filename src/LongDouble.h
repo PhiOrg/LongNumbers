@@ -34,6 +34,7 @@ class LongDouble
         LongDouble(const LongInteger&, unsigned short int = 6);
 
         LongDouble& operator=(const LongDouble&);
+        LongDouble& operator=(const LongInteger&);
 
         bool GetSign() const;
         const std::string& GetDigits() const;
