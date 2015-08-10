@@ -41,3 +41,16 @@ BOOST_AUTO_TEST_CASE(TestAssignmentLongDoubleOperator)
                 !d.GetSign() && d.GetDecimalsNumber() == 6);
 }
 
+BOOST_AUTO_TEST_CASE(TestAssignmentLongIntegerOperator)
+{
+    LongDouble a, c;
+    LongInteger b = 17;
+    a = b;
+    c = -b;
+
+    BOOST_CHECK(a.GetDigits() == "17" && a.GetDecimals() == "000000" &&
+                a.GetSign() && a.GetDecimalsNumber() == 6);
+    BOOST_CHECK(c.GetDigits() == "17" && c.GetDecimals() == "000000" &&
+                !c.GetSign() && c.GetDecimalsNumber() == 6);
+}
+
