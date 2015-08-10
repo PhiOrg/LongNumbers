@@ -137,5 +137,15 @@ LongDouble::operator LongInteger() const
     return a;
 }
 
+LongDouble& LongDouble::operator=(const LongDouble& number)
+{
+    decimalsNumber = number.GetDecimalsNumber();
+    sign = number.GetSign();
+    digits = number.GetDigits();
+    decimals = number.GetDecimals();
+
+    return *this;
+}
+
 } //end namespace
 

@@ -33,12 +33,14 @@ class LongDouble
         explicit LongDouble(const unsigned long long, unsigned short int = 6);
         LongDouble(const LongInteger&, unsigned short int = 6);
 
+        LongDouble& operator=(const LongDouble&);
+
         bool GetSign() const;
         const std::string& GetDigits() const;
         const std::string& GetDecimals() const;
         unsigned short int GetDecimalsNumber() const;
 
-        explicit operator LongInteger() const;
+        operator LongInteger() const;
     private:
         unsigned short int decimalsNumber;
         bool sign; //true for positive, false for negative
