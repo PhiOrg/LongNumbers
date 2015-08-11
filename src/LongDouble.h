@@ -50,7 +50,6 @@ class LongDouble
         const std::string& GetDecimals() const;
         unsigned short int GetDecimalsNumber() const;
 
-        operator LongInteger() const;
     private:
         unsigned short int decimalsNumber;
         bool sign; //true for positive, false for negative
