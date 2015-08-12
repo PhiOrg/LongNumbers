@@ -47,5 +47,56 @@ string GathersNumbers(const string& a, const string& b)
     return result;
 }
 
+string DecreasesNumbers(const string& a, const string& b)
+{
+    bool decreases = false;
+    short int value;
+    string result = a;
+    size_t asize = a.size(), bsize = b.size(), as = asize - 1;
+    size_t bs = bsize - 1, i;
+
+    for (i = 0; i < bsize; i++)
+    {
+        if (decreases)
+        {
+            decreases = false;
+            value = a[as - i] - b[bs - i] - 1;
+        }
+        else
+        {
+            value = a[as - i] - b[bs - i];
+        }
+
+        if (value < 0)
+        {
+            decreases = true;
+            value += 10;
+        }
+
+        result[as - i] = value + 48;
+    }
+
+    while (decreases && i < asize)
+    {
+        value = a[as - i] - 49;
+        decreases = false;
+        if (value < 0)
+        {
+            value += 10;
+            decreases = true;
+        }
+        result[as - i] = value + 48;
+        i++;
+    }
+
+    for (i = 0; i < asize; i++)
+        if (result[i] != '0')
+            break;
+
+    result.erase(0, i);
+
+    return result;
+}
+
 } //end namespace
 
