@@ -92,3 +92,16 @@ BOOST_AUTO_TEST_CASE(TestLongDoubleClassConstructor)
                 !d.GetSign() && d.GetDecimalsNumber() == 2);
 }
 
+BOOST_AUTO_TEST_CASE(LongDoubleTestUnaryMinusOperator)
+{
+    LongDouble a("-123"), b(73);
+    LongDouble c, d;
+    c = -a;
+    d = -b;
+
+    BOOST_CHECK(c.GetDigits() == "123" && a.GetDecimals() == "000000" &&
+                c.GetSign() && c.GetDecimalsNumber() == 6);
+    BOOST_CHECK(d.GetDigits() == "73" && d.GetDecimals() == "000000" &&
+                !d.GetSign() && d.GetDecimalsNumber() == 6);
+}
+
