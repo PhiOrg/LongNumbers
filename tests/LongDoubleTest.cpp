@@ -81,3 +81,14 @@ BOOST_AUTO_TEST_CASE(TestStringConstructor)
                 j.GetSign() && j.GetDecimalsNumber() == 3);
 }
 
+BOOST_AUTO_TEST_CASE(TestLongDoubleClassConstructor)
+{
+    LongDouble a = "12.345", b = "-7.2345";
+    LongDouble c(a), d(b, 2);
+
+    BOOST_CHECK(c.GetDigits() == "12" && a.GetDecimals() == "345000" &&
+                c.GetSign() && c.GetDecimalsNumber() == 6);
+    BOOST_CHECK(d.GetDigits() == "7" && d.GetDecimals() == "23" &&
+                !d.GetSign() && d.GetDecimalsNumber() == 2);
+}
+
