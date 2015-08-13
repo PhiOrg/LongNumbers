@@ -37,6 +37,14 @@ class LongInteger
 
         LongInteger& operator=(const LongDouble&);
         LongInteger& operator=(const LongInteger&);
+        template<typename T>
+        LongInteger& operator=(const T& t)
+        {
+            LongInteger x(t);
+            *this = x;
+            return *this;
+        }
+
         LongInteger operator-() const;
         explicit operator bool() const;
         bool operator!() const;
