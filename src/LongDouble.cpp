@@ -129,6 +129,79 @@ LongDouble::LongDouble(const LongInteger& number, unsigned short int decimals)
         this->decimals.push_back('0');
 }
 
+LongDouble::LongDouble(const char* x, unsigned short int decimals)
+{
+    string number = x;
+    decimalsNumber = decimals;
+    size_t i = 0, size = number.size();
+    sign = true;
+
+    if (size == 0)
+    {
+        digits = "0";
+        for (unsigned short int i = 0; i < decimals; i++)
+            this->decimals.push_back('0');
+        return;
+    }
+
+    if (number[0] == '-' || number[0] == '+')
+    {
+        if (number.size() == 1)
+        {
+            digits = "0";
+            for (unsigned short int i = 0; i < decimals; i++)
+                this->decimals.push_back('0');
+            return;
+        }
+
+        i++;
+        if (number[0] == '-')
+            sign = false;
+    }
+
+    size_t dots = 0;
+    bool incorrect = false;
+    for (; i < size; i++)
+    {
+        if (number[i] == '.')
+        {
+            dots++;
+            continue;
+        }
+        if (number[i] < '0' || number[i] > '9')
+        {
+            incorrect = true;
+            break;
+        }
+    }
+
+    if (dots > 1)
+        incorrect = true;
+
+    if (incorrect)
+    {
+        digits = "0";
+        sign = true;
+        for (unsigned short int j = 0; j < decimals; j++)
+            this->decimals.push_back('0');
+    }
+    else
+    {
+        SplitNumber(digits, this->decimals, number);
+
+        if (digits[0] == '-' || digits[0] == '+')
+            digits.erase(digits.begin(), digits.begin() + 1);
+
+        if (decimalsNumber > this->decimals.size())
+            for (unsigned short int j = this->decimals.size();
+                 j < decimalsNumber; j++)
+                this->decimals.push_back('0');
+
+        if (decimalsNumber < this->decimals.size())
+            this->decimals.erase(decimalsNumber);
+    }
+}
+
 LongDouble& LongDouble::operator=(const LongDouble& number)
 {
     decimalsNumber = number.GetDecimalsNumber();
