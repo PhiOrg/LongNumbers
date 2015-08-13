@@ -318,5 +318,10 @@ LongDouble LongDouble::operator-() const
     return result;
 }
 
+void LongDouble::SetSign(bool value)
+{
+    sign = value;
+}
+
 } //end namespace
 
