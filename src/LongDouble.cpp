@@ -15,9 +15,9 @@ using namespace std;
 \
                         if (decimalsNumber < this->decimals.size()) \
                         { \
-                            decimalsNumber = this->decimals.size(); \
+                            this->decimals.erase(decimalsNumber); \
                         } \
-                        else \
+                        if (decimalsNumber > this->decimals.size()) \
                         { \
                             for (size_t i = this->decimals.size(); \
                                  i < decimalsNumber; i++) \
