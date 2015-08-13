@@ -1,7 +1,7 @@
 #ifndef _LONGDOUBLE_H__
 #define _LONGDOUBLE_H__
 
-#include <string.h>
+#include <string>
 #include <iostream>
 
 namespace LongNumber
