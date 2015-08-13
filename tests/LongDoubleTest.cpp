@@ -54,3 +54,30 @@ BOOST_AUTO_TEST_CASE(TestAssignmentLongIntegerOperator)
                 !c.GetSign() && c.GetDecimalsNumber() == 6);
 }
 
+BOOST_AUTO_TEST_CASE(TestStringConstructor)
+{
+    LongDouble a("123"), b("-17"), c("0"), d("0.23"), e("-12934643324.1234", 2);
+    LongDouble f("12+.-123"), g("asd"), h("12..79"), i("-123.45a", 8), j("a", 3);
+
+    BOOST_CHECK(a.GetDigits() == "123" && a.GetDecimals() == "000000" &&
+                a.GetSign() && a.GetDecimalsNumber() == 6);
+    BOOST_CHECK(b.GetDigits() == "17" && b.GetDecimals() == "000000" &&
+                !b.GetSign() && b.GetDecimalsNumber() == 6);
+    BOOST_CHECK(c.GetDigits() == "0" && a.GetDecimals() == "000000" &&
+                c.GetSign() && c.GetDecimalsNumber() == 6);
+    BOOST_CHECK(d.GetDigits() == "0" && d.GetDecimals() == "230000" &&
+                d.GetSign() && d.GetDecimalsNumber() == 6);
+    BOOST_CHECK(e.GetDigits() == "12934643324" && e.GetDecimals() == "12" &&
+                !e.GetSign() && e.GetDecimalsNumber() == 2);
+    BOOST_CHECK(f.GetDigits() == "0" && f.GetDecimals() == "000000" &&
+                f.GetSign() && f.GetDecimalsNumber() == 6);
+    BOOST_CHECK(g.GetDigits() == "0" && g.GetDecimals() == "000000" &&
+                g.GetSign() && g.GetDecimalsNumber() == 6);
+    BOOST_CHECK(h.GetDigits() == "0" && h.GetDecimals() == "000000" &&
+                h.GetSign() && h.GetDecimalsNumber() == 6);
+    BOOST_CHECK(i.GetDigits() == "0" && i.GetDecimals() == "00000000" &&
+                i.GetSign() && i.GetDecimalsNumber() == 8);
+    BOOST_CHECK(j.GetDigits() == "0" && j.GetDecimals() == "000" &&
+                j.GetSign() && j.GetDecimalsNumber() == 3);
+}
+
