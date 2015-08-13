@@ -87,114 +87,12 @@ LongInteger::LongInteger(const LongInteger& number)
 LongInteger::LongInteger(const char *_number)
 {
     string number = _number;
-    if (number.size() == 0)
-    {
-        sign = true;
-        digits = "0";
-    }
-    else
-    {
-        sign = true;
-        digits = number;
-        if (number[0] == '+' || number[0] == '-')
-        {
-            if (number.size() == 1)
-            {
-                digits = "0";
-                return;
-            }
-
-            if (number[0] == '-')
-                sign = false;
-
-            digits.erase(digits.begin());
-        }
-
-        size_t size = digits.size();
-        for (size_t i = 0; i < size; i++)
-            if (digits[i] < '0' || digits[i] > '9')
-            {
-                sign = true;
-                digits = "0";
-                return;
-            }
-
-        size_t i = 0, zerosNumber = 0;
-        while (i < size)
-        {
-            if (digits[i] != '0')
-                break;
-            i++;
-            zerosNumber++;
-        }
-
-        if (zerosNumber != 0)
-        {
-            if (zerosNumber == size)
-            {
-                digits.erase(0, zerosNumber - 1);
-                sign = true;
-            }
-            else
-                digits.erase(0, zerosNumber);
-        }
-    }
+    CheckString(number, digits, sign);
 }
 
 LongInteger::LongInteger(const string& number)
 {
-    if (number.size() == 0)
-    {
-        sign = true;
-        digits = "0";
-    }
-    else
-    {
-        sign = true;
-        digits = number;
-        if (number[0] == '+' || number[0] == '-')
-        {
-            if (number.size() == 1)
-            {
-                digits = "0";
-                return;
-            }
-
-            if (number[0] == '-')
-                sign = false;
-
-            digits.erase(digits.begin());
-        }
-
-        size_t size = digits.size();
-        for (size_t i = 0; i < size; i++)
-            if (digits[i] < '0' || digits[i] > '9')
-            {
-                sign = true;
-                digits = "0";
-                return;
-            }
-
-        size_t i = 0, zerosNumber = 0;
-        while (i < size)
-        {
-            if (digits[i] != '0')
-                break;
-            i++;
-            zerosNumber++;
-        }
-
-        if (zerosNumber != 0)
-        {
-            if (zerosNumber == size)
-            {
-                digits.erase(0, zerosNumber - 1);
-                sign = true;
-            }
-            else
-                digits.erase(0, zerosNumber);
-        }
-    }
+    CheckString(number, digits, sign);
 }
 
 const string& LongInteger::GetDigits() const
