@@ -309,5 +309,14 @@ LongDouble& LongDouble::operator=(const LongInteger& number)
     return *this;
 }
 
+LongDouble LongDouble::operator-() const
+{
+    LongDouble result;
+    result = *this;
+    result.SetSign(!sign);
+
+    return result;
+}
+
 } //end namespace
 
