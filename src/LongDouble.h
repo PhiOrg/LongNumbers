@@ -21,16 +21,16 @@ namespace LongNumber
 class LongDouble
 {
     public:
-        explicit LongDouble();
-        explicit LongDouble(const long double, unsigned short int = 6);
-        explicit LongDouble(const double, unsigned short int = 6);
-        explicit LongDouble(const float, unsigned short int = 6);
-        explicit LongDouble(const int, unsigned short int = 6);
-        explicit LongDouble(const long, unsigned short int = 6);
-        explicit LongDouble(const long long, unsigned short int = 6);
-        explicit LongDouble(const unsigned, unsigned short int = 6);
-        explicit LongDouble(const unsigned long, unsigned short int = 6);
-        explicit LongDouble(const unsigned long long, unsigned short int = 6);
+        LongDouble();
+        LongDouble(const long double, unsigned short int = 6);
+        LongDouble(const double, unsigned short int = 6);
+        LongDouble(const float, unsigned short int = 6);
+        LongDouble(const int, unsigned short int = 6);
+        LongDouble(const long, unsigned short int = 6);
+        LongDouble(const long long, unsigned short int = 6);
+        LongDouble(const unsigned, unsigned short int = 6);
+        LongDouble(const unsigned long, unsigned short int = 6);
+        LongDouble(const unsigned long long, unsigned short int = 6);
         LongDouble(const LongInteger&, unsigned short int = 6);
 
         LongDouble& operator=(const LongDouble&);
