@@ -22,6 +22,12 @@ namespace LongNumber
 
 class LongInteger
 {
+
+    friend class LongDouble;
+    friend void MultiplyBy10(LongInteger&, size_t);
+    friend void DivisionBy10(LongInteger&, size_t);
+    friend LongInteger _abs(const LongInteger&);
+
     public:
         LongInteger();
         LongInteger(const int);
@@ -46,8 +52,10 @@ class LongInteger
         }
 
         LongInteger operator-() const;
+
         explicit operator bool() const;
         bool operator!() const;
+
         friend bool operator==(const LongInteger&, const LongInteger&);
         friend bool operator!=(const LongInteger&, const LongInteger&);
         friend bool operator> (const LongInteger&, const LongInteger&);
@@ -65,6 +73,7 @@ class LongInteger
         friend LongInteger operator*(const LongInteger&, const LongInteger&);
         friend LongInteger operator/(const LongInteger&, const LongInteger&);
         friend LongInteger operator%(const LongInteger&, const LongInteger&);
+
         LongInteger& operator+=(const LongInteger&);
         LongInteger& operator-=(const LongInteger&);
         LongInteger& operator*=(const LongInteger&);
@@ -97,11 +106,6 @@ class LongInteger
     protected:
         void SetSign(bool value);
         void SetDigits(const std::string&);
-
-    friend class LongDouble;
-    friend void MultiplyBy10(LongInteger&, size_t);
-    friend void DivisionBy10(LongInteger&, size_t);
-    friend LongInteger _abs(const LongInteger&);
 
     private:
         std::string digits;
