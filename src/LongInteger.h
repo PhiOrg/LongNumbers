@@ -30,6 +30,7 @@ class LongInteger
 
     public:
         LongInteger();
+        LongInteger(const float);
         LongInteger(const int);
         LongInteger(const long);
         LongInteger(const long long);
