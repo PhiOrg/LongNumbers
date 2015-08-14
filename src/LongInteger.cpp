@@ -46,6 +46,20 @@ LongInteger::LongInteger(const double number)
     digits = to_string(x);
 }
 
+LongInteger::LongInteger(const long double number)
+{
+    long long x = (long long)number;
+    if (x < 0)
+    {
+        sign = false;
+        x *= -1;
+    }
+    else
+        sign = true;
+
+    digits = to_string(x);
+}
+
 LongInteger::LongInteger(const int number)
 {
     int x = number;

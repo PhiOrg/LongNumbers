@@ -32,6 +32,7 @@ class LongInteger
         LongInteger();
         LongInteger(const float);
         LongInteger(const double);
+        LongInteger(const long double);
         LongInteger(const int);
         LongInteger(const long);
         LongInteger(const long long);
