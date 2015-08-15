@@ -12,6 +12,8 @@ std::string DecreasesNumbers(const std::string&, const std::string&);
 
 void CheckString(const std::string&, std::string&, bool&);
 
+bool CheckIfStringNotEqualWithZero(const char*, size_t);
+
 } //end namespace
 
 #endif
