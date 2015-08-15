@@ -105,3 +105,13 @@ BOOST_AUTO_TEST_CASE(LongDoubleTestUnaryMinusOperator)
                 !d.GetSign() && d.GetDecimalsNumber() == 6);
 }
 
+BOOST_AUTO_TEST_CASE(TestLongDoubleCastToBool)
+{
+    LongDouble a = 0, b = 5.23, c = 0.00023, d = 0.00000007;
+
+    BOOST_CHECK(!(bool) a);
+    BOOST_CHECK((bool) b);
+    BOOST_CHECK((bool) c);
+    BOOST_CHECK(!(bool) d);
+}
+
