@@ -49,6 +49,8 @@ class LongDouble
 
         LongDouble operator-() const;
 
+        explicit operator bool() const;
+
         bool GetSign() const;
         const std::string& GetDigits() const;
         const std::string& GetDecimals() const;

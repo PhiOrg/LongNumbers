@@ -1,4 +1,5 @@
 #include "LongDouble.h"
+#include "Utilities.h"
 
 using namespace std;
 
@@ -321,6 +322,17 @@ LongDouble LongDouble::operator-() const
 void LongDouble::SetSign(bool value)
 {
     sign = value;
+}
+
+LongDouble::operator bool() const
+{
+    if (digits != "0")
+        return true;
+
+    if (CheckIfStringNotEqualWithZero(decimals.c_str(), decimals.size()))
+        return true;
+
+    return false;
 }
 
 } //end namespace
