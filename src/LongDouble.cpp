@@ -335,5 +335,10 @@ LongDouble::operator bool() const
     return false;
 }
 
+bool LongDouble::operator!() const
+{
+    return !((bool) *this);
+}
+
 } //end namespace
 

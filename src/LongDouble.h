@@ -50,6 +50,7 @@ class LongDouble
         LongDouble operator-() const;
 
         explicit operator bool() const;
+        bool operator!() const;
 
         bool GetSign() const;
         const std::string& GetDigits() const;
