@@ -115,3 +115,13 @@ BOOST_AUTO_TEST_CASE(TestLongDoubleCastToBool)
     BOOST_CHECK(!(bool) d);
 }
 
+BOOST_AUTO_TEST_CASE(LongDoubleTestNotOperator)
+{
+    LongDouble a = 0, b = 5.23, c = 0.00023, d = 0.00000007;
+
+    BOOST_CHECK(!a);
+    BOOST_CHECK(!(!b));
+    BOOST_CHECK(!(!c));
+    BOOST_CHECK(!d);
+}
+
