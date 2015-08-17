@@ -8,14 +8,14 @@ using namespace LongNumber;
 
 BOOST_AUTO_TEST_CASE(TestLongDoubleConstructor)
 {
-    LongDouble a(3.17), b(-1923.34646), c(56.123456789, 9);
+    LongDouble a(3.17), b(-1923.34646), c(56.123456789);
 
     BOOST_CHECK(a.GetDigits() == "3" && a.GetDecimals() == "170000" &&
                 a.GetSign() && a.GetDecimalsNumber() == 6);
     BOOST_CHECK(b.GetDigits() == "1923" && b.GetDecimals() == "346460" &&
                 !b.GetSign() && b.GetDecimalsNumber() == 6);
-    BOOST_CHECK(c.GetDigits() == "56" && c.GetDecimals() == "123457000" &&
-                c.GetSign() && c.GetDecimalsNumber() == 9);
+    BOOST_CHECK(c.GetDigits() == "56" && c.GetDecimals() == "123457" &&
+                c.GetSign() && c.GetDecimalsNumber() == 6);
 }
 
 BOOST_AUTO_TEST_CASE(TestLongIntegerConstructor)
@@ -128,7 +128,7 @@ BOOST_AUTO_TEST_CASE(LongDoubleTestNotOperator)
 BOOST_AUTO_TEST_CASE(LongDoubleTestEqualOperator)
 {
     LongDouble a = 5, b = 4, c = -5, d = 12, e = 5, f = 17, g = 17, h = -17;
-    LongDouble i = 2.73, j(2.73, 10), k = 2.72, l("2.73000010");
+    LongDouble i = 2.73, j(2.73), k = 2.72, l("2.73000010");
 
     BOOST_CHECK(!(a == b));
     BOOST_CHECK(a == a);
