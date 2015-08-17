@@ -372,5 +372,10 @@ bool operator==(const LongDouble& a, const LongDouble& b)
     return true;
 }
 
+bool operator!=(const LongDouble& a, const LongDouble& b)
+{
+    return !(a == b);
+}
+
 } //end namespace
 
