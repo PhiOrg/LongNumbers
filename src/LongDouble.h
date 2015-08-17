@@ -22,15 +22,15 @@ class LongDouble
 {
     public:
         LongDouble();
-        LongDouble(const long double, unsigned short int = 6);
-        LongDouble(const double, unsigned short int = 6);
-        LongDouble(const float, unsigned short int = 6);
-        LongDouble(const int, unsigned short int = 6);
-        LongDouble(const long, unsigned short int = 6);
-        LongDouble(const long long, unsigned short int = 6);
-        LongDouble(const unsigned, unsigned short int = 6);
-        LongDouble(const unsigned long, unsigned short int = 6);
-        LongDouble(const unsigned long long, unsigned short int = 6);
+        LongDouble(const long double);
+        LongDouble(const double);
+        LongDouble(const float);
+        LongDouble(const int);
+        LongDouble(const long);
+        LongDouble(const long long);
+        LongDouble(const unsigned);
+        LongDouble(const unsigned long);
+        LongDouble(const unsigned long long);
         LongDouble(const LongInteger&);
         LongDouble(const char*);
         LongDouble(const std::string&);

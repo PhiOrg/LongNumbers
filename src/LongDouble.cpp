@@ -11,18 +11,17 @@ using namespace std;
                         else \
                             sign = true; \
 \
-                        decimalsNumber = decimals; \
-                        SplitNumber(digits, this->decimals, to_string(x)); \
+                        decimalsNumber = 6; \
+                        SplitNumber(digits, decimals, to_string(x)); \
 \
-                        if (decimalsNumber < this->decimals.size()) \
+                        if (decimalsNumber < decimals.size()) \
                         { \
-                            this->decimals.erase(decimalsNumber); \
+                            decimals.erase(decimalsNumber); \
                         } \
-                        if (decimalsNumber > this->decimals.size()) \
+                        if (decimalsNumber > decimals.size()) \
                         { \
-                            for (size_t i = this->decimals.size(); \
-                                 i < decimalsNumber; i++) \
-                                this->decimals.push_back('0'); \
+                            for (size_t i = decimals.size(); i < 6; i++) \
+                                decimals.push_back('0'); \
                         }
 
 namespace LongNumber
@@ -59,56 +58,55 @@ void SplitNumber(string& digits, string& decimals, string number)
         decimals.push_back(number[i]);
 }
 
-LongDouble::LongDouble(const long double number, unsigned short int decimals)
+LongDouble::LongDouble(const long double number)
 {
     long double x = number;
     CreateNumber
 }
 
-LongDouble::LongDouble(const double number, unsigned short int decimals)
+LongDouble::LongDouble(const double number)
 {
     double x = number;
     CreateNumber
 }
 
-LongDouble::LongDouble(const float number, unsigned short int decimals)
+LongDouble::LongDouble(const float number)
 {
     float x = number;
     CreateNumber
 }
 
-LongDouble::LongDouble(const int number, unsigned short int decimals)
+LongDouble::LongDouble(const int number)
 {
     int x = number;
     CreateNumber
 }
 
-LongDouble::LongDouble(const long number, unsigned short int decimals)
+LongDouble::LongDouble(const long number)
 {
     long x = number;
     CreateNumber
 }
 
-LongDouble::LongDouble(const long long number, unsigned short int decimals)
+LongDouble::LongDouble(const long long number)
 {
     long long x = number;
     CreateNumber
 }
 
-LongDouble::LongDouble(const unsigned number, unsigned short int decimals)
+LongDouble::LongDouble(const unsigned number)
 {
     unsigned x = number;
     CreateNumber
 }
 
-LongDouble::LongDouble(const unsigned long number, unsigned short int decimals)
+LongDouble::LongDouble(const unsigned long number)
 {
     unsigned long x = number;
     CreateNumber
 }
 
-LongDouble::LongDouble(const unsigned long long number,
-                       unsigned short int decimals)
+LongDouble::LongDouble(const unsigned long long number)
 {
     unsigned long long x = number;
     CreateNumber
@@ -117,7 +115,6 @@ LongDouble::LongDouble(const unsigned long long number,
 LongDouble::LongDouble()
 {
     int x = 0;
-    unsigned short int decimals = 6;
     CreateNumber
 }
 
