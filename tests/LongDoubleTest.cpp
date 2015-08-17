@@ -21,12 +21,12 @@ BOOST_AUTO_TEST_CASE(TestLongDoubleConstructor)
 BOOST_AUTO_TEST_CASE(TestLongIntegerConstructor)
 {
     LongInteger a = 17, b = -32;
-    LongDouble c(a), d(b, 9);
+    LongDouble c(a), d(b);
 
     BOOST_CHECK(c.GetDigits() == "17" && c.GetDecimals() == "000000" &&
                 c.GetSign() && c.GetDecimalsNumber() == 6);
-    BOOST_CHECK(d.GetDigits() == "32" && d.GetDecimals() == "000000000" &&
-                !d.GetSign() && d.GetDecimalsNumber() == 9);
+    BOOST_CHECK(d.GetDigits() == "32" && d.GetDecimals() == "000000" &&
+                !d.GetSign() && d.GetDecimalsNumber() == 6);
 }
 
 BOOST_AUTO_TEST_CASE(TestAssignmentLongDoubleOperator)
@@ -84,12 +84,12 @@ BOOST_AUTO_TEST_CASE(TestStringConstructor)
 BOOST_AUTO_TEST_CASE(TestLongDoubleClassConstructor)
 {
     LongDouble a = "12.345", b = "-7.2345";
-    LongDouble c(a), d(b, 2);
+    LongDouble c(a), d(b);
 
     BOOST_CHECK(c.GetDigits() == "12" && a.GetDecimals() == "345000" &&
                 c.GetSign() && c.GetDecimalsNumber() == 6);
-    BOOST_CHECK(d.GetDigits() == "7" && d.GetDecimals() == "23" &&
-                !d.GetSign() && d.GetDecimalsNumber() == 2);
+    BOOST_CHECK(d.GetDigits() == "7" && d.GetDecimals() == "234500" &&
+                !d.GetSign() && d.GetDecimalsNumber() == 6);
 }
 
 BOOST_AUTO_TEST_CASE(LongDoubleTestUnaryMinusOperator)
