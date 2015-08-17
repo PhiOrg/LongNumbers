@@ -220,7 +220,44 @@ bool operator>(const LongInteger& a, const LongInteger& b)
 
 bool operator<(const LongInteger& a, const LongInteger& b)
 {
-    return !(a > b);
+    if (a.sign && !b.sign)
+        return false;
+    if (!a.sign && b.sign)
+        return true;
+
+    if (a.digits.size() < b.digits.size())
+    {
+        if (a.sign)
+            return true;
+        else
+            return false;
+    }
+
+    if (a.digits.size() > b.digits.size())
+    {
+        if (a.sign)
+            return false;
+        else
+            return true;
+    }
+
+    size_t size = a.digits.size();
+    for (size_t i = 0; i < size; ++i)
+        if (a.digits[i] != b.digits[i])
+        {
+            if (a.digits[i] < b.digits[i])
+                if (a.sign)
+                    return true;
+                else
+                    return false;
+            else
+                if (a.sign)
+                    return false;
+                else
+                    return true;
+        }
+
+    return false;
 }
 
 bool operator>=(const LongInteger& a, const LongInteger& b)
