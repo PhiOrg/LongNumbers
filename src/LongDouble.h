@@ -54,6 +54,15 @@ class LongDouble
 
         friend bool operator==(const LongDouble&, const LongDouble&);
 
+        friend std::ostream& operator<<(std::ostream& os, const LongDouble& a)
+        {
+            if (!a.sign)
+                os << '-';
+            os << a.digits << '.' << a.decimals;
+
+            return os;
+        }
+
         bool GetSign() const;
         const std::string& GetDigits() const;
         const std::string& GetDecimals() const;
