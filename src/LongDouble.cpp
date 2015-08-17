@@ -121,12 +121,12 @@ LongDouble::LongDouble()
     CreateNumber
 }
 
-LongDouble::LongDouble(const LongInteger& number, unsigned short int decimals)
+LongDouble::LongDouble(const LongInteger& number)
 {
     digits = number.GetDigits();
     sign = number.GetSign();
-    decimalsNumber = decimals;
-    for (size_t i = 0; i < decimals; i++)
+    decimalsNumber = 6;
+    for (size_t i = 0; i < 6; i++)
         this->decimals.push_back('0');
 }
 
@@ -275,19 +275,12 @@ LongDouble::LongDouble(const string& number)
     }
 }
 
-LongDouble::LongDouble(const LongDouble& number, unsigned short int decimals)
+LongDouble::LongDouble(const LongDouble& number)
 {
     sign = number.GetSign();
     digits = number.GetDigits();
-    this->decimals = number.GetDecimals();
-    decimalsNumber = decimals;
-
-    if (decimalsNumber > this->decimals.size())
-        for (unsigned short int i = this->decimals.size(); i < decimals; i++)
-            this->decimals.push_back('0');
-
-    if (decimalsNumber < this->decimals.size())
-        this->decimals.erase(decimalsNumber);
+    decimals = number.GetDecimals();
+    decimalsNumber = number.GetDecimalsNumber();
 }
 
 LongDouble& LongDouble::operator=(const LongDouble& number)
