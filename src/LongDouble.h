@@ -63,6 +63,15 @@ class LongDouble
             return os;
         }
 
+        friend std::istream& operator>>(std::istream& is, LongDouble& a)
+        {
+            std::string str;
+            is >> str;
+            a = str;
+
+            return is;
+        }
+
         bool GetSign() const;
         const std::string& GetDigits() const;
         const std::string& GetDecimals() const;
