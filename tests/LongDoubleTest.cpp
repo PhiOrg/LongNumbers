@@ -56,8 +56,8 @@ BOOST_AUTO_TEST_CASE(TestAssignmentLongIntegerOperator)
 
 BOOST_AUTO_TEST_CASE(TestStringConstructor)
 {
-    LongDouble a("123"), b("-17"), c("0"), d("0.23"), e("-12934643324.1234", 2);
-    LongDouble f("12+.-123"), g("asd"), h("12..79"), i("-123.45a", 8), j("a", 3);
+    LongDouble a("123"), b("-17"), c("0"), d("0.23"), e("-12934643324.1234");
+    LongDouble f("12+.-123"), g("asd"), h("12..79"), i("-123.45a"), j("a");
 
     BOOST_CHECK(a.GetDigits() == "123" && a.GetDecimals() == "000000" &&
                 a.GetSign() && a.GetDecimalsNumber() == 6);
@@ -67,18 +67,18 @@ BOOST_AUTO_TEST_CASE(TestStringConstructor)
                 c.GetSign() && c.GetDecimalsNumber() == 6);
     BOOST_CHECK(d.GetDigits() == "0" && d.GetDecimals() == "230000" &&
                 d.GetSign() && d.GetDecimalsNumber() == 6);
-    BOOST_CHECK(e.GetDigits() == "12934643324" && e.GetDecimals() == "12" &&
-                !e.GetSign() && e.GetDecimalsNumber() == 2);
+    BOOST_CHECK(e.GetDigits() == "12934643324" && e.GetDecimals() == "123400" &&
+                !e.GetSign() && e.GetDecimalsNumber() == 6);
     BOOST_CHECK(f.GetDigits() == "0" && f.GetDecimals() == "000000" &&
                 f.GetSign() && f.GetDecimalsNumber() == 6);
     BOOST_CHECK(g.GetDigits() == "0" && g.GetDecimals() == "000000" &&
                 g.GetSign() && g.GetDecimalsNumber() == 6);
     BOOST_CHECK(h.GetDigits() == "0" && h.GetDecimals() == "000000" &&
                 h.GetSign() && h.GetDecimalsNumber() == 6);
-    BOOST_CHECK(i.GetDigits() == "0" && i.GetDecimals() == "00000000" &&
-                i.GetSign() && i.GetDecimalsNumber() == 8);
-    BOOST_CHECK(j.GetDigits() == "0" && j.GetDecimals() == "000" &&
-                j.GetSign() && j.GetDecimalsNumber() == 3);
+    BOOST_CHECK(i.GetDigits() == "0" && i.GetDecimals() == "000000" &&
+                i.GetSign() && i.GetDecimalsNumber() == 6);
+    BOOST_CHECK(j.GetDigits() == "0" && j.GetDecimals() == "000000" &&
+                j.GetSign() && j.GetDecimalsNumber() == 6);
 }
 
 BOOST_AUTO_TEST_CASE(TestLongDoubleClassConstructor)
@@ -128,7 +128,7 @@ BOOST_AUTO_TEST_CASE(LongDoubleTestNotOperator)
 BOOST_AUTO_TEST_CASE(LongDoubleTestEqualOperator)
 {
     LongDouble a = 5, b = 4, c = -5, d = 12, e = 5, f = 17, g = 17, h = -17;
-    LongDouble i = 2.73, j(2.73, 10), k = 2.72, l("2.73000010", 8);
+    LongDouble i = 2.73, j(2.73, 10), k = 2.72, l("2.73000010");
 
     BOOST_CHECK(!(a == b));
     BOOST_CHECK(a == a);
