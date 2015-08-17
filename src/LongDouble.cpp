@@ -340,5 +340,47 @@ bool LongDouble::operator!() const
     return !((bool) *this);
 }
 
+bool operator==(const LongDouble& a, const LongDouble& b)
+{
+    if (a.sign != b.sign)
+        return false;
+
+    if (a.digits.size() != b.digits.size())
+        return false;
+
+    size_t size = a.digits.size();
+    for (size_t i = 0; i < size; i++)
+        if (a.digits[i] != b.digits[i])
+            return false;
+
+    size_t min, max;
+    if (a.decimals.size() < b.decimals.size())
+    {
+        min = a.decimals.size();
+        max = b.decimals.size();
+    }
+    else
+    {
+        min = b.decimals.size();
+        max = a.decimals.size();
+    }
+
+    for (size_t i = 0; i < min; i++)
+        if (a.decimals[i] != b.decimals[i])
+            return false;
+
+    if (min != max)
+    {
+        if (max == a.decimals.size())
+            return !CheckIfStringNotEqualWithZero(a.decimals.c_str() + min,
+                                                  max - min);
+        else
+            return !CheckIfStringNotEqualWithZero(b.decimals.c_str() + min,
+                                                  max - min);
+    }
+
+    return true;
+}
+
 } //end namespace
 
