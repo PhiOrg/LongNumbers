@@ -32,8 +32,8 @@ class LongDouble
         LongDouble(const unsigned long, unsigned short int = 6);
         LongDouble(const unsigned long long, unsigned short int = 6);
         LongDouble(const LongInteger&, unsigned short int = 6);
-        LongDouble(const char*, unsigned short int = 6);
-        LongDouble(const std::string&, unsigned short int = 6);
+        LongDouble(const char*);
+        LongDouble(const std::string&);
         LongDouble(const LongDouble&, unsigned short int = 6);
 
         LongDouble& operator=(const LongDouble&);
