@@ -125,3 +125,25 @@ BOOST_AUTO_TEST_CASE(LongDoubleTestNotOperator)
     BOOST_CHECK(!d);
 }
 
+BOOST_AUTO_TEST_CASE(LongDoubleTestEqualOperator)
+{
+    LongDouble a = 5, b = 4, c = -5, d = 12, e = 5, f = 17, g = 17, h = -17;
+    LongDouble i = 2.73, j(2.73, 10), k = 2.72, l("2.73000010", 8);
+
+    BOOST_CHECK(!(a == b));
+    BOOST_CHECK(a == a);
+    BOOST_CHECK(a == e);
+    BOOST_CHECK(a == 5);
+    BOOST_CHECK(!(a == c));
+    BOOST_CHECK(!(a == d));
+    BOOST_CHECK(a == -c);
+    BOOST_CHECK(!(d == e));
+    BOOST_CHECK(!(d == 11));
+    BOOST_CHECK(!(d == f));
+    BOOST_CHECK(!(g == h));
+    BOOST_CHECK(f == f);
+    BOOST_CHECK(!(i == k));
+    BOOST_CHECK(i == j);
+    BOOST_CHECK(!(i == l));
+}
+
