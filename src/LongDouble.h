@@ -54,6 +54,7 @@ class LongDouble
 
         friend bool operator==(const LongDouble&, const LongDouble&);
         friend bool operator!=(const LongDouble&, const LongDouble&);
+        friend bool operator> (const LongDouble&, const LongDouble&);
 
         friend std::ostream& operator<<(std::ostream& os, const LongDouble& a)
         {
