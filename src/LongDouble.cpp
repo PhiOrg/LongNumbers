@@ -429,9 +429,9 @@ bool operator>(const LongDouble& a, const LongDouble& b)
     }
 
     for (size_t i = 0; i < min; i++)
-        if (a.digits[i] != b.digits[i])
+        if (a.decimals[i] != b.decimals[i])
         {
-            if (a.digits[i] > b.digits[i])
+            if (a.decimals[i] > b.decimals[i])
                 if (a.sign)
                     return true;
                 else
