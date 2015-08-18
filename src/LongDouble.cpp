@@ -453,5 +453,81 @@ bool operator>(const LongDouble& a, const LongDouble& b)
     return false;
 }
 
+bool operator<(const LongDouble& a, const LongDouble& b)
+{
+    if (a.sign && !b.sign)
+        return false;
+    if (!a.sign && b.sign)
+        return true;
+
+    if (a.digits.size() > b.digits.size())
+    {
+        if (a.sign)
+            return false;
+        else
+            return true;
+    }
+
+    if (a.digits.size() < b.digits.size())
+    {
+        if (a.sign)
+            return true;
+        else
+            return false;
+    }
+
+    size_t size = a.digits.size();
+    for (size_t i = 0; i < size; ++i)
+        if (a.digits[i] != b.digits[i])
+        {
+            if (a.digits[i] < b.digits[i])
+                if (a.sign)
+                    return true;
+                else
+                    return false;
+            else
+                if (a.sign)
+                    return false;
+                else
+                    return true;
+        }
+
+    size_t min, max;
+    if (a.decimals.size() < b.decimals.size())
+    {
+        min = a.decimals.size();
+        max = b.decimals.size();
+    }
+    else
+    {
+        min = b.decimals.size();
+        max = a.decimals.size();
+    }
+
+    for (size_t i = 0; i < min; i++)
+        if (a.decimals[i] != b.decimals[i])
+        {
+            if (a.decimals[i] < b.decimals[i])
+                if (a.sign)
+                    return true;
+                else
+                    return false;
+            else
+                if (a.sign)
+                    return false;
+                else
+                    return true;
+        }
+
+    if (min != max)
+    {
+        if (max == b.decimals.size())
+            return CheckIfStringNotEqualWithZero(b.decimals.c_str() + min,
+                                                 max - min);
+    }
+
+    return false;
+}
+
 } //end namespace
 
