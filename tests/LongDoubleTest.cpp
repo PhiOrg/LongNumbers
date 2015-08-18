@@ -167,3 +167,22 @@ BOOST_AUTO_TEST_CASE(LongDoubleTestGreaterOperator)
     BOOST_CHECK(!(a > a));
 }
 
+BOOST_AUTO_TEST_CASE(LongDoubleTestLessOperator)
+{
+    LongDouble a = 2.73, b = "2.7300000001", c = "2.7300000000", d = 2.754;
+    LongDouble e = 3.14, f = -13.24;
+
+    BOOST_CHECK(a < b);
+    BOOST_CHECK(!(a < c));
+    BOOST_CHECK(!(b < c));
+    BOOST_CHECK(b < d);
+    BOOST_CHECK(!(b < c));
+    BOOST_CHECK(c < b);
+    BOOST_CHECK(-b < a);
+    BOOST_CHECK(f < a);
+    BOOST_CHECK(!(e < a));
+    BOOST_CHECK(a < e);
+    BOOST_CHECK(d < e);
+    BOOST_CHECK(!(a < a));
+}
+
