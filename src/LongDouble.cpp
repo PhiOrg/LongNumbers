@@ -691,5 +691,10 @@ void LongDouble::SetDecimals(const string& d)
     decimals = d;
 }
 
+void LongDouble::SetDecimalsNumber(size_t value)
+{
+    decimalsNumber = value;
+}
+
 } //end namespace
 
