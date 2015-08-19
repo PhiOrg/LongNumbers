@@ -166,5 +166,42 @@ bool CheckIfStringNotEqualWithZero(const char* str, size_t size)
     return false;
 }
 
+/*
+ * Return:
+ * -1 if a <  b
+ *  0 if a == b
+ *  1 if a >  b
+ */
+short int CompareStrings(const string& a, const string& b)
+{
+    size_t sizeA = a.size(), sizeB = b.size();
+    size_t size = sizeA > sizeB ? sizeA : sizeB;
+    for (size_t i = 0; i < size; i++)
+    {
+        if (a[i] != b[i])
+        {
+            if (a[i] > b[i])
+                return 1;
+            else
+                return -1;
+        }
+    }
+
+    if (sizeA == size)
+    {
+        if (CheckIfStringNotEqualWithZero(b.c_str() + size, sizeB - size))
+            return -1;
+        else
+            return 0;
+    }
+    else
+    {
+        if (CheckIfStringNotEqualWithZero(a.c_str() + size, sizeA - size))
+            return 1;
+        else
+            return 0;
+    }
+}
+
 } //end namespace
 

@@ -15,6 +15,8 @@ void CheckString(const std::string&, std::string&, bool&);
 
 bool CheckIfStringNotEqualWithZero(const char*, size_t);
 
+short int CompareStrings(const std::string&, const std::string&);
+
 } //end namespace
 
 #endif
