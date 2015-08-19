@@ -681,5 +681,10 @@ bool operator<=(const LongDouble& a, const LongDouble& b)
     return true;
 }
 
+LongDouble::SetDigits(const string& d)
+{
+    digits = d;
+}
+
 } //end namespace
 
