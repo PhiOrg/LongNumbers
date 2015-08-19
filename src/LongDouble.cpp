@@ -42,7 +42,7 @@ const string& LongDouble::GetDecimals() const
     return decimals;
 }
 
-unsigned short int LongDouble::GetDecimalsNumber() const
+size_t LongDouble::GetDecimalsNumber() const
 {
     return decimalsNumber;
 }
@@ -137,7 +137,7 @@ LongDouble::LongDouble(const char* x)
     if (size == 0)
     {
         digits = "0";
-        for (unsigned short int i = 0; i < decimalsNumber; i++)
+        for (size_t i = 0; i < decimalsNumber; i++)
             decimals.push_back('0');
         return;
     }
@@ -147,7 +147,7 @@ LongDouble::LongDouble(const char* x)
         if (number.size() == 1)
         {
             digits = "0";
-            for (unsigned short int i = 0; i < decimalsNumber; i++)
+            for (size_t i = 0; i < decimalsNumber; i++)
                 decimals.push_back('0');
             return;
         }
@@ -180,7 +180,7 @@ LongDouble::LongDouble(const char* x)
     {
         digits = "0";
         sign = true;
-        for (unsigned short int j = 0; j < decimalsNumber; j++)
+        for (size_t j = 0; j < decimalsNumber; j++)
             decimals.push_back('0');
     }
     else
@@ -193,7 +193,7 @@ LongDouble::LongDouble(const char* x)
         decimalsNumber = decimals.size();
         if (decimalsNumber < 6)
         {
-            for (unsigned short int j = decimalsNumber; j < 6; j++)
+            for (size_t j = decimalsNumber; j < 6; j++)
                 decimals.push_back('0');
             decimalsNumber = 6;
         }
@@ -209,7 +209,7 @@ LongDouble::LongDouble(const string& number)
     if (size == 0)
     {
         digits = "0";
-        for (unsigned short int i = 0; i < decimalsNumber; i++)
+        for (size_t i = 0; i < decimalsNumber; i++)
             decimals.push_back('0');
         return;
     }
@@ -219,7 +219,7 @@ LongDouble::LongDouble(const string& number)
         if (number.size() == 1)
         {
             digits = "0";
-            for (unsigned short int i = 0; i < decimalsNumber; i++)
+            for (size_t i = 0; i < decimalsNumber; i++)
                 decimals.push_back('0');
             return;
         }
@@ -252,7 +252,7 @@ LongDouble::LongDouble(const string& number)
     {
         digits = "0";
         sign = true;
-        for (unsigned short int j = 0; j < decimalsNumber; j++)
+        for (size_t j = 0; j < decimalsNumber; j++)
             decimals.push_back('0');
     }
     else
@@ -265,7 +265,7 @@ LongDouble::LongDouble(const string& number)
         decimalsNumber = decimals.size();
         if (decimalsNumber < 6)
         {
-            for (unsigned short int j = decimalsNumber; j < 6; j++)
+            for (size_t j = decimalsNumber; j < 6; j++)
                 decimals.push_back('0');
             decimalsNumber = 6;
         }

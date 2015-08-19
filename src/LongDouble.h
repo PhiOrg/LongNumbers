@@ -80,13 +80,13 @@ class LongDouble
         bool GetSign() const;
         const std::string& GetDigits() const;
         const std::string& GetDecimals() const;
-        unsigned short int GetDecimalsNumber() const;
+        size_t GetDecimalsNumber() const;
 
     protected:
         void SetSign(bool value);
 
     private:
-        unsigned short int decimalsNumber;
+        size_t decimalsNumber;
         bool sign; //true for positive, false for negative
         std::string digits, decimals;
 };
