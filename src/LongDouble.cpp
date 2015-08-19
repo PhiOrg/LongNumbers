@@ -686,5 +686,10 @@ LongDouble::SetDigits(const string& d)
     digits = d;
 }
 
+void LongDouble::SetDecimals(const string& d)
+{
+    decimals = d;
+}
+
 } //end namespace
 

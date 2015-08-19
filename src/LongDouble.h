@@ -85,6 +85,7 @@ class LongDouble
     protected:
         void SetSign(bool value);
         void SetDigits(const std::string&);
+        void SetDecimals(const std::string&);
 
     private:
         size_t decimalsNumber;
