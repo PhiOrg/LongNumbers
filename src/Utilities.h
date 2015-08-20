@@ -8,8 +8,7 @@ namespace LongNumber
 
 std::string GathersNumbers(const std::string&, const std::string&);
 
-std::string DecreasesNumbers(const std::string&, const std::string&,
-                             bool = true);
+std::string DecreasesNumbers(const std::string&, const std::string&);
 
 void CheckString(const std::string&, std::string&, bool&);
 

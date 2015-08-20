@@ -47,7 +47,7 @@ string GathersNumbers(const string& a, const string& b)
     return result;
 }
 
-string DecreasesNumbers(const string& a, const string& b, bool removeZeros)
+string DecreasesNumbers(const string& a, const string& b)
 {
     bool decreases = false;
     short int value;
@@ -89,14 +89,11 @@ string DecreasesNumbers(const string& a, const string& b, bool removeZeros)
         i++;
     }
 
-    if (removeZeros)
-    {
-        for (i = 0; i < asize; i++)
-            if (result[i] != '0')
-                break;
+    for (i = 0; i < asize; i++)
+        if (result[i] != '0')
+            break;
 
-        result.erase(0, i);
-    }
+    result.erase(0, i);
 
     return result;
 }
