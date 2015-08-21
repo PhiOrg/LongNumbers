@@ -203,7 +203,7 @@ short int CompareStrings(const string& a, const string& b)
 string DecreasesDecimals(const string& a, const string& b, bool& taken)
 {
     string result = a;
-    size_t sizeA = a.size - 1, sizeB = b.size() - 1;
+    size_t sizeA = a.size() - 1, sizeB = b.size() - 1;
     if (sizeA < sizeB)
     {
         for (size_t i = sizeA; i < sizeB; i++)
@@ -223,7 +223,7 @@ string DecreasesDecimals(const string& a, const string& b, bool& taken)
         if (value < 0)
         {
             value += 10;
-            decreases = true
+            decreases = true;
         }
         result[i] = value + 48;
     }
