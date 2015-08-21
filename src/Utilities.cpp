@@ -200,5 +200,46 @@ short int CompareStrings(const string& a, const string& b)
     }
 }
 
+string DecreasesDecimals(const string& a, const string& b, bool& taken)
+{
+    string result = a;
+    size_t sizeA = a.size - 1, sizeB = b.size() - 1;
+    if (sizeA < sizeB)
+    {
+        for (size_t i = sizeA; i < sizeB; i++)
+            result.push_back('0');
+    }
+
+    short int value;
+    bool decreases = false;
+    for (size_t i = sizeB; i > 0; i--)
+    {
+        value = a[i] - b[i];
+        if (decreases)
+        {
+            value--;
+            decreases = false;
+        }
+        if (value < 0)
+        {
+            value += 10;
+            decreases = true
+        }
+        result[i] = value + 48;
+    }
+
+    value = a[0] - b[0];
+    if (decreases)
+        value--;
+    if (value < 0)
+    {
+        value += 10;
+        taken = true;
+    }
+    result[0] = value + 48;
+
+    return result;
+}
+
 } //end namespace
 
