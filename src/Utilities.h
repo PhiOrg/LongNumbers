@@ -35,8 +35,9 @@ bool CheckIfStringNotEqualWithZero(const char*, size_t);
 short int CompareStrings(const std::string&, const std::string&);
 
 /*
- * The first string must be greater than the second string.
- * The second parameter indicates if was taken a unit from the integer part.
+ * Doesn't matter if the first string is greater or less than the second
+ * string.
+ * The third parameter indicates if was taken a unit from the integer part.
  */
 std::string DecreasesDecimals(const std::string&, const std::string&, bool&);
 
