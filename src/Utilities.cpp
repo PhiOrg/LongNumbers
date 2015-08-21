@@ -241,5 +241,48 @@ string DecreasesDecimals(const string& a, const string& b, bool& taken)
     return result;
 }
 
+string GathersDecimals(const string& a, const string& b, bool& adding)
+{
+    adding = false;
+    string result = a;
+    size_t bsize = b.size() - 1, asize = a.size() - 1, i;
+    short int value;
+    bool add = false;
+
+    if (asize < bsize)
+    {
+        for (size_t i = asize; i < bsize; i++)
+            result.push_back('0');
+    }
+
+    for (i = bsize; i > 0; i--)
+    {
+        value = a[i] + b[i] - 96;
+        if (add)
+        {
+            value++;
+            add = false;
+        }
+        if (value > 9)
+        {
+            value %= 10;
+            add = true;
+        }
+        result[i] = value + 48;
+    }
+
+    value = a[0] + b[0] - 96;
+    if (add)
+        value++;
+    if (value > 9)
+    {
+        value %= 10;
+        adding = true;
+    }
+    result[0] = value + 48;
+
+    return result;
+}
+
 } //end namespace
 

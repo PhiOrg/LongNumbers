@@ -40,6 +40,13 @@ short int CompareStrings(const std::string&, const std::string&);
  */
 std::string DecreasesDecimals(const std::string&, const std::string&, bool&);
 
+/*
+ * Doesn't matter if the first string is greater or less than the second
+ * string.
+ * The third parameter indicates if must added a unit in integer part.
+ */
+std::string GathersDecimals(const std::string&, const std::string&, bool&);
+
 } //end namespace
 
 #endif
