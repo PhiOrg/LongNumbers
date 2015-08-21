@@ -38,7 +38,7 @@ short int CompareStrings(const std::string&, const std::string&);
  * The first string must be greater than the second string.
  * The second parameter indicates if was taken a unit from the integer part.
  */
-std::string DecreasesDecimals(const std::string&, const std::string&, bool);
+std::string DecreasesDecimals(const std::string&, const std::string&, bool&);
 
 } //end namespace
 
