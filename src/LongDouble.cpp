@@ -42,7 +42,7 @@ const string& LongDouble::GetDecimals() const
     return decimals;
 }
 
-size_t LongDouble::GetDecimalsNumber() const
+size_t LongDouble::GetPrecision() const
 {
     return precision;
 }
@@ -277,12 +277,12 @@ LongDouble::LongDouble(const LongDouble& number)
     sign = number.GetSign();
     digits = number.GetDigits();
     decimals = number.GetDecimals();
-    precision = number.GetDecimalsNumber();
+    precision = number.GetPrecision();
 }
 
 LongDouble& LongDouble::operator=(const LongDouble& number)
 {
-    precision = number.GetDecimalsNumber();
+    precision = number.GetPrecision();
     sign = number.GetSign();
     digits = number.GetDigits();
     decimals = number.GetDecimals();

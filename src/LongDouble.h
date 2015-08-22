@@ -86,7 +86,7 @@ class LongDouble
         bool GetSign() const;
         const std::string& GetDigits() const;
         const std::string& GetDecimals() const;
-        size_t GetDecimalsNumber() const;
+        size_t GetPrecision() const;
 
     protected:
         void SetSign(bool value);

@@ -11,11 +11,11 @@ BOOST_AUTO_TEST_CASE(TestLongDoubleConstructor)
     LongDouble a(3.17), b(-1923.34646), c(56.123456789);
 
     BOOST_CHECK(a.GetDigits() == "3" && a.GetDecimals() == "170000" &&
-                a.GetSign() && a.GetDecimalsNumber() == 6);
+                a.GetSign() && a.GetPrecision() == 6);
     BOOST_CHECK(b.GetDigits() == "1923" && b.GetDecimals() == "346460" &&
-                !b.GetSign() && b.GetDecimalsNumber() == 6);
+                !b.GetSign() && b.GetPrecision() == 6);
     BOOST_CHECK(c.GetDigits() == "56" && c.GetDecimals() == "123457" &&
-                c.GetSign() && c.GetDecimalsNumber() == 6);
+                c.GetSign() && c.GetPrecision() == 6);
 }
 
 BOOST_AUTO_TEST_CASE(TestLongIntegerConstructor)
@@ -24,9 +24,9 @@ BOOST_AUTO_TEST_CASE(TestLongIntegerConstructor)
     LongDouble c(a), d(b);
 
     BOOST_CHECK(c.GetDigits() == "17" && c.GetDecimals() == "000000" &&
-                c.GetSign() && c.GetDecimalsNumber() == 6);
+                c.GetSign() && c.GetPrecision() == 6);
     BOOST_CHECK(d.GetDigits() == "32" && d.GetDecimals() == "000000" &&
-                !d.GetSign() && d.GetDecimalsNumber() == 6);
+                !d.GetSign() && d.GetPrecision() == 6);
 }
 
 BOOST_AUTO_TEST_CASE(TestAssignmentLongDoubleOperator)
@@ -36,9 +36,9 @@ BOOST_AUTO_TEST_CASE(TestAssignmentLongDoubleOperator)
     d = b;
 
     BOOST_CHECK(c.GetDigits() == "17" && c.GetDecimals() == "230000" &&
-                c.GetSign() && c.GetDecimalsNumber() == 6);
+                c.GetSign() && c.GetPrecision() == 6);
     BOOST_CHECK(d.GetDigits() == "23" && d.GetDecimals() == "170000" &&
-                !d.GetSign() && d.GetDecimalsNumber() == 6);
+                !d.GetSign() && d.GetPrecision() == 6);
 }
 
 BOOST_AUTO_TEST_CASE(TestAssignmentLongIntegerOperator)
@@ -49,9 +49,9 @@ BOOST_AUTO_TEST_CASE(TestAssignmentLongIntegerOperator)
     c = -b;
 
     BOOST_CHECK(a.GetDigits() == "17" && a.GetDecimals() == "000000" &&
-                a.GetSign() && a.GetDecimalsNumber() == 6);
+                a.GetSign() && a.GetPrecision() == 6);
     BOOST_CHECK(c.GetDigits() == "17" && c.GetDecimals() == "000000" &&
-                !c.GetSign() && c.GetDecimalsNumber() == 6);
+                !c.GetSign() && c.GetPrecision() == 6);
 }
 
 BOOST_AUTO_TEST_CASE(TestStringConstructor)
@@ -60,25 +60,25 @@ BOOST_AUTO_TEST_CASE(TestStringConstructor)
     LongDouble f("12+.-123"), g("asd"), h("12..79"), i("-123.45a"), j("a");
 
     BOOST_CHECK(a.GetDigits() == "123" && a.GetDecimals() == "000000" &&
-                a.GetSign() && a.GetDecimalsNumber() == 6);
+                a.GetSign() && a.GetPrecision() == 6);
     BOOST_CHECK(b.GetDigits() == "17" && b.GetDecimals() == "000000" &&
-                !b.GetSign() && b.GetDecimalsNumber() == 6);
+                !b.GetSign() && b.GetPrecision() == 6);
     BOOST_CHECK(c.GetDigits() == "0" && a.GetDecimals() == "000000" &&
-                c.GetSign() && c.GetDecimalsNumber() == 6);
+                c.GetSign() && c.GetPrecision() == 6);
     BOOST_CHECK(d.GetDigits() == "0" && d.GetDecimals() == "230000" &&
-                d.GetSign() && d.GetDecimalsNumber() == 6);
+                d.GetSign() && d.GetPrecision() == 6);
     BOOST_CHECK(e.GetDigits() == "12934643324" && e.GetDecimals() == "123400" &&
-                !e.GetSign() && e.GetDecimalsNumber() == 6);
+                !e.GetSign() && e.GetPrecision() == 6);
     BOOST_CHECK(f.GetDigits() == "0" && f.GetDecimals() == "000000" &&
-                f.GetSign() && f.GetDecimalsNumber() == 6);
+                f.GetSign() && f.GetPrecision() == 6);
     BOOST_CHECK(g.GetDigits() == "0" && g.GetDecimals() == "000000" &&
-                g.GetSign() && g.GetDecimalsNumber() == 6);
+                g.GetSign() && g.GetPrecision() == 6);
     BOOST_CHECK(h.GetDigits() == "0" && h.GetDecimals() == "000000" &&
-                h.GetSign() && h.GetDecimalsNumber() == 6);
+                h.GetSign() && h.GetPrecision() == 6);
     BOOST_CHECK(i.GetDigits() == "0" && i.GetDecimals() == "000000" &&
-                i.GetSign() && i.GetDecimalsNumber() == 6);
+                i.GetSign() && i.GetPrecision() == 6);
     BOOST_CHECK(j.GetDigits() == "0" && j.GetDecimals() == "000000" &&
-                j.GetSign() && j.GetDecimalsNumber() == 6);
+                j.GetSign() && j.GetPrecision() == 6);
 }
 
 BOOST_AUTO_TEST_CASE(TestLongDoubleClassConstructor)
@@ -87,9 +87,9 @@ BOOST_AUTO_TEST_CASE(TestLongDoubleClassConstructor)
     LongDouble c(a), d(b);
 
     BOOST_CHECK(c.GetDigits() == "12" && a.GetDecimals() == "345000" &&
-                c.GetSign() && c.GetDecimalsNumber() == 6);
+                c.GetSign() && c.GetPrecision() == 6);
     BOOST_CHECK(d.GetDigits() == "7" && d.GetDecimals() == "234500" &&
-                !d.GetSign() && d.GetDecimalsNumber() == 6);
+                !d.GetSign() && d.GetPrecision() == 6);
 }
 
 BOOST_AUTO_TEST_CASE(LongDoubleTestUnaryMinusOperator)
@@ -100,9 +100,9 @@ BOOST_AUTO_TEST_CASE(LongDoubleTestUnaryMinusOperator)
     d = -b;
 
     BOOST_CHECK(c.GetDigits() == "123" && a.GetDecimals() == "000000" &&
-                c.GetSign() && c.GetDecimalsNumber() == 6);
+                c.GetSign() && c.GetPrecision() == 6);
     BOOST_CHECK(d.GetDigits() == "73" && d.GetDecimals() == "000000" &&
-                !d.GetSign() && d.GetDecimalsNumber() == 6);
+                !d.GetSign() && d.GetPrecision() == 6);
 }
 
 BOOST_AUTO_TEST_CASE(TestLongDoubleCastToBool)
