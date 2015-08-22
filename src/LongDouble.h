@@ -95,7 +95,7 @@ class LongDouble
         void SetDecimalsNumber(size_t);
 
     private:
-        size_t decimalsNumber;
+        size_t precision;
         bool sign; //true for positive, false for negative
         std::string digits, decimals;
 };

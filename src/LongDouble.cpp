@@ -11,14 +11,14 @@ using namespace std;
                         else \
                             sign = true; \
 \
-                        decimalsNumber = 6; \
+                        precision = 6; \
                         SplitNumber(digits, decimals, to_string(x)); \
 \
-                        if (decimalsNumber < decimals.size()) \
+                        if (precision < decimals.size()) \
                         { \
-                            decimals.erase(decimalsNumber); \
+                            decimals.erase(precision); \
                         } \
-                        if (decimalsNumber > decimals.size()) \
+                        if (precision > decimals.size()) \
                         { \
                             for (size_t i = decimals.size(); i < 6; i++) \
                                 decimals.push_back('0'); \
@@ -44,7 +44,7 @@ const string& LongDouble::GetDecimals() const
 
 size_t LongDouble::GetDecimalsNumber() const
 {
-    return decimalsNumber;
+    return precision;
 }
 
 void SplitNumber(string& digits, string& decimals, string number)
@@ -122,7 +122,7 @@ LongDouble::LongDouble(const LongInteger& number)
 {
     digits = number.GetDigits();
     sign = number.GetSign();
-    decimalsNumber = 6;
+    precision = 6;
     for (size_t i = 0; i < 6; i++)
         this->decimals.push_back('0');
 }
@@ -130,14 +130,14 @@ LongDouble::LongDouble(const LongInteger& number)
 LongDouble::LongDouble(const char* x)
 {
     string number = x;
-    decimalsNumber = 6;
+    precision = 6;
     size_t i = 0, size = number.size();
     sign = true;
 
     if (size == 0)
     {
         digits = "0";
-        for (size_t i = 0; i < decimalsNumber; i++)
+        for (size_t i = 0; i < precision; i++)
             decimals.push_back('0');
         return;
     }
@@ -147,7 +147,7 @@ LongDouble::LongDouble(const char* x)
         if (number.size() == 1)
         {
             digits = "0";
-            for (size_t i = 0; i < decimalsNumber; i++)
+            for (size_t i = 0; i < precision; i++)
                 decimals.push_back('0');
             return;
         }
@@ -180,7 +180,7 @@ LongDouble::LongDouble(const char* x)
     {
         digits = "0";
         sign = true;
-        for (size_t j = 0; j < decimalsNumber; j++)
+        for (size_t j = 0; j < precision; j++)
             decimals.push_back('0');
     }
     else
@@ -190,26 +190,26 @@ LongDouble::LongDouble(const char* x)
         if (digits[0] == '-' || digits[0] == '+')
             digits.erase(digits.begin(), digits.begin() + 1);
 
-        decimalsNumber = decimals.size();
-        if (decimalsNumber < 6)
+        precision = decimals.size();
+        if (precision < 6)
         {
-            for (size_t j = decimalsNumber; j < 6; j++)
+            for (size_t j = precision; j < 6; j++)
                 decimals.push_back('0');
-            decimalsNumber = 6;
+            precision = 6;
         }
     }
 }
 
 LongDouble::LongDouble(const string& number)
 {
-    decimalsNumber = 6;
+    precision = 6;
     size_t i = 0, size = number.size();
     sign = true;
 
     if (size == 0)
     {
         digits = "0";
-        for (size_t i = 0; i < decimalsNumber; i++)
+        for (size_t i = 0; i < precision; i++)
             decimals.push_back('0');
         return;
     }
@@ -219,7 +219,7 @@ LongDouble::LongDouble(const string& number)
         if (number.size() == 1)
         {
             digits = "0";
-            for (size_t i = 0; i < decimalsNumber; i++)
+            for (size_t i = 0; i < precision; i++)
                 decimals.push_back('0');
             return;
         }
@@ -252,7 +252,7 @@ LongDouble::LongDouble(const string& number)
     {
         digits = "0";
         sign = true;
-        for (size_t j = 0; j < decimalsNumber; j++)
+        for (size_t j = 0; j < precision; j++)
             decimals.push_back('0');
     }
     else
@@ -262,12 +262,12 @@ LongDouble::LongDouble(const string& number)
         if (digits[0] == '-' || digits[0] == '+')
             digits.erase(digits.begin(), digits.begin() + 1);
 
-        decimalsNumber = decimals.size();
-        if (decimalsNumber < 6)
+        precision = decimals.size();
+        if (precision < 6)
         {
-            for (size_t j = decimalsNumber; j < 6; j++)
+            for (size_t j = precision; j < 6; j++)
                 decimals.push_back('0');
-            decimalsNumber = 6;
+            precision = 6;
         }
     }
 }
@@ -277,12 +277,12 @@ LongDouble::LongDouble(const LongDouble& number)
     sign = number.GetSign();
     digits = number.GetDigits();
     decimals = number.GetDecimals();
-    decimalsNumber = number.GetDecimalsNumber();
+    precision = number.GetDecimalsNumber();
 }
 
 LongDouble& LongDouble::operator=(const LongDouble& number)
 {
-    decimalsNumber = number.GetDecimalsNumber();
+    precision = number.GetDecimalsNumber();
     sign = number.GetSign();
     digits = number.GetDigits();
     decimals = number.GetDecimals();
@@ -292,7 +292,7 @@ LongDouble& LongDouble::operator=(const LongDouble& number)
 
 LongDouble& LongDouble::operator=(const LongInteger& number)
 {
-    decimalsNumber = 6;
+    precision = 6;
     sign = number.GetSign();
     digits = number.GetDigits();
     decimals = "000000";
@@ -693,7 +693,7 @@ void LongDouble::SetDecimals(const string& d)
 
 void LongDouble::SetDecimalsNumber(size_t value)
 {
-    decimalsNumber = value;
+    precision = value;
 }
 
 LongDouble operator+(const LongDouble& a, const LongDouble& b)
@@ -767,7 +767,7 @@ LongDouble operator+(const LongDouble& a, const LongDouble& b)
         }
     }
 
-    result.decimalsNumber = result.decimals.size();
+    result.precision = result.decimals.size();
 
     return result;
 }
@@ -808,7 +808,7 @@ void LongDoubleDivisionBy10(LongDouble& a, size_t power)
             position = i;
 
     position++;
-    a.decimalsNumber = position;
+    a.precision = position;
     a.decimals.erase(position);
 }
 
@@ -817,7 +817,7 @@ LongDouble operator*(const LongDouble& a, const LongDouble& b)
     LongInteger x(a.digits + a.decimals), y(b.digits + b.decimals);
     LongDouble result = x * y;
     result.sign = a.sign && b.sign;
-    LongDoubleDivisionBy10(result, a.decimalsNumber + b.decimalsNumber);
+    LongDoubleDivisionBy10(result, a.precision + b.precision);
 
     return result;
 }
