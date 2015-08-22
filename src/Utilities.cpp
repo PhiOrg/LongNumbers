@@ -93,7 +93,10 @@ string DecreasesNumbers(const string& a, const string& b)
         if (result[i] != '0')
             break;
 
-    result.erase(0, i);
+    if (i == asize)
+        result.erase(0, i - 1);
+    else
+        result.erase(0, i);
 
     return result;
 }
