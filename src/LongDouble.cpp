@@ -696,5 +696,81 @@ void LongDouble::SetDecimalsNumber(size_t value)
     decimalsNumber = value;
 }
 
+LongDouble operator+(const LongDouble& a, const LongDouble& b)
+{
+    LongDouble result;
+
+    if (a.sign == b.sign)
+    {
+        bool add;
+        result.sign = a.sign;
+        if (a.decimals.size() > b.decimals.size())
+            result.decimals = GathersDecimals(a.decimals, b.decimals, add);
+        else
+            result.decimals = GathersDecimals(b.decimals, a.decimals, add);
+
+        if (a.digits.size() > b.digits.size())
+            result.digits = GathersNumbers(a.digits, b.digits);
+        else
+            result.digits = GathersNumbers(b.digits, a.digits);
+
+        if (add)
+            result.digits = GathersNumbers(result.digits, "1");
+    }
+    else
+    {
+        if (a == -b)
+            return 0;
+
+        bool decreases = false;
+        if (a.sign)
+        {
+            if (a > -b)
+            {
+                result.sign = true;
+                result.decimals = DecreasesDecimals(a.decimals, b.decimals,
+                                                    decreases);
+                result.digits = DecreasesNumbers(a.digits, b.digits);
+                if (decreases)
+                    result.digits = DecreasesNumbers(result.digits, "1");
+            }
+            else
+            {
+                result.sign = false;
+                result.decimals = DecreasesDecimals(b.decimals, a.decimals,
+                                                    decreases);
+                result.digits = DecreasesNumbers(b.digits, a.digits);
+                if (decreases)
+                    result.digits = DecreasesNumbers(result.digits, "1");
+            }
+        }
+        else
+        {
+            if (a < -b)
+            {
+                result.sign = false;
+                result.decimals = DecreasesDecimals(a.decimals, b.decimals,
+                                                    decreases);
+                result.digits = DecreasesNumbers(a.digits, b.digits);
+                if (decreases)
+                    result.digits = DecreasesNumbers(result.digits, "1");
+            }
+            else
+            {
+                result.sign = true;
+                result.decimals = DecreasesDecimals(b.decimals, a.decimals,
+                                                    decreases);
+                result.digits = DecreasesNumbers(b.digits, a.digits);
+                if (decreases)
+                    result.digits = DecreasesNumbers(result.digits, "1");
+            }
+        }
+    }
+
+    result.decimalsNumber = result.decimals.size();
+
+    return result;
+}
+
 } //end namespace
 
