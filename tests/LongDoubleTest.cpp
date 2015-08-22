@@ -224,3 +224,41 @@ BOOST_AUTO_TEST_CASE(LongDoubleTestLessOrEqualOperator)
     BOOST_CHECK(b <= d);
 }
 
+BOOST_AUTO_TEST_CASE(LongDoubleTestAdditionOperator)
+{
+    LongDouble a = "387562935723657235623756234.268765237652375627356";
+    LongDouble b = "89325892365823561231283.23856235327657236572357236573";
+    LongDouble c = "2.99", d = "0.01", e = "0.001", f = "7", g = "7.01";
+    LongDouble h = "7.001", i = "12.30", j = "7.32", k = "2.17", l = 1.29;
+    LongDouble m = "3.79";
+
+    BOOST_CHECK(a + b ==
+                "387652261616023059184987517.50732759092894799307957236573");
+    BOOST_CHECK(c + d == 3);
+    BOOST_CHECK(c + 0.7 == 3.69);
+    BOOST_CHECK(c + e == "2.991");
+    BOOST_CHECK(c + f == 9.99);
+    BOOST_CHECK(c + g == 10);
+    BOOST_CHECK(c + h == "9.991");
+    BOOST_CHECK(d + h == "7.011");
+    BOOST_CHECK(h + e == "7.002");
+    BOOST_CHECK(g + h == "14.011");
+    BOOST_CHECK(i + j == "19.62");
+    BOOST_CHECK(j + m == "11.11");
+    BOOST_CHECK(k + m == 5.96);
+    BOOST_CHECK(m + l == 5.08);
+    BOOST_CHECK(h + -e == 7);
+    BOOST_CHECK(-h + e == -7);
+    BOOST_CHECK(k + -l == 0.88);
+    BOOST_CHECK(i + -j == 4.98);
+    BOOST_CHECK(-i + j == "-4.98");
+    BOOST_CHECK(j + -k == "5.15");
+    BOOST_CHECK(i + -l == "11.01");
+    BOOST_CHECK(i + -k == "10.13");
+    BOOST_CHECK(i + -m == "8.51");
+/*    BOOST_CHECK();
+    BOOST_CHECK();
+    BOOST_CHECK();
+    BOOST_CHECK();
+*/}
+
