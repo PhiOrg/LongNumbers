@@ -258,3 +258,19 @@ BOOST_AUTO_TEST_CASE(LongDoubleTestAdditionOperator)
     BOOST_CHECK(i + -m == "8.51");
 }
 
+BOOST_AUTO_TEST_CASE(LongDoubleTestMultiplyOperator)
+{
+    LongDouble a = 13.13, b = 2.02, c = 7, d = 3, e = 2.2, f = 0.1, g = 0.12;
+
+    BOOST_CHECK(a * b == "26.5226");
+    BOOST_CHECK(a * -b == "-26.5226");
+    BOOST_CHECK(a * e == "28.886");
+    BOOST_CHECK(-a * e == "-28.886");
+    BOOST_CHECK(c * d == "21");
+    BOOST_CHECK(d * e == 6.6);
+    BOOST_CHECK(f * g == 0.012);
+    BOOST_CHECK(f * 1 == 0.1);
+    BOOST_CHECK(1 * g == 0.12);
+    BOOST_CHECK(a * b * c * d * e * f * g == "14.70412944");
+}
+
