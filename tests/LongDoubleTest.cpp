@@ -256,9 +256,5 @@ BOOST_AUTO_TEST_CASE(LongDoubleTestAdditionOperator)
     BOOST_CHECK(i + -l == "11.01");
     BOOST_CHECK(i + -k == "10.13");
     BOOST_CHECK(i + -m == "8.51");
-/*    BOOST_CHECK();
-    BOOST_CHECK();
-    BOOST_CHECK();
-    BOOST_CHECK();
-*/}
+}
 
