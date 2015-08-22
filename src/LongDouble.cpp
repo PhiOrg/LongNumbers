@@ -808,6 +808,7 @@ LongDouble operator*(const LongDouble& a, const LongDouble& b)
 {
     LongInteger x(a.digits + a.decimals), y(b.digits + b.decimals);
     LongDouble result = x * y;
+    result.sign = a.sign && b.sign;
     LongDoubleDivisionBy10(result, a.decimalsNumber + b.decimalsNumber);
 
     return result;
