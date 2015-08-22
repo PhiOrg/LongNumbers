@@ -772,5 +772,10 @@ LongDouble operator+(const LongDouble& a, const LongDouble& b)
     return result;
 }
 
+LongDouble operator-(const LongDouble& a, const LongDouble& b)
+{
+    return a + -b;
+}
+
 } //end namespace
 
