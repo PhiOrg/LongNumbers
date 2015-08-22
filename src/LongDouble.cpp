@@ -777,5 +777,41 @@ LongDouble operator-(const LongDouble& a, const LongDouble& b)
     return a + -b;
 }
 
+void LongDoubleDivisionBy10(LongDouble& a, size_t power)
+{
+    a.decimals = "";
+    size_t size = a.digits.size();
+    a.decimalsNumber = power;
+
+    if (size < power)
+    {
+        a.decimals.append(power - size, '0');
+        a.decimals.append(a.digits);
+        a.digits = "0";
+
+        return;
+    }
+
+    if (size == power)
+    {
+        a.decimals = a.digits;
+        a.digits = "0";
+    }
+    else
+    {
+        a.decimals.append(a.digits, size - power, power);
+        a.digits.erase(size - power);
+    }
+}
+
+LongDouble operator*(const LongDouble& a, const LongDouble& b)
+{
+    LongInteger x(a.digits + a.decimals), y(b.digits + b.decimals);
+    LongDouble result = x * y;
+    LongDoubleDivisionBy10(result, a.decimalsNumber + b.decimalsNumber);
+
+    return result;
+}
+
 } //end namespace
 

@@ -61,6 +61,7 @@ class LongDouble
 
         friend LongDouble operator+(const LongDouble&, const LongDouble&);
         friend LongDouble operator-(const LongDouble&, const LongDouble&);
+        friend LongDouble operator*(const LongDouble&, const LongDouble&);
 
         friend std::ostream& operator<<(std::ostream& os, const LongDouble& a)
         {
@@ -79,6 +80,8 @@ class LongDouble
 
             return is;
         }
+
+        friend void LongDoubleDivisionBy10(LongDouble&, size_t);
 
         bool GetSign() const;
         const std::string& GetDigits() const;
