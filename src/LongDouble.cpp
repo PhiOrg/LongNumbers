@@ -801,15 +801,6 @@ void LongDoubleDivisionBy10(LongDouble& a, size_t power)
             a.digits.erase(size - power);
         }
     }
-
-    size_t position = 6;
-    for (size_t i = 6; i < power; i++)
-        if (a.decimals[i] != '0')
-            position = i;
-
-    position++;
-    a.precision = position;
-    a.decimals.erase(position);
 }
 
 LongDouble operator*(const LongDouble& a, const LongDouble& b)
@@ -817,7 +808,19 @@ LongDouble operator*(const LongDouble& a, const LongDouble& b)
     LongInteger x(a.digits + a.decimals), y(b.digits + b.decimals);
     LongDouble result = x * y;
     result.sign = a.sign && b.sign;
-    LongDoubleDivisionBy10(result, a.precision + b.precision);
+
+    size_t position = a.precision > b.precision ? a.precision : b.precision;
+    size_t power = a.precision + b.precision;
+    LongDoubleDivisionBy10(result, power);
+
+    position--;
+    for (size_t i = position; i < power; i++)
+        if (result.decimals[i] != '0')
+            position = i;
+
+    position++;
+    result.precision = position;
+    result.decimals.erase(position);
 
     return result;
 }
