@@ -813,12 +813,6 @@ LongDouble operator*(const LongDouble& a, const LongDouble& b)
     size_t power = a.precision + b.precision;
     LongDoubleDivisionBy10(result, power);
 
-    position--;
-    for (size_t i = position; i < power; i++)
-        if (result.decimals[i] != '0')
-            position = i;
-
-    position++;
     result.precision = position;
     result.decimals.erase(position);
 
