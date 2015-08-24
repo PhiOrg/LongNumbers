@@ -271,6 +271,6 @@ BOOST_AUTO_TEST_CASE(LongDoubleTestMultiplyOperator)
     BOOST_CHECK(f * g == 0.012);
     BOOST_CHECK(f * 1 == 0.1);
     BOOST_CHECK(1 * g == 0.12);
-    BOOST_CHECK(a * b * c * d * e * f * g == "14.70412944");
+    BOOST_CHECK(a * b * c * d * e * f * g == "14.704129");
 }
 
