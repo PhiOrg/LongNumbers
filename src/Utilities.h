@@ -53,6 +53,12 @@ std::string GathersDecimals(const std::string&, const std::string&, bool&);
  */
 void Increment(std::string&);
 
+/*
+ * Ths std::string is decremented with a unit. Be sure that the std::string
+ * is greater than 0.
+ */
+void Decrement(std::string&);
+
 } //end namespace
 
 #endif

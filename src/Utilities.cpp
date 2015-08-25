@@ -309,5 +309,23 @@ void Increment(string& str)
         str.insert(str.begin(), '1');
 }
 
+void Decrement(string& str)
+{
+    bool decreases = true;
+    size_t i = str.size();
+
+    do
+    {
+        i--;
+        if (str[i] == '0')
+            str[i] = '9';
+        else
+        {
+            str[i] = str[i] - 1;
+            decreases = false;
+        }
+    } while (decreases && i > 0);
+}
+
 } //end namespace
 
