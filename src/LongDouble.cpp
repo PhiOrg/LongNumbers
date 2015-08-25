@@ -833,5 +833,12 @@ LongDouble& LongDouble::operator-=(const LongDouble& a)
     return *this;
 }
 
+LongDouble& LongDouble::operator*=(const LongDouble& a)
+{
+    *this = *this * a;
+
+    return *this;
+}
+
 } //end namespace
 
