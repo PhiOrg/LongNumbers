@@ -276,12 +276,21 @@ BOOST_AUTO_TEST_CASE(LongDoubleTestMultiplyOperator)
 
 BOOST_AUTO_TEST_CASE(LongDoubleTestPrefixIncrementOperator)
 {
-    LongDouble a = -5, b = 4;
+    LongDouble a = -5, b = 4, c = -1, d = -0.2, e = 0.3, f = -1.4;
+
     ++a;
     ++b;
+    ++c;
+    ++d;
+    ++e;
+    ++f;
 
     BOOST_CHECK(a == -4);
     BOOST_CHECK(b == 5);
+    BOOST_CHECK(c == 0);
+    BOOST_CHECK(d == 0.8);
+    BOOST_CHECK(e == 1.3);
+    BOOST_CHECK(f == -0.4);
 }
 
 BOOST_AUTO_TEST_CASE(LongDoubleTestPrefixDecrementOperator)
