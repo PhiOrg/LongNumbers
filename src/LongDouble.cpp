@@ -715,7 +715,7 @@ LongDouble operator+(const LongDouble& a, const LongDouble& b)
             result.digits = GathersNumbers(b.digits, a.digits);
 
         if (add)
-            result.digits = GathersNumbers(result.digits, "1");
+            Increment(result.digits);
     }
     else
     {
