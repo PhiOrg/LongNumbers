@@ -732,7 +732,7 @@ LongDouble operator+(const LongDouble& a, const LongDouble& b)
                                                     decreases);
                 result.digits = DecreasesNumbers(a.digits, b.digits);
                 if (decreases)
-                    result.digits = DecreasesNumbers(result.digits, "1");
+                    Decrement(result.digits);
             }
             else
             {
@@ -741,7 +741,7 @@ LongDouble operator+(const LongDouble& a, const LongDouble& b)
                                                     decreases);
                 result.digits = DecreasesNumbers(b.digits, a.digits);
                 if (decreases)
-                    result.digits = DecreasesNumbers(result.digits, "1");
+                    Decrement(result.digits);
             }
         }
         else
@@ -753,7 +753,7 @@ LongDouble operator+(const LongDouble& a, const LongDouble& b)
                                                     decreases);
                 result.digits = DecreasesNumbers(a.digits, b.digits);
                 if (decreases)
-                    result.digits = DecreasesNumbers(result.digits, "1");
+                    Decrement(result.digits);
             }
             else
             {
@@ -762,7 +762,7 @@ LongDouble operator+(const LongDouble& a, const LongDouble& b)
                                                     decreases);
                 result.digits = DecreasesNumbers(b.digits, a.digits);
                 if (decreases)
-                    result.digits = DecreasesNumbers(result.digits, "1");
+                    Decrement(result.digits);
             }
         }
     }
