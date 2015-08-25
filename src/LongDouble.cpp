@@ -840,5 +840,15 @@ LongDouble& LongDouble::operator*=(const LongDouble& a)
     return *this;
 }
 
+LongDouble& LongDouble::operator++()
+{
+    if (sign)
+        Increment(digits);
+    else
+        Decrement(digits);
+
+    return *this;
+}
+
 } //end namespace
 

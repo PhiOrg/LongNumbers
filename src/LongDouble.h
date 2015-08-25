@@ -67,6 +67,8 @@ class LongDouble
         LongDouble& operator-=(const LongDouble&);
         LongDouble& operator*=(const LongDouble&);
 
+        LongDouble& operator++();
+
         friend std::ostream& operator<<(std::ostream& os, const LongDouble& a)
         {
             if (!a.sign)
