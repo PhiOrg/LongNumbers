@@ -325,6 +325,9 @@ void Decrement(string& str)
             decreases = false;
         }
     } while (decreases && i > 0);
+
+    if (str[0] == '0' && str.size() != 1)
+        str.erase(str.begin(), str.begin() + 1);
 }
 
 } //end namespace
