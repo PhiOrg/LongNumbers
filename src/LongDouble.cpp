@@ -842,10 +842,23 @@ LongDouble& LongDouble::operator*=(const LongDouble& a)
 
 LongDouble& LongDouble::operator++()
 {
+    if (*this == -1)
+    {
+        digits[0] = '0';
+        sign = true;
+
+        return *this;
+    }
+
     if (sign)
         Increment(digits);
     else
-        Decrement(digits);
+    {
+        if (digits[0] == '0')
+            *this = *this + 1;
+        else
+            Decrement(digits);
+    }
 
     return *this;
 }
