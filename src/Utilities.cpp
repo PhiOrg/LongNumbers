@@ -288,5 +288,26 @@ string GathersDecimals(const string& a, const string& b, bool& adding)
     return result;
 }
 
+void Increment(string& str)
+{
+    bool add = true;
+    size_t i = str.size();
+
+    do
+    {
+        i--;
+        if (str[i] == '9')
+            str[i] = '0';
+        else
+        {
+            str[i] = str[i] + 1;
+            add = false;
+        }
+    } while (add && i > 0);
+
+    if (add)
+        str.insert(str.begin(), '1');
+}
+
 } //end namespace
 

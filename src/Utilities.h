@@ -48,6 +48,11 @@ std::string DecreasesDecimals(const std::string&, const std::string&, bool&);
  */
 std::string GathersDecimals(const std::string&, const std::string&, bool&);
 
+/*
+ * The std::string is incremented with a unit.
+ */
+void Increment(std::string&);
+
 } //end namespace
 
 #endif
