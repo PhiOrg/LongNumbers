@@ -274,3 +274,13 @@ BOOST_AUTO_TEST_CASE(LongDoubleTestMultiplyOperator)
     BOOST_CHECK(a * b * c * d * e * f * g == "14.704129");
 }
 
+BOOST_AUTO_TEST_CASE(LongDoubleTestPrefixIncrementOperator)
+{
+    LongDouble a = -5, b = 4;
+    ++a;
+    ++b;
+
+    BOOST_CHECK(a == -4);
+    BOOST_CHECK(b == 5);
+}
+
