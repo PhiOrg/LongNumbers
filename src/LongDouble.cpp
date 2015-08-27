@@ -902,5 +902,21 @@ LongDouble LongDouble::operator++(int)
     return a;
 }
 
+LongDouble LongDouble::operator--(int)
+{
+    LongDouble a(*this);
+    if (sign)
+    {
+        if (digits[0] == '0')
+            *this = *this - 1;
+        else
+            Decrement(digits);
+    }
+    else
+        Increment(digits);
+
+    return a;
+}
+
 } //end namespace
 
