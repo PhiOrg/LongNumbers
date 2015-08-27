@@ -878,5 +878,29 @@ LongDouble& LongDouble::operator--()
     return *this;
 }
 
+LongDouble LongDouble::operator++(int)
+{
+    LongDouble a(*this);
+    if (*this == -1)
+    {
+        digits[0] = '0';
+        sign = true;
+
+        return a;
+    }
+
+    if (sign)
+        Increment(digits);
+    else
+    {
+        if (digits[0] == '0')
+            *this = *this + 1;
+        else
+            Decrement(digits);
+    }
+
+    return a;
+}
+
 } //end namespace
 

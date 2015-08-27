@@ -69,6 +69,7 @@ class LongDouble
 
         LongDouble& operator++();
         LongDouble& operator--();
+        LongDouble operator++(int);
 
         friend std::ostream& operator<<(std::ostream& os, const LongDouble& a)
         {
