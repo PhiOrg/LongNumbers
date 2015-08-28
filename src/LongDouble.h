@@ -97,6 +97,8 @@ class LongDouble
         const std::string& GetDecimals() const;
         size_t GetPrecision() const;
 
+        void SetPrecision(size_t);
+
     protected:
         void SetSign(bool value);
         void SetDigits(const std::string&);

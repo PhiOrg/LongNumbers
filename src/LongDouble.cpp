@@ -913,5 +913,33 @@ LongDouble LongDouble::operator--(int)
     return a;
 }
 
+void LongDouble::SetPrecision(size_t value)
+{
+    if (value < 6 || precision == value)
+        return;
+
+    if (value > precision)
+    {
+        for (size_t i = precision; i < value; i++)
+            decimals.push_back('0');
+    }
+    else
+    {
+        bool add = decimals[value] >= '5' ? true : false;
+        decimals.erase(value);
+
+        if (add)
+            Increment(decimals);
+
+        if (decimals.size() != value)
+        {
+            Increment(digits);
+            decimals.erase(decimals.begin(), decimals.begin() + 1);
+        }
+    }
+
+    precision = value;
+}
+
 } //end namespace
 
