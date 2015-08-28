@@ -312,3 +312,18 @@ BOOST_AUTO_TEST_CASE(LongDoubleTestPrefixDecrementOperator)
     BOOST_CHECK(f == 0.4);
 }
 
+BOOST_AUTO_TEST_CASE(LongDoubleTestSetPrecision)
+{
+    LongDouble a = "0.999999999", b = -a, c = "0.2345678", d = "0.2345671";
+
+    a.SetPrecision(6);
+    b.SetPrecision(6);
+    c.SetPrecision(6);
+    d.SetPrecision(6);
+
+    BOOST_CHECK(a == 1);
+    BOOST_CHECK(b == -1);
+    BOOST_CHECK(c == "0.234568");
+    BOOST_CHECK(d == "0.234567");
+}
+
