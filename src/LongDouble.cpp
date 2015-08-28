@@ -691,11 +691,6 @@ void LongDouble::SetDecimals(const string& d)
     decimals = d;
 }
 
-void LongDouble::SetDecimalsNumber(size_t value)
-{
-    precision = value;
-}
-
 LongDouble operator+(const LongDouble& a, const LongDouble& b)
 {
     LongDouble result;
