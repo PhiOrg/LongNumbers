@@ -558,6 +558,10 @@ LongInteger operator/(const LongInteger& a, const LongInteger& b)
         return -a;
     if (a == 0)
         return 0;
+    if (a == 1)
+        return b;
+    if (a == -1)
+        return -b;
     if (_abs(a) < _abs(b))
     {
         return 0;
