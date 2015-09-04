@@ -30,9 +30,9 @@ class LongInteger
 
     public:
         LongInteger();
-        LongInteger(const float);
-        LongInteger(const double);
-        LongInteger(const long double);
+        explicit LongInteger(const float);
+        explicit LongInteger(const double);
+        explicit LongInteger(const long double);
         LongInteger(const int);
         LongInteger(const long);
         LongInteger(const long long);
@@ -42,7 +42,7 @@ class LongInteger
         LongInteger(const LongInteger&);
         LongInteger(const std::string&);
         LongInteger(const char*);
-        LongInteger(const LongDouble&);
+        explicit LongInteger(const LongDouble&);
 
         LongInteger& operator=(const LongDouble&);
         LongInteger& operator=(const LongInteger&);
