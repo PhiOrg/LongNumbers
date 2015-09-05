@@ -24,8 +24,6 @@ class LongInteger
 {
 
     friend class LongDouble;
-    friend void MultiplyBy10(LongInteger&, size_t);
-    friend void DivisionBy10(LongInteger&, size_t);
     friend LongInteger _abs(const LongInteger&);
     friend LongDouble operator/(const LongDouble&, const LongDouble&);
 
@@ -114,6 +112,9 @@ class LongInteger
     private:
         std::string digits;
         bool sign; //true for positive, false for negative
+
+        void MultiplyBy10(size_t);
+        void DivisionBy10(size_t);
 };
 
 } //end namespace

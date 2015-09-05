@@ -473,14 +473,14 @@ LongInteger operator*(const LongInteger& a, const LongInteger& b)
     if (b == 10)
     {
         LongInteger result(a);
-        MultiplyBy10(result, 1);
+        result.MultiplyBy10(1);
 
         return result;
     }
     if (b == -10)
     {
         LongInteger result(a);
-        MultiplyBy10(result, 1);
+        result.MultiplyBy10(1);
         result.sign = !result.sign;
 
         return result;
@@ -516,23 +516,23 @@ LongInteger& LongInteger::operator*=(const LongInteger& number)
     return *this;
 }
 
-void MultiplyBy10(LongInteger& a, size_t x)
+void LongInteger::MultiplyBy10(size_t x)
 {
-    if (a.digits == "0")
+    if (digits == "0")
         return;
     for (size_t i = 0; i < x; i++)
-        a.digits.push_back('0');
+        digits.push_back('0');
 }
 
-void DivisionBy10(LongInteger& a, size_t x)
+void LongInteger::DivisionBy10(size_t x)
 {
     for (size_t i = 0; i < x; i++)
-        a.digits.pop_back();
+        digits.pop_back();
 
-    if (a.digits.size() == 0)
+    if (digits.size() == 0)
     {
-        a.sign = true;
-        a.digits.push_back('0');
+        sign = true;
+        digits.push_back('0');
     }
 }
 
@@ -570,7 +570,7 @@ LongInteger operator/(const LongInteger& a, const LongInteger& b)
     if (b == 10)
     {
         LongInteger result(a);
-        DivisionBy10(result, 1);
+        result.DivisionBy10(1);
 
         return result;
     }
@@ -578,7 +578,7 @@ LongInteger operator/(const LongInteger& a, const LongInteger& b)
     if (b == -10)
     {
         LongInteger result(-a);
-        DivisionBy10(result, 1);
+        result.DivisionBy10(1);
 
         return result;
     }
@@ -592,17 +592,17 @@ LongInteger operator/(const LongInteger& a, const LongInteger& b)
     if (c.digits[0] > d.digits[0])
     {
         value = c.digits.size() - d.digits.size();
-        MultiplyBy10(d, value);
+        d.MultiplyBy10(value);
     }
 
     if (c.digits[0] == d.digits[0])
     {
         value = c.digits.size() - d.digits.size();
-        MultiplyBy10(d, value);
+        d.MultiplyBy10(value);
 
         if (c < d)
         {
-            DivisionBy10(d, 1);
+            d.DivisionBy10(1);
             value--;
         }
     }
@@ -610,7 +610,7 @@ LongInteger operator/(const LongInteger& a, const LongInteger& b)
     if (c.digits[0] < d.digits[0])
     {
         value = c.digits.size() - d.digits.size() - 1;
-        MultiplyBy10(d, value);
+        d.MultiplyBy10(value);
     }
 
     value++;
@@ -623,14 +623,14 @@ LongInteger operator/(const LongInteger& a, const LongInteger& b)
             x++;
         }
 
-        MultiplyBy10(result, 1);
-        DivisionBy10(d, 1);
+        result.MultiplyBy10(1);
+        d.DivisionBy10(1);
         result += x;
         value--;
     }
 
     if (value > 0)
-        MultiplyBy10(result, value);
+        result.MultiplyBy10(value);
 
     result.sign = sign;
     return result;
@@ -685,17 +685,17 @@ LongInteger operator%(const LongInteger& a, const LongInteger& b)
     if (c.digits[0] > d.digits[0])
     {
         value = c.digits.size() - d.digits.size();
-        MultiplyBy10(d, value);
+        d.MultiplyBy10(value);
     }
 
     if (c.digits[0] == d.digits[0])
     {
         value = c.digits.size() - d.digits.size();
-        MultiplyBy10(d, value);
+        d.MultiplyBy10(value);
 
         if (c < d)
         {
-            DivisionBy10(d, 1);
+            d.DivisionBy10(1);
             value--;
         }
     }
@@ -703,7 +703,7 @@ LongInteger operator%(const LongInteger& a, const LongInteger& b)
     if (c.digits[0] < d.digits[0])
     {
         value = c.digits.size() - d.digits.size() - 1;
-        MultiplyBy10(d, value);
+        d.MultiplyBy10(value);
     }
 
     value++;
@@ -712,7 +712,7 @@ LongInteger operator%(const LongInteger& a, const LongInteger& b)
         while (c >= d)
             c -= d;
 
-        DivisionBy10(d, 1);
+        d.DivisionBy10(1);
         value--;
     }
 
