@@ -27,6 +27,7 @@ class LongInteger
     friend void MultiplyBy10(LongInteger&, size_t);
     friend void DivisionBy10(LongInteger&, size_t);
     friend LongInteger _abs(const LongInteger&);
+    friend LongDouble operator/(const LongDouble&, const LongDouble&);
 
     public:
         LongInteger();
