@@ -941,5 +941,142 @@ void LongDouble::SetPrecision(size_t value)
     precision = value;
 }
 
+LongDouble operator/(const LongDouble& a, const LongDouble& b)
+{
+    if (b == 0)
+        throw DivisionByZero();
+    if (a == b)
+        return 1;
+    if (a == -b)
+        return -1;
+    if (b == 1)
+        return a;
+    if (b == -1)
+        return -a;
+    if (a == 0)
+        return 0;
+
+    LongInteger c(a.digits + a.decimals), d(b.digits + b.decimals);
+    LongDouble result;
+    bool sign = c.sign && d.sign;
+    size_t value, precision = a.precision;
+    string digitsResult, decimalsResult;
+
+    c.sign = true;
+    d.sign = true;
+
+    //Establishes the precision with which the division must be made
+    if (a.precision > b.precision)
+    {
+        precision = a.precision;
+        d.MultiplyBy10(a.precision - b.precision);
+    }
+    else
+    {
+        if (a.precision < b.precision)
+        {
+            precision = b.precision;
+            c.MultiplyBy10(b.precision - a.precision);
+        }
+    }
+
+    //Multiply the numbers
+    if (c.digits[0] > d.digits[0])
+    {
+        value = c.digits.size() - d.digits.size();
+        d.MultiplyBy10(value);
+    }
+    else
+    {
+        if (c.digits[0] == d.digits[0])
+        {
+            value = c.digits.size() - d.digits.size();
+            d.MultiplyBy10(value);
+
+            if (c < d)
+            {
+                d.DivisionBy10(1);
+                value--;
+            }
+        }
+        else
+        {
+            if (c.digits[0] < d.digits[0])
+            {
+                value = c.digits.size() - d.digits.size();
+                if (value > 0)
+                    value--;
+                d.MultiplyBy10(value);
+            }
+        }
+    }
+
+    value++;
+    d.MultiplyBy10(1);
+    //Computes the integer part
+    while (c > 0 && value > 0)
+    {
+        d.DivisionBy10(1);
+        short int x = 0;
+        while (c >= d)
+        {
+            c -= d;
+            x++;
+        }
+
+        digitsResult.push_back(x + 48);
+        value--;
+    }
+
+    //Checks if the numbers were divided exactly
+    if (c == 0)
+    {
+        for (int i = 0; i < value; i++)
+            digitsResult.push_back('0');
+        for (int i = 0; i < precision; i++)
+            decimalsResult.push_back('0');
+
+        result.digits = digitsResult;
+        result.decimals = decimalsResult;
+        result.sign = sign;
+        result.precision = precision;
+
+        return result;
+    }
+
+    //Computes the real part
+    size_t i = 0;
+    for (; i < precision + 1; i++)
+    {
+        c.MultiplyBy10(1);
+        short int x = 0;
+
+        while (c >= d)
+        {
+            c -= d;
+            x++;
+        }
+
+        decimalsResult.push_back(x + 48);
+    }
+
+    //Rounding the number
+    bool add = false;
+    if (decimalsResult[precision] >= '5')
+        add = true;
+
+    decimalsResult.erase(decimalsResult.size() - 1);
+
+    if (add)
+        Increment(decimalsResult);
+
+    result.digits = digitsResult;
+    result.decimals = decimalsResult;
+    result.sign = sign;
+    result.precision = precision;
+
+    return result;
+}
+
 } //end namespace
 
