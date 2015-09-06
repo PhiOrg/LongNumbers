@@ -958,12 +958,9 @@ LongDouble operator/(const LongDouble& a, const LongDouble& b)
 
     LongInteger c(a.digits + a.decimals), d(b.digits + b.decimals);
     LongDouble result;
-    bool sign = c.sign && d.sign;
+    bool sign = a.sign ^ b.sign;
     size_t value, precision = a.precision;
     string digitsResult, decimalsResult;
-
-    c.sign = true;
-    d.sign = true;
 
     //Establishes the precision with which the division must be made
     if (a.precision > b.precision)
@@ -978,6 +975,12 @@ LongDouble operator/(const LongDouble& a, const LongDouble& b)
             precision = b.precision;
             c.MultiplyBy10(b.precision - a.precision);
         }
+    }
+
+    if (d > c)
+    {
+        digitsResult = "0";
+        goto label;
     }
 
     //Multiply the numbers
@@ -1038,12 +1041,13 @@ LongDouble operator/(const LongDouble& a, const LongDouble& b)
 
         result.digits = digitsResult;
         result.decimals = decimalsResult;
-        result.sign = sign;
+        result.sign = !sign;
         result.precision = precision;
 
         return result;
     }
 
+label:
     //Computes the real part
     size_t i = 0;
     for (; i < precision + 1; i++)
@@ -1072,7 +1076,7 @@ LongDouble operator/(const LongDouble& a, const LongDouble& b)
 
     result.digits = digitsResult;
     result.decimals = decimalsResult;
-    result.sign = sign;
+    result.sign = !sign;
     result.precision = precision;
 
     return result;
