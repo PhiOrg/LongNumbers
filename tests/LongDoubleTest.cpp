@@ -327,3 +327,25 @@ BOOST_AUTO_TEST_CASE(LongDoubleTestSetPrecision)
     BOOST_CHECK(d == "0.234567");
 }
 
+BOOST_AUTO_TEST_CASE(LongDoubleTestDivideOperator)
+{
+    LongDouble a = 29, b = 17, c = 3, d = 20, e = 6, f = 1, g = 2;
+    LongDouble h = "0.586206897", i = "1756.87245667", j = 300;
+
+    BOOST_CHECK(a / b == "1.705882");
+    BOOST_CHECK(f / c == "0.333333");
+    BOOST_CHECK(d / e == "3.333333");
+    BOOST_CHECK(c / e == "0.500000");
+    BOOST_CHECK(e / c == "2.000000");
+    BOOST_CHECK(g / f == g);
+    BOOST_CHECK(f / -g == "-0.500000");
+    BOOST_CHECK(b / a == "0.586207");
+    BOOST_CHECK(h / i == "0.000333665");
+    BOOST_CHECK(g / c == "0.666667");
+    BOOST_CHECK(i / h == "2997.017717910");
+    BOOST_CHECK(j / g == 150);
+    BOOST_CHECK(j / -c == -100);
+    BOOST_CHECK(j / d == 15);
+    BOOST_CHECK(-j / -e == 50);
+}
+
