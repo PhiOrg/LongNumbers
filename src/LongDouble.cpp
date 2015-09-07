@@ -1082,5 +1082,12 @@ label:
     return result;
 }
 
+LongDouble& LongDouble::operator/=(const LongDouble& number)
+{
+    *this = *this / number;
+
+    return *this;
+}
+
 } //end namespace
 

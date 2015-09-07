@@ -67,6 +67,7 @@ class LongDouble
         LongDouble& operator+=(const LongDouble&);
         LongDouble& operator-=(const LongDouble&);
         LongDouble& operator*=(const LongDouble&);
+        LongDouble& operator/=(const LongDouble&);
 
         LongDouble& operator++();
         LongDouble& operator--();
