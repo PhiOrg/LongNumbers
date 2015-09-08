@@ -3,6 +3,7 @@
 
 #include "LongInteger.h"
 #include "LongDouble.h"
+#include "LongNumberMath.h"
 
 #endif
 
