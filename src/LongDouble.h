@@ -100,6 +100,7 @@ class LongDouble
         size_t GetPrecision() const;
 
         void SetPrecision(size_t);
+        void SetPrecisionWithoutRounding(size_t);
 
     protected:
         void SetSign(bool value);

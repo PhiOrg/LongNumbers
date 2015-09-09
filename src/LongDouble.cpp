@@ -941,6 +941,24 @@ void LongDouble::SetPrecision(size_t value)
     precision = value;
 }
 
+void LongDouble::SetPrecisionWithoutRounding(size_t value)
+{
+    if (value < 6 || precision == value)
+        return;
+
+    if (value > precision)
+    {
+        for (size_t i = precision; i < value; i++)
+            decimals.push_back('0');
+    }
+    else
+    {
+        decimals.erase(value);
+    }
+
+    precision = value;
+}
+
 LongDouble operator/(const LongDouble& a, const LongDouble& b)
 {
     if (b == 0)
