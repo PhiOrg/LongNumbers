@@ -208,6 +208,7 @@ string DecreasesDecimals(const string& a, const string& b, bool& taken)
     taken = false;
     string result = a;
     size_t sizeA = a.size() - 1, sizeB = b.size() - 1;
+    size_t min = sizeA > sizeB ? sizeB : sizeA;
     if (sizeA < sizeB)
     {
         for (size_t i = sizeA; i < sizeB; i++)
@@ -216,7 +217,7 @@ string DecreasesDecimals(const string& a, const string& b, bool& taken)
 
     short int value;
     bool decreases = false;
-    for (size_t i = sizeB; i > 0; i--)
+    for (size_t i = min; i > 0; i--)
     {
         value = a[i] - b[i];
         if (decreases)
