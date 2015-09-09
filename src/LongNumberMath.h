@@ -7,6 +7,11 @@
 namespace LongNumber
 {
 
+/**
+ * Returns the absolut value of x.
+ */
+LongInteger abs(LongInteger&);
+
 } //end namespace
 
 #endif
