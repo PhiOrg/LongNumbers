@@ -4,5 +4,10 @@
 #include "LongInteger.h"
 #include "LongDouble.h"
 
+namespace LongNumber
+{
+
+} //end namespace
+
 #endif
 
