@@ -11,5 +11,13 @@ LongInteger abs(LongInteger& x)
     return x;
 }
 
+LongDouble abs(LongDouble& x)
+{
+    if (x < 0)
+        return -x;
+
+    return x;
+}
+
 } //end namespace
 
