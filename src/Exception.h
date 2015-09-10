@@ -31,6 +31,14 @@ class LnNegativeNumber : public std::exception
     }
 };
 
+class LnZero : public std::exception
+{
+    const char* what() const throw()
+    {
+        return "Cannot take the natural logarithm from 0.";
+    }
+};
+
 } //end namespace
 
 #endif
