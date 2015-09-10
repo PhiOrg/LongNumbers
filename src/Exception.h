@@ -23,6 +23,14 @@ class ModuloByZero : public std::exception
     }
 };
 
+class LnNegativeNumber : public std::exception
+{
+    const char* what() const throw()
+    {
+        return "Cannot take the natural logarithm of a negative number.";
+    }
+};
+
 } //end namespace
 
 #endif
