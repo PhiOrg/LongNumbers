@@ -105,6 +105,9 @@ class LongInteger
         bool GetSign() const;
         const std::string& GetDigits() const;
 
+        void MultiplyBy10(size_t);
+        void DivisionBy10(size_t);
+
     protected:
         void SetSign(bool value);
         void SetDigits(const std::string&);
@@ -113,8 +116,6 @@ class LongInteger
         std::string digits;
         bool sign; //true for positive, false for negative
 
-        void MultiplyBy10(size_t);
-        void DivisionBy10(size_t);
 };
 
 } //end namespace
