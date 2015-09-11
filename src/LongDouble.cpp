@@ -772,30 +772,34 @@ LongDouble operator-(const LongDouble& a, const LongDouble& b)
     return a + -b;
 }
 
-void LongDoubleDivisionBy10(LongDouble& a, size_t power)
+void LongDouble::DivisionBy10(size_t power)
 {
-    a.decimals = "";
-    size_t size = a.digits.size();
+    if (power == 0)
+        return;
+
+    size_t size = digits.size();
 
     if (size < power)
     {
-        a.decimals.append(power - size, '0');
-        a.decimals.append(a.digits);
-        a.digits = "0";
+        decimals.insert(0, digits);
+        decimals.insert(0, power - size, '0');
+        digits = "0";
     }
     else
     {
         if (size == power)
         {
-            a.decimals = a.digits;
-            a.digits = "0";
+            decimals.insert(0, digits);
+            digits = "0";
         }
         else
         {
-            a.decimals.append(a.digits, size - power, power);
-            a.digits.erase(size - power);
+            decimals.insert(0, digits, size - power, power);
+            digits.erase(size - power);
         }
     }
+
+    precision += power;
 }
 
 LongDouble operator*(const LongDouble& a, const LongDouble& b)
@@ -806,7 +810,7 @@ LongDouble operator*(const LongDouble& a, const LongDouble& b)
 
     size_t position = a.precision > b.precision ? a.precision : b.precision;
     size_t power = a.precision + b.precision;
-    LongDoubleDivisionBy10(result, power);
+    result.DivisionBy10(power);
 
     result.precision = position;
     result.decimals.erase(position);
