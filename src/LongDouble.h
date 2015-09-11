@@ -92,8 +92,6 @@ class LongDouble
             return is;
         }
 
-        friend void LongDoubleDivisionBy10(LongDouble&, size_t);
-
         bool GetSign() const;
         const std::string& GetDigits() const;
         const std::string& GetDecimals() const;
