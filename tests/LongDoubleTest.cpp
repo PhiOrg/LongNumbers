@@ -349,3 +349,16 @@ BOOST_AUTO_TEST_CASE(LongDoubleTestDivideOperator)
     BOOST_CHECK(-j / -e == 50);
 }
 
+BOOST_AUTO_TEST_CASE(LongDoubleDivisionBy10Test)
+{
+    LongDouble a = "65.234566", b = "120.252323367", c = "12.35";
+
+    a.DivisionBy10(5);
+    b.DivisionBy10(2);
+    c.DivisionBy10(2);
+
+    BOOST_CHECK(a == "0.00065234566");
+    BOOST_CHECK(b == "1.20252323367");
+    BOOST_CHECK(c == "0.1235" && c.GetPrecision() == 8);
+}
+
