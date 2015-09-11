@@ -102,6 +102,8 @@ class LongDouble
         void SetPrecision(size_t);
         void SetPrecisionWithoutRounding(size_t);
 
+        void DivisionBy10(size_t);
+
     protected:
         void SetSign(bool value);
         void SetDigits(const std::string&);
