@@ -362,3 +362,18 @@ BOOST_AUTO_TEST_CASE(LongDoubleDivisionBy10Test)
     BOOST_CHECK(c == "0.1235" && c.GetPrecision() == 8);
 }
 
+BOOST_AUTO_TEST_CASE(LongDoubleMultiplyBy10Test)
+{
+    LongDouble a = "65.234566", b = "120.252323367", c = "12.35", d = "1.2";
+
+    a.MultiplyBy10(6);
+    b.MultiplyBy10(6);
+    c.MultiplyBy10(8);
+    d.MultiplyBy10(0);
+
+    BOOST_CHECK(a == "65234566");
+    BOOST_CHECK(b == "120252323.367");
+    BOOST_CHECK(c == "1235000000");
+    BOOST_CHECK(d == "1.2");
+}
+
