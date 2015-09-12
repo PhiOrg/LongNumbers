@@ -101,6 +101,7 @@ class LongDouble
         void SetPrecisionWithoutRounding(size_t);
 
         void DivisionBy10(size_t);
+        void MultiplyBy10(size_t);
 
     protected:
         void SetSign(bool value);

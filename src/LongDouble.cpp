@@ -802,6 +802,39 @@ void LongDouble::DivisionBy10(size_t power)
     precision += power;
 }
 
+void LongDouble::MultiplyBy10(size_t power)
+{
+    if (power == 0)
+        return;
+
+    if (precision < power)
+    {
+        digits.append(decimals);
+        digits.append(power - precision, '0');
+        for (size_t i = 0; i < precision; i++)
+            decimals[i] = '0';
+    }
+    else
+    {
+        if (precision == power)
+        {
+            digits.append(decimals);
+            for (size_t i = 0; i < precision; i++)
+                decimals[i] = '0';
+        }
+        else
+        {
+            digits.append(decimals, 0, power);
+
+            size_t j = 0;
+            for (size_t i = power; i < precision; i++, j++)
+                decimals[j] = decimals[i];
+            for (; j < precision; j++)
+                decimals[j] = '0';
+        }
+    }
+}
+
 LongDouble operator*(const LongDouble& a, const LongDouble& b)
 {
     LongInteger x(a.digits + a.decimals), y(b.digits + b.decimals);
