@@ -418,19 +418,30 @@ LongInteger LongInteger::operator--(int)
 
 string Multiplies(const string& a, short int b)
 {
-    string result;
+    string result = a;
     short int add = 0, value;
-    for (auto i = a.rbegin(); i != a.rend(); i++)
+    const char* start = a.c_str();
+
+    for (size_t i = a.size() - 1; i > 0; i--)
     {
-        value = (*i - 48) * b + add;
+        value = (a[i] - 48) * b + add;
         add = 0;
         if (value > 9)
         {
             add = value / 10;
             value %= 10;
         }
-        result.insert(result.begin(), value + 48);
+        result[i] = value + 48;
     }
+
+    value = (a[0] - 48) * b + add;
+    add = 0;
+    if (value > 9)
+    {
+        add = value / 10;
+        value %= 10;
+    }
+    result[0] = value + 48;
 
     if (add != 0)
         result.insert(result.begin(), add + 48);
@@ -443,9 +454,9 @@ LongInteger MultipliesIntegers(const string& a, const string& b)
     LongInteger result;
     string _a = a;
 
-    for (auto i = b.rbegin(); i != b.rend(); i++)
+    for (size_t i = b.size() - 1; i > 0; i--)
     {
-        short int value = *i - 48;
+        short int value = b[i] - 48;
 
         if (value == 1)
             result += _a;
@@ -454,6 +465,14 @@ LongInteger MultipliesIntegers(const string& a, const string& b)
                 result += Multiplies(_a, value);
         _a.push_back('0');
     }
+
+    short int value = b[0] - 48;
+
+    if (value == 1)
+        result += _a;
+    else
+        if (value > 1)
+            result += Multiplies(_a, value);
 
     return result;
 }
