@@ -175,6 +175,9 @@ LongDouble _ln(LongDouble& x)
  */
 LongDouble ComputeEulerNumber(size_t precision)
 {
+    if (precision < 6)
+        precision = 6;
+
     LongDouble result = 2;
     result.SetPrecisionWithoutRounding(precision + 5);
 
