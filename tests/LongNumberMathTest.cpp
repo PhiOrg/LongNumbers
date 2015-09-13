@@ -14,3 +14,11 @@ BOOST_AUTO_TEST_CASE(LongDoubleAbs)
     BOOST_CHECK(abs(y) == "3.72");
 }
 
+BOOST_AUTO_TEST_CASE(LongIntegerAbs)
+{
+    LongInteger x = -1, y = 3;
+
+    BOOST_CHECK(abs(x) == 1);
+    BOOST_CHECK(abs(y) == 3);
+}
+
