@@ -170,6 +170,36 @@ LongDouble _ln(LongDouble& x)
     return result + result;
 }
 
+/**
+ * e = 1 / 0! + 1 / 1! + 1 / 2! + 1 / 3! + 1 / 4! + ...
+ */
+LongDouble ComputeEulerNumber(size_t precision)
+{
+    LongDouble result = 2;
+    result.SetPrecisionWithoutRounding(precision + 5);
+
+    string str = "0.";
+    for (size_t i = 0; i < precision; i++)
+        str.push_back('0');
+    str += "00001";
+
+    const LongDouble limit = str;
+    LongDouble partialResult = 1, divisionNumber = 1;
+    partialResult.SetPrecisionWithoutRounding(precision + 5);
+    divisionNumber.SetPrecisionWithoutRounding(precision + 5);
+
+    while (1)
+    {
+        divisionNumber++;
+        partialResult /= divisionNumber;
+        if (partialResult < limit)
+            break;
+        result += partialResult;
+    }
+
+    result.SetPrecisionWithoutRounding(precision);
+}
+
 LongDouble ln(const LongDouble& x)
 {
     if (x == 0)
