@@ -18,6 +18,11 @@ LongInteger abs(LongInteger&);
  */
 LongDouble abs(LongDouble&);
 
+/**
+ * Computes the natural logarithm from the number passed as parameter.
+ */
+LongDouble ln(LongDouble&);
+
 } //end namespace
 
 #endif

@@ -1,4 +1,5 @@
 #include "LongNumberMath.h"
+#include "Constants.h"
 
 using namespace std;
 
@@ -167,6 +168,88 @@ LongDouble _ln(LongDouble& x)
      * But the ln(x) is equal with 2 * (with that calculation above).
      */
     return result + result;
+}
+
+LongDouble ln(const LongDouble& x)
+{
+    if (x == 0)
+        throw LnZero();
+    if (!x.GetSign())
+        throw LnNegativeNumber();
+    if (x == 1)
+    {
+        LongDouble result = 0;
+        result.SetPrecision(x.GetPrecision());
+
+        return result;
+    }
+
+    LongDouble copyOfX = x;
+
+    if (x > 0 && x < 1)
+        return _ln(copyOfX);
+
+    if (x > 1 && x < 2)
+        return _ln(copyOfX);
+
+    if (x.GetPrecision() > 95)
+    {
+        LongDouble _e = ComputeEulerNumber(x.GetPrecision());
+
+        if (_e == x)
+        {
+            LongDouble result = 1;
+            result.SetPrecision(x.GetPrecision());
+
+            return result;
+        }
+
+        size_t digitsNumber = x.GetDigits().size();
+        LongDouble result;
+        result.SetPrecisionWithoutRounding(x.GetPrecision() + 5);
+
+        LongDouble __ln10 = 10;
+        __ln10.SetPrecisionWithoutRounding(x.GetPrecision() + 5);
+        LongDouble _ln10 = _ln(__ln10);
+
+        size_t power = x.GetDigits().size();
+        copyOfX.DivisionBy10(power);
+        copyOfX.SetPrecisionWithoutRounding(x.GetPrecision());
+
+        result = power * _ln10 + _ln(copyOfX);
+        result.SetPrecisionWithoutRounding(x.GetPrecision());
+
+        return result;
+    }
+    else
+    {
+        LongDouble _e = e;
+        _e.SetPrecisionWithoutRounding(x.GetPrecision());
+
+        if (_e == x)
+        {
+            LongDouble result = 1;
+            result.SetPrecision(x.GetPrecision());
+
+            return result;
+        }
+
+        size_t digitsNumber = x.GetDigits().size();
+        LongDouble result;
+        result.SetPrecisionWithoutRounding(x.GetPrecision() + 5);
+
+        LongDouble _ln10 = ln10;
+        _ln10.SetPrecisionWithoutRounding(x.GetPrecision() + 5);
+
+        size_t power = x.GetDigits().size();
+        copyOfX.DivisionBy10(power);
+        copyOfX.SetPrecisionWithoutRounding(x.GetPrecision());
+
+        result = power * _ln10 + _ln(copyOfX);
+        result.SetPrecisionWithoutRounding(x.GetPrecision());
+
+        return result;
+    }
 }
 
 } //end namespace
