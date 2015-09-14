@@ -35,6 +35,8 @@ LongDouble abs(LongDouble& x)
  */
 LongDouble _ln(LongDouble& x)
 {
+    x.SetPrecisionWithoutRounding(x.GetPrecision() + 5);
+
     /**
      * The growth value of the power. The power grow from 2 in to.
      */
@@ -167,7 +169,10 @@ LongDouble _ln(LongDouble& x)
      * (((x - 1) / (x + 1)) ^ 5) / 5 + ...
      * But the ln(x) is equal with 2 * (with that calculation above).
      */
-    return result + result;
+    result += result;
+    result.SetPrecisionWithoutRounding(result.GetPrecision() - 5);
+
+    return result;
 }
 
 /**
