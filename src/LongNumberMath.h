@@ -21,7 +21,7 @@ LongDouble abs(LongDouble&);
 /**
  * Computes the natural logarithm from the number passed as parameter.
  */
-LongDouble ln(LongDouble&);
+LongDouble ln(const LongDouble&);
 
 /**
  * This functions computer the euler number (e) with x decimals, where x is
