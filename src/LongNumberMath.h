@@ -27,7 +27,7 @@ LongDouble ln(const LongDouble&);
  * This functions computer the euler number (e) with x decimals, where x is
  * passed as parameter.
  */
-LongDouble ComputesEulerNumber(size_t);
+LongDouble ComputeEulerNumber(size_t);
 
 } //end namespace
 
