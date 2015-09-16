@@ -206,6 +206,8 @@ LongDouble ComputeEulerNumber(size_t precision)
     }
 
     result.SetPrecisionWithoutRounding(precision);
+
+    return result;
 }
 
 LongDouble ln(const LongDouble& x)
