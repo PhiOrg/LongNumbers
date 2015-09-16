@@ -230,7 +230,7 @@ LongDouble ln(const LongDouble& x)
     if (x > 1 && x < 2)
         return _ln(copyOfX);
 
-    if (x.GetPrecision() > 95)
+    if (x.GetPrecision() > 100)
     {
         LongDouble _e = ComputeEulerNumber(x.GetPrecision());
 
