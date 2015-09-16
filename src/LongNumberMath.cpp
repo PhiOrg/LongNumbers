@@ -6,6 +6,8 @@ using namespace std;
 namespace LongNumber
 {
 
+#define ADDITIONAL_PRECISION 5
+
 LongInteger abs(LongInteger& x)
 {
     if (x < 0)
@@ -35,7 +37,7 @@ LongDouble abs(LongDouble& x)
  */
 LongDouble _ln(LongDouble& x)
 {
-    x.SetPrecisionWithoutRounding(x.GetPrecision() + 5);
+    x.SetPrecisionWithoutRounding(x.GetPrecision() + ADDITIONAL_PRECISION);
 
     /**
      * The growth value of the power. The power grow from 2 in to.
@@ -170,7 +172,8 @@ LongDouble _ln(LongDouble& x)
      * But the ln(x) is equal with 2 * (with that calculation above).
      */
     result += result;
-    result.SetPrecisionWithoutRounding(result.GetPrecision() - 5);
+    result.SetPrecisionWithoutRounding(result.GetPrecision() -
+                                       ADDITIONAL_PRECISION);
 
     return result;
 }
@@ -184,7 +187,7 @@ LongDouble ComputeEulerNumber(size_t precision)
         precision = 6;
 
     LongDouble result = 2;
-    result.SetPrecisionWithoutRounding(precision + 5);
+    result.SetPrecisionWithoutRounding(precision + ADDITIONAL_PRECISION);
 
     string str = "0.";
     for (size_t i = 0; i < precision; i++)
@@ -193,8 +196,8 @@ LongDouble ComputeEulerNumber(size_t precision)
 
     const LongDouble limit = str;
     LongDouble partialResult = 1, divisionNumber = 1;
-    partialResult.SetPrecisionWithoutRounding(precision + 5);
-    divisionNumber.SetPrecisionWithoutRounding(precision + 5);
+    partialResult.SetPrecisionWithoutRounding(precision + ADDITIONAL_PRECISION);
+    divisionNumber.SetPrecisionWithoutRounding(precision + ADDITIONAL_PRECISION);
 
     while (1)
     {
@@ -246,10 +249,12 @@ LongDouble ln(const LongDouble& x)
 
         size_t digitsNumber = x.GetDigits().size();
         LongDouble result;
-        result.SetPrecisionWithoutRounding(x.GetPrecision() + 5);
+        result.SetPrecisionWithoutRounding(x.GetPrecision() +
+                                           ADDITIONAL_PRECISION);
 
         LongDouble __ln10 = 10;
-        __ln10.SetPrecisionWithoutRounding(x.GetPrecision() + 5);
+        __ln10.SetPrecisionWithoutRounding(x.GetPrecision() +
+                                           ADDITIONAL_PRECISION);
         LongDouble _ln10 = _ln(__ln10);
 
         size_t power = x.GetDigits().size();
@@ -276,10 +281,12 @@ LongDouble ln(const LongDouble& x)
 
         size_t digitsNumber = x.GetDigits().size();
         LongDouble result;
-        result.SetPrecisionWithoutRounding(x.GetPrecision() + 5);
+        result.SetPrecisionWithoutRounding(x.GetPrecision() +
+                                           ADDITIONAL_PRECISION);
 
         LongDouble _ln10 = ln10;
-        _ln10.SetPrecisionWithoutRounding(x.GetPrecision() + 5);
+        _ln10.SetPrecisionWithoutRounding(x.GetPrecision() +
+                                          ADDITIONAL_PRECISION);
 
         size_t power = x.GetDigits().size();
         copyOfX.DivisionBy10(power);
