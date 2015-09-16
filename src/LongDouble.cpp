@@ -49,7 +49,6 @@ size_t LongDouble::GetPrecision() const
 
 void SplitNumber(string& digits, string& decimals, string number)
 {
-    bool ok = false;
     size_t size = number.size(), i;
     for (i = 0; i < size && number[i] != '.'; i++)
         digits.push_back(number[i]);
@@ -1014,7 +1013,7 @@ LongDouble operator/(const LongDouble& a, const LongDouble& b)
     LongInteger c(a.digits + a.decimals), d(b.digits + b.decimals);
     LongDouble result;
     bool sign = a.sign ^ b.sign;
-    size_t value, precision = a.precision;
+    size_t value = 0, precision = a.precision;
     string digitsResult, decimalsResult;
 
     //Establishes the precision with which the division must be made
@@ -1089,9 +1088,9 @@ LongDouble operator/(const LongDouble& a, const LongDouble& b)
     //Checks if the numbers were divided exactly
     if (c == 0)
     {
-        for (int i = 0; i < value; i++)
+        for (size_t i = 0; i < value; i++)
             digitsResult.push_back('0');
-        for (int i = 0; i < precision; i++)
+        for (size_t i = 0; i < precision; i++)
             decimalsResult.push_back('0');
 
         result.digits = digitsResult;

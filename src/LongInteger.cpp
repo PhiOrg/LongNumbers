@@ -420,7 +420,6 @@ string Multiplies(const string& a, short int b)
 {
     string result = a;
     short int add = 0, value;
-    const char* start = a.c_str();
 
     for (size_t i = a.size() - 1; i > 0; i--)
     {
@@ -606,7 +605,7 @@ LongInteger operator/(const LongInteger& a, const LongInteger& b)
     bool sign = c.sign && d.sign;
     c.sign = true;
     d.sign = true;
-    size_t value;
+    size_t value = 0;
 
     if (c.digits[0] > d.digits[0])
     {
@@ -699,7 +698,7 @@ LongInteger operator%(const LongInteger& a, const LongInteger& b)
     LongInteger c(a);
     bool sign = c.sign;
     c.sign = true;
-    size_t value;
+    size_t value = 0;
 
     if (c.digits[0] > d.digits[0])
     {

@@ -80,7 +80,7 @@ LongDouble _ln(LongDouble& x)
          */
         string str = "0.";
         size_t precision = x.GetPrecision() - 1;
-        for (int i = 0; i < precision; i++)
+        for (size_t i = 0; i < precision; i++)
             str.push_back('0');
         str.push_back('1');
         const LongDouble limit = str;
@@ -128,7 +128,7 @@ LongDouble _ln(LongDouble& x)
          */
         string str = "-0.";
         size_t precision = x.GetPrecision() - 1;
-        for (int i = 0; i < precision; i++)
+        for (size_t i = 0; i < precision; i++)
             str.push_back('0');
         str.push_back('1');
         const LongDouble limit = str;
@@ -247,7 +247,6 @@ LongDouble ln(const LongDouble& x)
             return result;
         }
 
-        size_t digitsNumber = x.GetDigits().size();
         LongDouble result;
         result.SetPrecisionWithoutRounding(x.GetPrecision() +
                                            ADDITIONAL_PRECISION);
@@ -279,7 +278,6 @@ LongDouble ln(const LongDouble& x)
             return result;
         }
 
-        size_t digitsNumber = x.GetDigits().size();
         LongDouble result;
         result.SetPrecisionWithoutRounding(x.GetPrecision() +
                                            ADDITIONAL_PRECISION);
