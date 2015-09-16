@@ -1,6 +1,6 @@
 StaticLibrary LongNumber.a
 compiler g++
-cflags -std=c++11 
+cflags -std=c++11 -O2 -Wall
 files src/LongDouble.cpp src/LongInteger.cpp src/Utilities.cpp
 files src/LongNumberMath.cpp
 
