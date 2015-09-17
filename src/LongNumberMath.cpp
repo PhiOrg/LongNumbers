@@ -48,6 +48,14 @@ LongInteger max(const LongInteger& x, const LongInteger& y)
         return y;
 }
 
+LongInteger min(const LongInteger& x, const LongInteger& y)
+{
+    if (x < y)
+        return x;
+    else
+        return y;
+}
+
 /**
  * Helper for ln().
  * Computes ln(x) if (x > 0 && x < 1) or x > 1.

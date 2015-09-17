@@ -34,6 +34,11 @@ LongDouble fmin(const LongDouble&, const LongDouble&);
 LongInteger max(const LongInteger&, const LongInteger&);
 
 /**
+ * Returns the smaller of its arguments: either x or y.
+ */
+LongInteger min(const LongInteger&, const LongInteger&);
+
+/**
  * Computes the natural logarithm from the number passed as parameter.
  */
 LongDouble ln(const LongDouble&);
