@@ -24,6 +24,14 @@ LongDouble abs(LongDouble& x)
     return x;
 }
 
+LongDouble max(const LongDouble& x, const LongDouble& y)
+{
+    if (x > y)
+        return x;
+    else
+        return y;
+}
+
 /**
  * Helper for ln().
  * Computes ln(x) if (x > 0 && x < 1) or x > 1.

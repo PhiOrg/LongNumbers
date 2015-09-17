@@ -19,6 +19,11 @@ LongInteger abs(LongInteger&);
 LongDouble abs(LongDouble&);
 
 /**
+ * Returns the larger of its arguments: either x or y.
+ */
+LongDouble max(const LongDouble&, const LongDouble&);
+
+/**
  * Computes the natural logarithm from the number passed as parameter.
  */
 LongDouble ln(const LongDouble&);
