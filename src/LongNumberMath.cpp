@@ -24,7 +24,7 @@ LongDouble abs(LongDouble& x)
     return x;
 }
 
-LongDouble max(const LongDouble& x, const LongDouble& y)
+LongDouble fmax(const LongDouble& x, const LongDouble& y)
 {
     if (x > y)
         return x;
