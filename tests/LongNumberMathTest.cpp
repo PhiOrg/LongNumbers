@@ -21,3 +21,13 @@ BOOST_AUTO_TEST_CASE(LongIntegerAbs)
     BOOST_CHECK(abs(y) == 3);
 }
 
+BOOST_AUTO_TEST_CASE(fmaxTest)
+{
+    LongDouble a = 2.34, b = 3.75, c = -3.75;
+
+    BOOST_CHECK(fmax(a, b) == b);
+    BOOST_CHECK(fmax(b, a) == b);
+    BOOST_CHECK(fmax(c, b) == b);
+    BOOST_CHECK(fmax(a, c) == a);
+}
+
