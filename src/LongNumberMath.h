@@ -39,6 +39,12 @@ LongInteger max(const LongInteger&, const LongInteger&);
 LongInteger min(const LongInteger&, const LongInteger&);
 
 /**
+ * Returns the integral value that is nearest to x, with halfway cases rounded
+ * away from zero.
+ */
+LongDouble round(const LongDouble&);
+
+/**
  * Computes the natural logarithm from the number passed as parameter.
  */
 LongDouble ln(const LongDouble&);

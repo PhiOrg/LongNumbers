@@ -56,6 +56,27 @@ LongInteger min(const LongInteger& x, const LongInteger& y)
         return y;
 }
 
+LongDouble round(const LongDouble& x)
+{
+    if (x.GetDecimals()[0] > '4')
+    {
+        LongDouble result;
+        result.SetDigits(x.GetDigits());
+        result++;
+        result.SetSign(x.GetSign());
+
+        return result;
+    }
+    else
+    {
+        LongDouble result;
+        result.SetDigits(x.GetDigits());
+        result.SetSign(x.GetSign());
+
+        return result;
+    }
+}
+
 /**
  * Helper for ln().
  * Computes ln(x) if (x > 0 && x < 1) or x > 1.
