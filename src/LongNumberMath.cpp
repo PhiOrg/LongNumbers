@@ -299,7 +299,7 @@ LongDouble ln(const LongDouble& x)
     }
     else
     {
-        LongDouble _e = e;
+        LongDouble _e = Constants::e;
         _e.SetPrecisionWithoutRounding(x.GetPrecision());
 
         if (_e == x)
@@ -314,7 +314,7 @@ LongDouble ln(const LongDouble& x)
         result.SetPrecisionWithoutRounding(x.GetPrecision() +
                                            ADDITIONAL_PRECISION);
 
-        LongDouble _ln10 = ln10;
+        LongDouble _ln10 = Constants::ln10;
         _ln10.SetPrecisionWithoutRounding(x.GetPrecision() +
                                           ADDITIONAL_PRECISION);
 
