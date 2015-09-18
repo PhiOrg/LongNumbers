@@ -31,3 +31,13 @@ BOOST_AUTO_TEST_CASE(fmaxTest)
     BOOST_CHECK(fmax(a, c) == a);
 }
 
+BOOST_AUTO_TEST_CASE(fminTest)
+{
+    LongDouble a = 2.34, b = 3.75, c = -3.75;
+
+    BOOST_CHECK(fmin(a, b) == a);
+    BOOST_CHECK(fmin(b, a) == a);
+    BOOST_CHECK(fmin(c, b) == c);
+    BOOST_CHECK(fmin(a, c) == c);
+}
+
