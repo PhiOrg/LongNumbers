@@ -103,6 +103,8 @@ class LongDouble
         void DivisionBy10(size_t);
         void MultiplyBy10(size_t);
 
+        friend LongDouble round(const LongDouble&);
+
     protected:
         void SetSign(bool value);
         void SetDigits(const std::string&);
