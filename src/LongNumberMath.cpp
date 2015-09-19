@@ -58,6 +58,9 @@ LongInteger min(const LongInteger& x, const LongInteger& y)
 
 LongDouble round(const LongDouble& x)
 {
+    if (x.IsInteger())
+        return x;
+
     if (x.GetDecimals()[0] > '4')
     {
         LongDouble result;
@@ -79,6 +82,9 @@ LongDouble round(const LongDouble& x)
 
 LongDouble floor(const LongDouble& x)
 {
+    if (x.IsInteger())
+        return x;
+
     if (x.GetSign())
     {
         LongDouble result;
@@ -99,6 +105,9 @@ LongDouble floor(const LongDouble& x)
 
 LongDouble ceil(const LongDouble& x)
 {
+    if (x.IsInteger())
+        return x;
+
     if (x.GetSign())
     {
         LongDouble result;
