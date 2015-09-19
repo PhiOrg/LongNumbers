@@ -117,6 +117,15 @@ LongDouble ceil(const LongDouble& x)
     }
 }
 
+LongDouble trunc(const LongDouble& x)
+{
+    LongDouble result;
+    result.SetDigits(x.GetDigits());
+    result.SetSign(x.GetSign());
+
+    return result;
+}
+
 /**
  * Helper for ln().
  * Computes ln(x) if (x > 0 && x < 1) or x > 1.
