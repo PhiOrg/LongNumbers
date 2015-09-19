@@ -45,6 +45,12 @@ LongInteger min(const LongInteger&, const LongInteger&);
 LongDouble round(const LongDouble&);
 
 /**
+ * Rounds x downward.
+ * Returns the largest integer value that is not greater than x.
+ */
+LongDouble floor(const LongDouble&);
+
+/**
  * Computes the natural logarithm from the number passed as parameter.
  */
 LongDouble ln(const LongDouble&);
