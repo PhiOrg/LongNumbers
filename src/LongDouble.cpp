@@ -1143,5 +1143,14 @@ LongDouble& LongDouble::operator/=(const LongDouble& number)
     return *this;
 }
 
+bool LongDouble::IsInteger()
+{
+    for (size_t i = 0; i < precision; i++)
+        if (decimals[i] != '0')
+            return false;
+
+    return true;
+}
+
 } //end namespace
 

@@ -92,6 +92,8 @@ class LongDouble
             return is;
         }
 
+        bool IsInteger() const;
+
         bool GetSign() const;
         const std::string& GetDigits() const;
         const std::string& GetDecimals() const;
