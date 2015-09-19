@@ -104,6 +104,7 @@ class LongDouble
         void MultiplyBy10(size_t);
 
         friend LongDouble round(const LongDouble&);
+        friend LongDouble floor(const LongDouble&);
 
     protected:
         void SetSign(bool value);
