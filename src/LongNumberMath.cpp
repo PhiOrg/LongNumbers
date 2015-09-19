@@ -97,6 +97,26 @@ LongDouble floor(const LongDouble& x)
     }
 }
 
+LongDouble ceil(const LongDouble& x)
+{
+    if (x.GetSign())
+    {
+        LongDouble result;
+        result.SetDigits(x.GetDigits());
+        result++;
+
+        return result;
+    }
+    else
+    {
+        LongDouble result;
+        result.SetDigits(x.GetDigits());
+        result.SetSign(false);
+
+        return result;
+    }
+}
+
 /**
  * Helper for ln().
  * Computes ln(x) if (x > 0 && x < 1) or x > 1.

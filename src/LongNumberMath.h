@@ -51,6 +51,12 @@ LongDouble round(const LongDouble&);
 LongDouble floor(const LongDouble&);
 
 /**
+ * Rounds x upward.
+ * Returns the smallest integer value that is not less than x.
+ */
+LongDouble ceil(const LongDouble&);
+
+/**
  * Computes the natural logarithm from the number passed as parameter.
  */
 LongDouble ln(const LongDouble&);
