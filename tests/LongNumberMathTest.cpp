@@ -100,3 +100,16 @@ BOOST_AUTO_TEST_CASE(TestCeil)
     BOOST_CHECK(ceil(g) == -5);
 }
 
+BOOST_AUTO_TEST_CASE(TestTrunc)
+{
+    LongDouble a = 2, b = 2.3, c = 3.8, d = 5.5, e = -2.3, f = -3.8, g = -5.5;
+
+    BOOST_CHECK(trunc(a) == 2);
+    BOOST_CHECK(trunc(b) == 2);
+    BOOST_CHECK(trunc(c) == 3);
+    BOOST_CHECK(trunc(d) == 5);
+    BOOST_CHECK(trunc(e) == -2);
+    BOOST_CHECK(trunc(f) == -3);
+    BOOST_CHECK(trunc(g) == -5);
+}
+
