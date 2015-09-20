@@ -74,3 +74,16 @@ BOOST_AUTO_TEST_CASE(TestRound)
     BOOST_CHECK(round(g) == -6);
 }
 
+BOOST_AUTO_TEST_CASE(TestFloor)
+{
+    LongDouble a = 2, b = 2.3, c = 3.8, d = 5.5, e = -2.3, f = -3.8, g = -5.5;
+
+    BOOST_CHECK(floor(a) == 2);
+    BOOST_CHECK(floor(b) == 2);
+    BOOST_CHECK(floor(c) == 3);
+    BOOST_CHECK(floor(d) == 5);
+    BOOST_CHECK(floor(e) == -3);
+    BOOST_CHECK(floor(f) == -4);
+    BOOST_CHECK(floor(g) == -6);
+}
+
