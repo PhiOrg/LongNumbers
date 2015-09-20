@@ -87,3 +87,16 @@ BOOST_AUTO_TEST_CASE(TestFloor)
     BOOST_CHECK(floor(g) == -6);
 }
 
+BOOST_AUTO_TEST_CASE(TestCeil)
+{
+    LongDouble a = 2, b = 2.3, c = 3.8, d = 5.5, e = -2.3, f = -3.8, g = -5.5;
+
+    BOOST_CHECK(ceil(a) == 2);
+    BOOST_CHECK(ceil(b) == 3);
+    BOOST_CHECK(ceil(c) == 4);
+    BOOST_CHECK(ceil(d) == 6);
+    BOOST_CHECK(ceil(e) == -2);
+    BOOST_CHECK(ceil(f) == -3);
+    BOOST_CHECK(ceil(g) == -5);
+}
+
