@@ -1143,7 +1143,7 @@ LongDouble& LongDouble::operator/=(const LongDouble& number)
     return *this;
 }
 
-bool LongDouble::IsInteger()
+bool LongDouble::IsInteger() const
 {
     for (size_t i = 0; i < precision; i++)
         if (decimals[i] != '0')
