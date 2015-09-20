@@ -61,3 +61,16 @@ BOOST_AUTO_TEST_CASE(minTest)
     BOOST_CHECK(min(a, c) == c);
 }
 
+BOOST_AUTO_TEST_CASE(TestRound)
+{
+    LongDouble a = 2, b = 2.3, c = 3.8, d = 5.5, e = -2.3, f = -3.8, g = -5.5;
+
+    BOOST_CHECK(round(a) == 2);
+    BOOST_CHECK(round(b) == 2);
+    BOOST_CHECK(round(c) == 4);
+    BOOST_CHECK(round(d) == 6);
+    BOOST_CHECK(round(e) == -2);
+    BOOST_CHECK(round(f) == -4);
+    BOOST_CHECK(round(g) == -6);
+}
+
