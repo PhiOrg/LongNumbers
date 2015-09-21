@@ -16,7 +16,7 @@ LongInteger abs(LongInteger& x)
     return x;
 }
 
-LongDouble abs(LongDouble& x)
+LongDouble fabs(LongDouble& x)
 {
     if (x < 0)
         return -x;

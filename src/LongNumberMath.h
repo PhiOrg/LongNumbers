@@ -16,7 +16,7 @@ LongInteger abs(LongInteger&);
 /**
  * Returns the absolut value of x.
  */
-LongDouble abs(LongDouble&);
+LongDouble fabs(LongDouble&);
 
 /**
  * Returns the larger of its arguments: either x or y.

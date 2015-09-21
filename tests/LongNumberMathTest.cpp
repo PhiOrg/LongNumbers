@@ -9,8 +9,8 @@ BOOST_AUTO_TEST_CASE(LongDoubleAbs)
 {
     LongDouble x = "-12", y = "3.72";
 
-    BOOST_CHECK(abs(x) == "12");
-    BOOST_CHECK(abs(y) == "3.72");
+    BOOST_CHECK(fabs(x) == "12");
+    BOOST_CHECK(fabs(y) == "3.72");
 }
 
 BOOST_AUTO_TEST_CASE(LongIntegerAbs)
