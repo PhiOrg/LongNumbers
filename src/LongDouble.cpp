@@ -11,7 +11,7 @@ using namespace std;
                         else \
                             sign = true; \
 \
-                        precision = 6; \
+                        precision = MIN_STANDARD_PRECISION; \
                         SplitNumber(digits, decimals, to_string(x)); \
 \
                         if (precision < decimals.size()) \
@@ -20,12 +20,14 @@ using namespace std;
                         } \
                         if (precision > decimals.size()) \
                         { \
-                            for (size_t i = decimals.size(); i < 6; i++) \
+                            for (size_t i = decimals.size(); i < MIN_STANDARD_PRECISION; i++) \
                                 decimals.push_back('0'); \
                         }
 
 namespace LongNumber
 {
+
+#define MIN_STANDARD_PRECISION
 
 bool LongDouble::GetSign() const
 {
@@ -121,15 +123,15 @@ LongDouble::LongDouble(const LongInteger& number)
 {
     digits = number.GetDigits();
     sign = number.GetSign();
-    precision = 6;
-    for (size_t i = 0; i < 6; i++)
+    precision = MIN_STANDARD_PRECISION;
+    for (size_t i = 0; i < MIN_STANDARD_PRECISION; i++)
         this->decimals.push_back('0');
 }
 
 LongDouble::LongDouble(const char* x)
 {
     string number = x;
-    precision = 6;
+    precision = MIN_STANDARD_PRECISION;
     size_t i = 0, size = number.size();
     sign = true;
 
@@ -190,18 +192,18 @@ LongDouble::LongDouble(const char* x)
             digits.erase(digits.begin(), digits.begin() + 1);
 
         precision = decimals.size();
-        if (precision < 6)
+        if (precision < MIN_STANDARD_PRECISION)
         {
-            for (size_t j = precision; j < 6; j++)
+            for (size_t j = precision; j < MIN_STANDARD_PRECISION; j++)
                 decimals.push_back('0');
-            precision = 6;
+            precision = MIN_STANDARD_PRECISION;
         }
     }
 }
 
 LongDouble::LongDouble(const string& number)
 {
-    precision = 6;
+    precision = MIN_STANDARD_PRECISION;
     size_t i = 0, size = number.size();
     sign = true;
 
@@ -262,11 +264,11 @@ LongDouble::LongDouble(const string& number)
             digits.erase(digits.begin(), digits.begin() + 1);
 
         precision = decimals.size();
-        if (precision < 6)
+        if (precision < MIN_STANDARD_PRECISION)
         {
-            for (size_t j = precision; j < 6; j++)
+            for (size_t j = precision; j < MIN_STANDARD_PRECISION; j++)
                 decimals.push_back('0');
-            precision = 6;
+            precision = MIN_STANDARD_PRECISION;
         }
     }
 }
@@ -291,7 +293,7 @@ LongDouble& LongDouble::operator=(const LongDouble& number)
 
 LongDouble& LongDouble::operator=(const LongInteger& number)
 {
-    precision = 6;
+    precision = MIN_STANDARD_PRECISION;
     sign = number.GetSign();
     digits = number.GetDigits();
     decimals = "000000";
@@ -951,7 +953,7 @@ LongDouble LongDouble::operator--(int)
 
 void LongDouble::SetPrecision(size_t value)
 {
-    if (value < 6 || precision == value)
+    if (value < MIN_STANDARD_PRECISION || precision == value)
         return;
 
     if (value > precision)
@@ -979,7 +981,7 @@ void LongDouble::SetPrecision(size_t value)
 
 void LongDouble::SetPrecisionWithoutRounding(size_t value)
 {
-    if (value < 6 || precision == value)
+    if (value < MIN_STANDARD_PRECISION || precision == value)
         return;
 
     if (value > precision)
