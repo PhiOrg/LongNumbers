@@ -7,6 +7,7 @@ namespace LongNumber
 {
 
 #define ADDITIONAL_PRECISION 5
+#define STANDARD_PRECISION 100
 
 LongInteger abs(LongInteger& x)
 {
@@ -354,7 +355,7 @@ LongDouble ln(const LongDouble& x)
     if (x > 1 && x < 2)
         return _ln(copyOfX);
 
-    if (x.GetPrecision() > 100)
+    if (x.GetPrecision() > STANDARD_PRECISION)
     {
         LongDouble _e = ComputeEulerNumber(x.GetPrecision());
 
