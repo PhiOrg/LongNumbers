@@ -113,3 +113,13 @@ BOOST_AUTO_TEST_CASE(TestTrunc)
     BOOST_CHECK(trunc(g) == -5);
 }
 
+BOOST_AUTO_TEST_CASE(TestCopysign)
+{
+    LongDouble a = 10, b = -10, c = 1, d = -1;
+
+    BOOST_CHECK(copysign(a, c) == a);
+    BOOST_CHECK(copysign(a, d) == b);
+    BOOST_CHECK(copysign(b, c) == a);
+    BOOST_CHECK(copysign(b, d) == b);
+}
+
