@@ -135,6 +135,14 @@ LongDouble trunc(const LongDouble& x)
     return result;
 }
 
+LongDouble copysign(const LongDouble& x, const LongDouble& y)
+{
+    LongDouble result = x;
+    result.SetSign(y.GetSign());
+
+    return result;
+}
+
 /**
  * Helper for ln().
  * Computes ln(x) if (x > 0 && x < 1) or x > 1.

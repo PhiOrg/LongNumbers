@@ -63,6 +63,11 @@ LongDouble ceil(const LongDouble&);
 LongDouble trunc(const LongDouble&);
 
 /**
+ * Returns a value with the magnitude of x and the sign of y.
+ */
+LongDouble copysign(const LongDouble&, const LongDouble&);
+
+/**
  * Computes the natural logarithm from the number passed as parameter.
  */
 LongDouble ln(const LongDouble&);
