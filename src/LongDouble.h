@@ -109,6 +109,7 @@ class LongDouble
         friend LongDouble floor(const LongDouble&);
         friend LongDouble ceil(const LongDouble&);
         friend LongDouble trunc(const LongDouble&);
+        friend LongDouble copysign(const LongDouble&, const LongDouble&);
 
     protected:
         void SetSign(bool value);
