@@ -83,6 +83,11 @@ bool isgreaterequal(const LongDouble&, const LongDouble&);
 bool isless(const LongDouble&, const LongDouble&);
 
 /**
+ * Returns true if x is less than or equal to y, otherwise false.
+ */
+bool islessequal(const LongDouble&, const LongDouble&);
+
+/**
  * Computes the natural logarithm from the number passed as parameter.
  */
 LongDouble ln(const LongDouble&);
