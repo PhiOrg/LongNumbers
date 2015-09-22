@@ -27,7 +27,7 @@ using namespace std;
 namespace LongNumber
 {
 
-#define MIN_STANDARD_PRECISION
+#define MIN_STANDARD_PRECISION 6
 
 bool LongDouble::GetSign() const
 {
