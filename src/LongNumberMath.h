@@ -88,6 +88,11 @@ bool isless(const LongDouble&, const LongDouble&);
 bool islessequal(const LongDouble&, const LongDouble&);
 
 /**
+ * Returns true if x != y, otherwise false.
+ */
+bool islessgreater(const LongDouble&, const LongDouble&);
+
+/**
  * Computes the natural logarithm from the number passed as parameter.
  */
 LongDouble ln(const LongDouble&);
