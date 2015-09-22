@@ -68,6 +68,11 @@ LongDouble trunc(const LongDouble&);
 LongDouble copysign(const LongDouble&, const LongDouble&);
 
 /**
+ * Returns true if x is greater than y, otherwise false.
+ */
+bool isgreater(const LongDouble&, const LongDouble&);
+
+/**
  * Computes the natural logarithm from the number passed as parameter.
  */
 LongDouble ln(const LongDouble&);
