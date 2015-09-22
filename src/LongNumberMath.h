@@ -73,6 +73,11 @@ LongDouble copysign(const LongDouble&, const LongDouble&);
 bool isgreater(const LongDouble&, const LongDouble&);
 
 /**
+ * Returns true if x is greater than or equal to y, otherwise false.
+ */
+bool isgreaterequal(const LongDouble&, const LongDouble&);
+
+/**
  * Computes the natural logarithm from the number passed as parameter.
  */
 LongDouble ln(const LongDouble&);

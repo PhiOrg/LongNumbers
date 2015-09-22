@@ -149,6 +149,11 @@ bool isgreater(const LongDouble& x, const LongDouble& y)
     return x > y;
 }
 
+bool isgreaterequal(const LongDouble& x, const LongDouble& y)
+{
+    return x >= y;
+}
+
 /**
  * Helper for ln().
  * Computes ln(x) if (x > 0 && x < 1) or x > 1.
