@@ -110,6 +110,7 @@ class LongDouble
         friend LongDouble ceil(const LongDouble&);
         friend LongDouble trunc(const LongDouble&);
         friend LongDouble copysign(const LongDouble&, const LongDouble&);
+        friend LongDouble fmod(const LongDouble&, const LongDouble&);
 
     protected:
         void SetSign(bool value);
