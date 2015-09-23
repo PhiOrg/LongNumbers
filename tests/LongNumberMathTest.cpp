@@ -123,3 +123,13 @@ BOOST_AUTO_TEST_CASE(TestCopysign)
     BOOST_CHECK(copysign(b, d) == b);
 }
 
+BOOST_AUTO_TEST_CASE(fdimTest)
+{
+    LongDouble a = 2, b = 1, c = -2, d = -1;
+
+    BOOST_CHECK(fdim(a, b) == 1);
+    BOOST_CHECK(fdim(b, a) == 0);
+    BOOST_CHECK(fdim(c, d) == 0);
+    BOOST_CHECK(fdim(d, c) == 1);
+}
+
