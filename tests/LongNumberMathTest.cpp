@@ -133,3 +133,17 @@ BOOST_AUTO_TEST_CASE(fdimTest)
     BOOST_CHECK(fdim(d, c) == 1);
 }
 
+BOOST_AUTO_TEST_CASE(fmodTest)
+{
+    LongDouble a = 5.3, b = 2, c = 18.5, d = 4.2;
+
+    BOOST_CHECK(fmod(a, b) == 1.3);
+    BOOST_CHECK(fmod(a, -b) == 1.3);
+    BOOST_CHECK(fmod(-a, b) == -1.3);
+    BOOST_CHECK(fmod(-a, -b) == -1.3);
+    BOOST_CHECK(fmod(c, d) == 1.7);
+    BOOST_CHECK(fmod(c, -d) == 1.7);
+    BOOST_CHECK(fmod(-c, d) == -1.7);
+    BOOST_CHECK(fmod(-c, -d) == -1.7);
+}
+
