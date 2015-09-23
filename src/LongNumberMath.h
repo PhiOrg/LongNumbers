@@ -98,6 +98,12 @@ bool islessgreater(const LongDouble&, const LongDouble&);
 LongDouble fdim(const LongDouble&, const LongDouble&);
 
 /**
+ * fmod = x - t * y
+ * Where t is the truncated result of x / y.
+ */
+LongDouble fmod(const LongDouble&, const LongDouble&);
+
+/**
  * Computes the natural logarithm from the number passed as parameter.
  */
 LongDouble ln(const LongDouble&);

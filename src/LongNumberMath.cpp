@@ -177,6 +177,17 @@ LongDouble fdim(const LongDouble& x, const LongDouble& y)
         return 0;
 }
 
+LongDouble fmod(const LongDouble& x, const LongDouble& y)
+{
+    LongDouble result = x;
+    result /= y;
+    result.SetDigits("0");
+    result *= y;
+    result.SetSign(x.GetSign());
+
+    return result;
+}
+
 /**
  * Helper for ln().
  * Computes ln(x) if (x > 0 && x < 1) or x > 1.
