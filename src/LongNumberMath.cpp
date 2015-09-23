@@ -169,6 +169,14 @@ bool islessgreater(const LongDouble& x, const LongDouble& y)
     return x != y;
 }
 
+LongDouble fdim(const LongDouble& x, const LongDouble& y)
+{
+    if (x > y)
+        return x - y;
+    else
+        return 0;
+}
+
 /**
  * Helper for ln().
  * Computes ln(x) if (x > 0 && x < 1) or x > 1.

@@ -93,6 +93,11 @@ bool islessequal(const LongDouble&, const LongDouble&);
 bool islessgreater(const LongDouble&, const LongDouble&);
 
 /**
+ * Returns x - y if x > y, otherwise 0.
+ */
+LongDouble fdim(const LongDouble&, const LongDouble&);
+
+/**
  * Computes the natural logarithm from the number passed as parameter.
  */
 LongDouble ln(const LongDouble&);
