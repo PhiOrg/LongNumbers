@@ -147,3 +147,13 @@ BOOST_AUTO_TEST_CASE(fmodTest)
     BOOST_CHECK(fmod(-c, -d) == -1.7);
 }
 
+BOOST_AUTO_TEST_CASE(modfTest)
+{
+    LongDouble a = "3.14159265", b, c;
+
+    c = modf(a, b);
+    BOOST_CHECK(c == "0.14159265" && b == 3);
+    c = modf(-a, b);
+    BOOST_CHECK(c == "-0.14159265" && b == -3);
+}
+
