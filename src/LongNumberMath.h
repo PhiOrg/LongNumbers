@@ -104,6 +104,12 @@ LongDouble fdim(const LongDouble&, const LongDouble&);
 LongDouble fmod(const LongDouble&, const LongDouble&);
 
 /**
+ * Breaks x into an integral and a fractional part. Integral part is stored
+ * in the second parameter and the fractional part is returned by the function.
+ */
+LongDouble modf(const LongDouble&, LongDouble&);
+
+/**
  * Computes the natural logarithm from the number passed as parameter.
  */
 LongDouble ln(const LongDouble&);

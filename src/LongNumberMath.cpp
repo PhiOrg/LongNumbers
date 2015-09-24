@@ -188,6 +188,17 @@ LongDouble fmod(const LongDouble& x, const LongDouble& y)
     return result;
 }
 
+LongDouble modf(const LongDouble& x, LongDouble& intpart)
+{
+    LongDouble result = x;
+    intpart = x;
+
+    intpart.RoundsNumber();
+    result.SetDigits("0");
+
+    return result;
+}
+
 /**
  * Helper for ln().
  * Computes ln(x) if (x > 0 && x < 1) or x > 1.
