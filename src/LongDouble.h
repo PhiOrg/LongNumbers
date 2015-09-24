@@ -117,6 +117,7 @@ class LongDouble
         void SetSign(bool value);
         void SetDigits(const std::string&);
         void SetDecimals(const std::string&);
+        void RoundsNumber();
 
     private:
         size_t precision;

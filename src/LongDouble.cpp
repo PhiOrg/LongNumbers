@@ -1154,5 +1154,11 @@ bool LongDouble::IsInteger() const
     return true;
 }
 
+void LongDouble::RoundsNumber()
+{
+    for (size_t i = 0; i < precision; i++)
+        decimals[i] = '0';
+}
+
 } //end namespace
 
