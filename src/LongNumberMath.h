@@ -120,6 +120,11 @@ LongDouble ln(const LongDouble&);
  */
 LongDouble ComputeEulerNumber(size_t);
 
+/**
+ * Returns x^y.
+ */
+LongDouble intpow(const LongDouble&, const LongInteger&);
+
 } //end namespace
 
 #endif

@@ -472,5 +472,42 @@ LongDouble ln(const LongDouble& x)
     }
 }
 
+LongDouble intpow(const LongDouble& x, const LongInteger& y)
+{
+    if (x == 0)
+        return 0;
+    if (y == 0 || x == 1)
+        return 1;
+    if (y == 1)
+        return x;
+    if (isnegative(y))
+        return 1 / intpow(x, -y);
+
+    LongInteger i, j = y, k;
+    LongDouble result = 1, partialResult, square = x * x;
+
+    result.SetPrecision(x.GetPrecision());
+    partialResult.SetPrecision(x.GetPrecision());
+
+    if (j % 2 == 1)
+        result = x;
+    j--;
+
+    while (j != 0)
+    {
+        i = 2;
+        while (i <= j)
+        {
+            k = i;
+            partialResult *= partialResult;
+            i += i;
+        }
+        j -= k;
+        result *= partialResult;
+    }
+
+    return result;
+}
+
 } //end namespace
 
