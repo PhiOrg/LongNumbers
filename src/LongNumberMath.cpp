@@ -514,5 +514,10 @@ bool isnegative(const LongDouble& x)
     return !x.GetSign();
 }
 
+bool ispositive(const LongDouble& x)
+{
+    return x.GetSign();
+}
+
 } //end namespace
 

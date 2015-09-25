@@ -130,6 +130,11 @@ LongDouble intpow(const LongDouble&, const LongInteger&);
  */
 bool isnegative(const LongDouble&);
 
+/**
+ * Returns true if x is positive, otherwise false.
+ */
+bool ispositive(const LongDouble&);
+
 } //end namespace
 
 #endif
