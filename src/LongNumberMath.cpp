@@ -524,5 +524,10 @@ bool isnegative(const LongInteger& x)
     return !x.GetSign();
 }
 
+bool ispositive(const LongInteger& x)
+{
+    return x.GetSign();
+}
+
 } //end namespace
 
