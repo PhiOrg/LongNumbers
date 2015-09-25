@@ -135,6 +135,11 @@ bool isnegative(const LongDouble&);
  */
 bool ispositive(const LongDouble&);
 
+/**
+ * Returns true if x is negative, otherwise false.
+ */
+bool isnegative(const LongInteger&);
+
 } //end namespace
 
 #endif
