@@ -509,5 +509,10 @@ LongDouble intpow(const LongDouble& x, const LongInteger& y)
     return result;
 }
 
+bool isnegative(const LongDouble& x)
+{
+    return !x.GetSign();
+}
+
 } //end namespace
 

@@ -125,6 +125,11 @@ LongDouble ComputeEulerNumber(size_t);
  */
 LongDouble intpow(const LongDouble&, const LongInteger&);
 
+/**
+ * Returns true if x is negative, otherwise false.
+ */
+bool isnegative(const LongDouble&);
+
 } //end namespace
 
 #endif
