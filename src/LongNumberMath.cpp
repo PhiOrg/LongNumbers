@@ -490,12 +490,16 @@ LongDouble intpow(const LongDouble& x, const LongInteger& y)
     partialResult.SetPrecision(x.GetPrecision());
 
     if (j % 2 == 1)
+    {
         result = x;
-    j--;
+        j--;
+    }
 
     while (j != 0)
     {
-        i = 2;
+        i = 4;
+        k = 2;
+        partialResult = square;
         while (i <= j)
         {
             k = i;
