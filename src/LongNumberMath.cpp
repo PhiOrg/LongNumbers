@@ -407,21 +407,11 @@ LongDouble ln(const LongDouble& x)
     if (x > 0 && x < 1)
         return _ln(copyOfX);
 
-    if (x > 1 && x < 2)
+    if (x > 1 && x < 3)
         return _ln(copyOfX);
 
     if (x.GetPrecision() > STANDARD_PRECISION)
     {
-        LongDouble _e = ComputeEulerNumber(x.GetPrecision());
-
-        if (_e == x)
-        {
-            LongDouble result = 1;
-            result.SetPrecision(x.GetPrecision());
-
-            return result;
-        }
-
         LongDouble result;
         result.SetPrecisionWithoutRounding(x.GetPrecision() +
                                            ADDITIONAL_PRECISION);
@@ -442,17 +432,6 @@ LongDouble ln(const LongDouble& x)
     }
     else
     {
-        LongDouble _e = Constants::e;
-        _e.SetPrecisionWithoutRounding(x.GetPrecision());
-
-        if (_e == x)
-        {
-            LongDouble result = 1;
-            result.SetPrecision(x.GetPrecision());
-
-            return result;
-        }
-
         LongDouble result;
         result.SetPrecisionWithoutRounding(x.GetPrecision() +
                                            ADDITIONAL_PRECISION);
