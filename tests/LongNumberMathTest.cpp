@@ -157,3 +157,22 @@ BOOST_AUTO_TEST_CASE(modfTest)
     BOOST_CHECK(c == "-0.14159265" && b == -3);
 }
 
+BOOST_AUTO_TEST_CASE(intpowTest)
+{
+    size_t result = 2, size;
+    BOOST_CHECK(intpow(2, 0) == 1);
+
+    if (sizeof(size_t) == 4)
+        size = 32;
+    else
+        size = 64;
+
+    for (size_t i = 1; i < size; i++)
+    {
+        BOOST_CHECK(intpow(2, i) == result);
+        result *= 2;
+    }
+
+    BOOST_CHECK(intpow(2, -10) == 0.000977);
+}
+
