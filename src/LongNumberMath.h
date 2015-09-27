@@ -12,30 +12,18 @@ namespace LongNumber
  * Returns the absolut value of x.
  */
 LongInteger abs(LongInteger&);
-
-/**
- * Returns the absolut value of x.
- */
 LongDouble fabs(LongDouble&);
 
 /**
  * Returns the larger of its arguments: either x or y.
  */
 LongDouble fmax(const LongDouble&, const LongDouble&);
-
-/**
- * Returns the smaller of its arguments: either x or y.
- */
-LongDouble fmin(const LongDouble&, const LongDouble&);
-
-/**
- * Returns the larger of its arguments: either x or y.
- */
 LongInteger max(const LongInteger&, const LongInteger&);
 
 /**
  * Returns the smaller of its arguments: either x or y.
  */
+LongDouble fmin(const LongDouble&, const LongDouble&);
 LongInteger min(const LongInteger&, const LongInteger&);
 
 /**
@@ -129,21 +117,13 @@ LongDouble intpow(const LongDouble&, const LongInteger&);
  * Returns true if x is negative, otherwise false.
  */
 bool isnegative(const LongDouble&);
-
-/**
- * Returns true if x is positive, otherwise false.
- */
-bool ispositive(const LongDouble&);
-
-/**
- * Returns true if x is negative, otherwise false.
- */
 bool isnegative(const LongInteger&);
 
 /**
  * Returns true if x is positive, otherwise false.
  */
 bool ispositive(const LongInteger&);
+bool ispositive(const LongDouble&);
 
 /**
  * Returns true if x is positive, otherwise false.
