@@ -517,5 +517,10 @@ bool signbit(const LongDouble& x)
     return x.GetSign();
 }
 
+bool signbit(const LongInteger& x)
+{
+    return x.GetSign();
+}
+
 } //end namespace
 
