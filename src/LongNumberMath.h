@@ -145,6 +145,11 @@ bool isnegative(const LongInteger&);
  */
 bool ispositive(const LongInteger&);
 
+/**
+ * Returns true if x is positive, otherwise false.
+ */
+bool signbit(const LongDouble&);
+
 } //end namespace
 
 #endif
