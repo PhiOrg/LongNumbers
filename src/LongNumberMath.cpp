@@ -522,5 +522,34 @@ bool signbit(const LongInteger& x)
     return x.GetSign();
 }
 
+/**
+ * Computes e^x, where x is greater than 0 and smallest than 1.
+ */
+LongDouble _exp(const LongDouble& x)
+{
+    LongDouble result = 1 + x, y = x, partialResult;
+    LongInteger z = 1;
+    string _limit;
+    size_t precision = x.GetPrecision();
+
+    for (size_t i = 0; i < precision; i++)
+        _limit.push_back('0');
+
+    _limit += "00001";
+    LongDouble limit = _limit;
+
+    while (1)
+    {
+        y *= x;
+        z++;
+        partialResult = y / z;
+        if (partialResult < limit)
+            break;
+        result += partialResult;
+    }
+
+    return result;
+}
+
 } //end namespace
 
