@@ -326,7 +326,7 @@ LongDouble _ln(LongDouble& x)
             /**
              * Checks if the limit was reached.
              */
-            if (partialResult > limit)
+            if (partialResult < limit)
                 break;
 
             /**
