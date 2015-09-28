@@ -525,17 +525,19 @@ bool signbit(const LongInteger& x)
 /**
  * Computes e^x, where x is greater than 0 and smallest than 1.
  */
-LongDouble _exp(const LongDouble& x)
+LongDouble _exp(LongDouble& x)
 {
+    x.SetPrecisionWithoutRounding(x.GetPrecision() + ADDITIONAL_PRECISION);
+
     LongDouble result = 1 + x, y = x, partialResult;
     LongInteger z = 1;
     string _limit;
-    size_t precision = x.GetPrecision();
+    size_t precision = x.GetPrecision() - 1;
 
     for (size_t i = 0; i < precision; i++)
         _limit.push_back('0');
 
-    _limit += "00001";
+    _limit.push_back('1');
     LongDouble limit = _limit;
 
     while (1)
