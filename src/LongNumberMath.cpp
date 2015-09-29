@@ -528,9 +528,9 @@ LongDouble _exp(LongDouble& x)
 {
     x.SetPrecisionWithoutRounding(x.GetPrecision() + ADDITIONAL_PRECISION);
 
-    LongDouble result = 1 + x, y = x, partialResult;
+    LongDouble result = 1 + x, partialResult = x;
     LongInteger z = 1;
-    string _limit;
+    string _limit = "0.";
     size_t precision = x.GetPrecision() - 1;
 
     for (size_t i = 0; i < precision; i++)
@@ -541,9 +541,8 @@ LongDouble _exp(LongDouble& x)
 
     while (1)
     {
-        y *= x;
         z++;
-        partialResult = y / z;
+        partialResult = partialResult * x / z;
         if (partialResult < limit)
             break;
         result += partialResult;
