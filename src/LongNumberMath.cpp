@@ -563,17 +563,17 @@ LongDouble exp(const LongDouble& x)
     {
         LongDouble e = ComputeEulerNumber(x.GetPrecision() +
                                           ADDITIONAL_PRECISION);
-        result += intpow(e, integerPart);
+        result *= intpow(e, integerPart);
     }
     else
     {
         LongDouble e = Constants::e;
         e.SetPrecisionWithoutRounding(x.GetPrecision() + ADDITIONAL_PRECISION);
 
-        result += intpow(e, integerPart);
+        result *= intpow(e, integerPart);
     }
 
-    result.SetPrecisionWithoutRounding(x.GetPrecision());
+    result.SetPrecision(x.GetPrecision());
     return result;
 }
 
