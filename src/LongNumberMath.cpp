@@ -188,12 +188,11 @@ LongDouble fmod(const LongDouble& x, const LongDouble& y)
     return result;
 }
 
-LongDouble modf(const LongDouble& x, LongDouble& intpart)
+LongDouble modf(const LongDouble& x, LongInteger& intpart)
 {
     LongDouble result = x;
     intpart = x;
 
-    intpart.RoundsNumber();
     result.SetDigits("0");
 
     return result;

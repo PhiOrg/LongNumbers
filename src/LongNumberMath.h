@@ -95,7 +95,7 @@ LongDouble fmod(const LongDouble&, const LongDouble&);
  * Breaks x into an integral and a fractional part. Integral part is stored
  * in the second parameter and the fractional part is returned by the function.
  */
-LongDouble modf(const LongDouble&, LongDouble&);
+LongDouble modf(const LongDouble&, LongInteger&);
 
 /**
  * Computes the natural logarithm from the number passed as parameter.

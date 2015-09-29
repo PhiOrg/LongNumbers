@@ -111,7 +111,7 @@ class LongDouble
         friend LongDouble trunc(const LongDouble&);
         friend LongDouble copysign(const LongDouble&, const LongDouble&);
         friend LongDouble fmod(const LongDouble&, const LongDouble&);
-        friend LongDouble modf(const LongDouble&, LongDouble&);
+        friend LongDouble modf(const LongDouble&, LongInteger&);
 
     protected:
         void SetSign(bool value);
