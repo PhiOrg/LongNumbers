@@ -552,5 +552,31 @@ LongDouble _exp(LongDouble& x)
     return result;
 }
 
+LongDouble exp(const LongDouble& x)
+{
+    LongInteger integerPart;
+    LongDouble fractionalPart = modf(x, integerPart), result;
+
+    if (!x.IsInteger())
+        result = _exp(fractionalPart);
+
+    if (x.GetPrecision() > STANDARD_PRECISION - ADDITIONAL_PRECISION)
+    {
+        LongDouble e = ComputeEulerNumber(x.GetPrecision() +
+                                          ADDITIONAL_PRECISION);
+        result += intpow(e, integerPart);
+    }
+    else
+    {
+        LongDouble e = Constants::e;
+        e.SetPrecisionWithoutRounding(x.GetPrecision() + ADDITIONAL_PRECISION);
+
+        result += intpow(e, integerPart);
+    }
+
+    result.SetPrecisionWithoutRounding(x.GetPrecision());
+    return result;
+}
+
 } //end namespace
 

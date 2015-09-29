@@ -131,6 +131,11 @@ bool ispositive(const LongDouble&);
 bool signbit(const LongDouble&);
 bool signbit(const LongInteger&);
 
+/**
+ * Computes e^x.
+ */
+LongDouble exp(const LongDouble&);
+
 } //end namespace
 
 #endif
